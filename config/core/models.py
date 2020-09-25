@@ -1,7 +1,7 @@
 from django.db import models
 
 STARS_CHOICES = [
-    (1, 1), (2, 2), (3, 3), (4, 4), (5, 5), (6, 6)
+    ('1', 1), ('2', 2), ('3', 3), ('4', 4), ('5', 5), ('6', 6)
 ]
 
 CATERING_OPTIONS = [
@@ -22,7 +22,7 @@ class Continent(models.Model):
 
 class Country(models.Model):
     name = models.CharField(max_length=50)
-    continent = models.ForeignKey(Continent, on_delete=models.CASCADE)
+    continent = models.ForeignKey(Continent, on_delete=models.CASCADE, related_name='countries')
 
     class Meta:
         ordering = ['name']
@@ -33,7 +33,7 @@ class Country(models.Model):
 
 class City(models.Model):
     name = models.CharField(max_length=100)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='cities')
 
     class Meta:
         ordering = ['name']
@@ -46,7 +46,7 @@ class Hotel(models.Model):
     name = models.CharField(max_length=100)
     stars = models.CharField(max_length=1, choices=STARS_CHOICES, default=1)
     description = models.TextField(max_length=1000, null=True, blank=True)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hotels')
 
     class Meta:
         ordering = ['name']
@@ -57,7 +57,7 @@ class Hotel(models.Model):
 
 class Airport(models.Model):
     name = models.CharField(max_length=50)
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
+    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='airports')
 
     class Meta:
         ordering = ['name']
@@ -66,25 +66,26 @@ class Airport(models.Model):
         return self.name
 
 
-class Trip(models.Model):
-    departure_city = models.ForeignKey(City, on_delete=models.CASCADE)
-    departure_airport = models.ForeignKey(Airport, on_delete=models.CASCADE)
-    arrival_city = models.ForeignKey(City, on_delete=models.CASCADE)
-    arrival_hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-    arrival_airport = models.ForeignKey(Airport, on_delete=models.CASCADE)
-    date_of_departure = models.DateTimeField()
-    date_of_arrival = models.DateTimeField()
-    date_of_return = models.DateTimeField()
-    days = models.DurationField()
-    catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
-    price_for_adult = models.DecimalField(decimal_places=2)
-    price_for_child = models.DecimalField(decimal_places=2)
-    promoting = models.BooleanField(default=False)
-    adults_number = models.IntegerField(default=0)
-    kids_number = models.IntegerField(default=0)
+# class Trip(models.Model):
+#     # todo: add ManyToManyField for departure and arrival?
+#     departure_city = models.ForeignKey(City, on_delete=models.CASCADE)
+#     departure_airport = models.ForeignKey(Airport, on_delete=models.CASCADE)
+#     arrival_city = models.ForeignKey(City, on_delete=models.CASCADE)
+#     arrival_hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
+#     arrival_airport = models.ForeignKey(Airport, on_delete=models.CASCADE)
+#     date_of_departure = models.DateTimeField()
+#     date_of_arrival = models.DateTimeField()
+#     date_of_return = models.DateTimeField()
+#     days = models.DurationField()
+#     catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
+#     price_for_adult = models.DecimalField(decimal_places=2, max_digits=6)
+#     price_for_child = models.DecimalField(decimal_places=2, max_digits=6)
+#     promoting = models.BooleanField(default=False)
+#     adults_number = models.IntegerField(default=0)
+#     kids_number = models.IntegerField(default=0)
 
 
-class TripPurchase(models.Model):
-    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    participants_data = models.CharField(max_length=1000)
-    price = models.DecimalField(decimal_places=2)
+# class TripPurchase(models.Model):
+#     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
+#     participants_data = models.CharField(max_length=1000)
+#     price = models.DecimalField(decimal_places=2, max_digits=6)
