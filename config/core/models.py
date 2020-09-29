@@ -84,7 +84,7 @@ class Trip(models.Model):
     catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
     price_for_adult = models.DecimalField(decimal_places=2, max_digits=6)
     price_for_child = models.DecimalField(decimal_places=2, max_digits=6)
-    promoting = models.BooleanField(default=False)
+    promoted = models.BooleanField(default=False)
     adults_number = models.IntegerField(default=0)
     kids_number = models.IntegerField(default=0)
 

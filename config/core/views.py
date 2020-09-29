@@ -8,7 +8,5 @@ class PromotedTripsView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
-        context['promoted_trips_list'] = Trip.objects.filter(promoting=True)
+        context['promoted_trips_list'] = Trip.objects.filter(promoted=True)
         return context
-
-
