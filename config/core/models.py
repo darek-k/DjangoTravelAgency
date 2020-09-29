@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 STARS_CHOICES = [
     ('1', 1), ('2', 2), ('3', 3), ('4', 4), ('5', 5), ('6', 6)
@@ -72,16 +73,23 @@ class Trip(models.Model):
     arrival_city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='arrival_city_trips')
     arrival_hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='arrival_hotel_trips')
     arrival_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name='arrival_airport_trips')
-    date_of_departure = models.DateTimeField()
-    date_of_arrival = models.DateTimeField()
-    date_of_return = models.DateTimeField()
-    days = models.DurationField()
+
+    departure_date = models.DateTimeField()
+    arrival_date = models.DateTimeField()
+    return_date = models.DateTimeField()
+
+    # todo: how to subtract DateTimeField ?
+    # duration_in_days = ''
+
     catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
     price_for_adult = models.DecimalField(decimal_places=2, max_digits=6)
     price_for_child = models.DecimalField(decimal_places=2, max_digits=6)
     promoting = models.BooleanField(default=False)
     adults_number = models.IntegerField(default=0)
     kids_number = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"From {self.departure_city} to {self.arrival_city} on {self.departure_date}"
 
 
 class TripPurchase(models.Model):
