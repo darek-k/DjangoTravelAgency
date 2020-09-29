@@ -66,26 +66,25 @@ class Airport(models.Model):
         return self.name
 
 
-# class Trip(models.Model):
-#     # todo: add ManyToManyField for departure and arrival?
-#     departure_city = models.ForeignKey(City, on_delete=models.CASCADE)
-#     departure_airport = models.ForeignKey(Airport, on_delete=models.CASCADE)
-#     arrival_city = models.ForeignKey(City, on_delete=models.CASCADE)
-#     arrival_hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE)
-#     arrival_airport = models.ForeignKey(Airport, on_delete=models.CASCADE)
-#     date_of_departure = models.DateTimeField()
-#     date_of_arrival = models.DateTimeField()
-#     date_of_return = models.DateTimeField()
-#     days = models.DurationField()
-#     catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
-#     price_for_adult = models.DecimalField(decimal_places=2, max_digits=6)
-#     price_for_child = models.DecimalField(decimal_places=2, max_digits=6)
-#     promoting = models.BooleanField(default=False)
-#     adults_number = models.IntegerField(default=0)
-#     kids_number = models.IntegerField(default=0)
+class Trip(models.Model):
+    departure_city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='departure_city_trips')
+    departure_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name='departure_airport_trips')
+    arrival_city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='arrival_city_trips')
+    arrival_hotel = models.ForeignKey(Hotel, on_delete=models.CASCADE, related_name='arrival_hotel_trips')
+    arrival_airport = models.ForeignKey(Airport, on_delete=models.CASCADE, related_name='arrival_airport_trips')
+    date_of_departure = models.DateTimeField()
+    date_of_arrival = models.DateTimeField()
+    date_of_return = models.DateTimeField()
+    days = models.DurationField()
+    catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
+    price_for_adult = models.DecimalField(decimal_places=2, max_digits=6)
+    price_for_child = models.DecimalField(decimal_places=2, max_digits=6)
+    promoting = models.BooleanField(default=False)
+    adults_number = models.IntegerField(default=0)
+    kids_number = models.IntegerField(default=0)
 
 
-# class TripPurchase(models.Model):
-#     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
-#     participants_data = models.CharField(max_length=1000)
-#     price = models.DecimalField(decimal_places=2, max_digits=6)
+class TripPurchase(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trips_purchases')
+    participants_data = models.CharField(max_length=1000)
+    price = models.DecimalField(decimal_places=2, max_digits=6)
