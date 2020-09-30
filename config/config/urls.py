@@ -16,9 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from core.views import PromotedTripsView
+from core.views import TripListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', PromotedTripsView.as_view(), name='promoted_trips'),
+    path('', TripListView.as_view(), name='promoted_trips'),
 ]

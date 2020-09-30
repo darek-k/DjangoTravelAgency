@@ -1,5 +1,7 @@
 from django.db import models
-import datetime
+import datetime, time
+
+from django.utils.timezone import now
 
 STARS_CHOICES = [
     ('1', 1), ('2', 2), ('3', 3), ('4', 4), ('5', 5), ('6', 6)
@@ -78,8 +80,15 @@ class Trip(models.Model):
     arrival_date = models.DateTimeField()
     return_date = models.DateTimeField()
 
-    # todo: how to subtract DateTimeField ?
+
+    # todo: how to subtract DateTimeField ? Obczaj link:
     # duration_in_days = ''
+    # duration_in_days = datetime.timedelta(time.strptime(str(return_date), '%Y-%m-%d %H:%M:%S')) - datetime.timedelta(20)
+    # print(duration_in_days.days)
+    #
+    # t = time.strptime('2015-05-13 23:53:00', '%Y-%m-%d %H:%M:%S')
+    # time.strftime('%Y%m%d %H%M%S', t)
+
 
     catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
     price_for_adult = models.DecimalField(decimal_places=2, max_digits=6)

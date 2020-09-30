@@ -7,12 +7,19 @@
 
 <body>
 <p>Promoted trips</p>
-{% for trip in promoted_trips_list %}
+{% for trip in promoted_trips %}
 <ul>
     <li>{{ trip.arrival_city.country }}<br>{{ trip.arrival_hotel.name }}<br>{{ trip.arrival_hotel.stars}}
         <br>{{ trip.price_for_adult}} </li>
 </ul>
 {% endfor %}
 
+<p>Last minute trips!</p>
+{% for trip in last_minute_trips %}
+<ul>
+    <li>{{ trip.arrival_city.country }}<br>{{ trip.arrival_hotel.name }}<br>{{ trip.arrival_hotel.stars}}
+        <br>{{ trip.price_for_adult}} </li>
+</ul>
+{% endfor %}
 </body>
 </html>
