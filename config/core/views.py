@@ -2,7 +2,13 @@ import datetime
 
 from core.models import Trip
 from django.utils.timezone import now
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+
+
+class TripDetailsView(DetailView):
+    model = Trip
+    template_name = 'core/trip_details.html'
+
 
 
 # todo: Lepiej jest trzymać contexty w jednej klasie czy to rozdzielić? Jak miałem rozdzielone to nie wyświetał się context z klasy poniżej.

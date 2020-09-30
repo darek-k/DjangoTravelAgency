@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Details</title>
+</head>
+
+<body>
+<p>SCZCZEGÓLY</p>
+
+{{ trip.arrival_hotel }} {{ trip.arrival_hotel.stars }} <br><br>
+
+Dorośli: {{ trip.price_for_adult }} zł <br>
+Dzieci: {{ trip.price_for_child }} zł <br><br>
+
+Szczegóły lotu:<br>
+Wylot:<br>
+{{ trip.departure_date }} <br>
+{{ trip.departure_city }} - {{ trip.departure_airport }}<br>
+---><br>
+{{ trip.arrival_date }}<br>
+{{ trip.arrival_city }} - {{ trip.arrival_airport}} ({{ trip.arrival_city.country }})<br><br>
+Powrót:<br>
+{{ trip.return_date }}<br>
+{{ trip.arrival_city }} ({{ trip.arrival_city.country }})<br>
+---><br>
+{{ trip.departure_city }}<br><br>
+
+Liczba ludzi:<br>
+Dorośli: {{ trip.adults_number }}<br>
+Dzieci: {{ trip.kids_number }}<br><br>
+{{ trip.catering_option }}
+
+
+
+</body>
+
+</html>
