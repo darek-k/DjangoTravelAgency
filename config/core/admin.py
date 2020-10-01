@@ -1,6 +1,5 @@
+from core.models import Continent, Country, City, CityImage, Airport, Hotel, Trip, TripPurchase
 from django.contrib import admin
-
-from core.models import Continent, Country, City, Airport, Hotel, Trip, TripPurchase
 
 admin.site.register(Continent)
 admin.site.register(Country)
@@ -9,3 +8,4 @@ admin.site.register(Airport)
 admin.site.register(Hotel)
 admin.site.register(Trip)
 admin.site.register(TripPurchase)
+admin.site.register(CityImage)

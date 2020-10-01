@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 import datetime, time
 
@@ -37,13 +39,20 @@ class Country(models.Model):
 class City(models.Model):
     name = models.CharField(max_length=100)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='cities')
-    image = ''
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return self.name
+
+
+class CityImage(models.Model):
+    def get_image_path(self, instance, filename):
+        return os.path.join('photos', str(instance.id), filename)
+
+    city = models.OneToOneField(City, on_delete=models.CASCADE)
+    city_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
 
 
 class Hotel(models.Model):
