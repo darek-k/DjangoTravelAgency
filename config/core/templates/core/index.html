@@ -161,38 +161,14 @@
 		            <div class="row d-flex justify-content-center">
 		                <div class="menu-content pb-70 col-lg-8">
 		                    <div class="title text-center">
-		                        <h1 class="mb-10">Popular Destinations</h1>
-		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
+		                        <h1 class="mb-10">Popularne oferty</h1>
+		                        <p>Popularne oferty Popularne oferty Popularne oferty Popularne oferty</p>
 		                    </div>
 		                </div>
-		            </div>						
+		            </div>
+
 					<div class="row">
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{% static 'img/d1.jpg' %}" alt="">
-								</div>
-								<div class="desc">	
-									<a href="#" class="price-btn">$150</a>			
-									<h4>Mountain River</h4>
-									<p>Paraguay</p>			
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{% static 'img/d2.jpg' %}" alt="">
-								</div>
-								<div class="desc">	
-									<a href="#" class="price-btn">$250</a>			
-									<h4>Dream City</h4>
-									<p>Paris</p>			
-								</div>
-							</div>
-						</div>
+						{% for trip in promoted_trips %}
 						<div class="col-lg-4">
 							<div class="single-destination relative">
 								<div class="thumb relative">
@@ -200,17 +176,86 @@
 									<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt="">
 								</div>
 								<div class="desc">	
-									<a href="#" class="price-btn">$350</a>			
-									<h4>Cloud Mountain</h4>
-									<p>Sri Lanka</p>			
+									<a href="#" class="price-btn">{{ trip.price_for_adult}}</a>
+									<h4>{{ trip.arrival_city.country}}</h4>
+									<p>{{ trip.arrival_city }}</p>
 								</div>
 							</div>
-						</div>												
+						</div>
+						{% endfor %}
 					</div>
-				</div>	
+				</div>
 			</section>
 			<!-- End popular-destination Area -->
-			
+
+
+			<!-- Start Last minute Area -->
+			<section class="popular-destination-area section-gap">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="menu-content pb-70 col-lg-8">
+		                    <div class="title text-center">
+		                        <h1 class="mb-10">Last minute - ostatnie miejsca na najbliższe wyloty! </h1>
+		                        <p>Last minute Last minute Last minute Last minute Last minute Last minute </p>
+		                    </div>
+		                </div>
+		            </div>
+
+					<div class="row">
+						{% for trip in last_minute_trips %}
+						<div class="col-lg-4">
+							<div class="single-destination relative">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt="">
+								</div>
+								<div class="desc">
+									<a href="#" class="price-btn">{{ trip.price_for_adult}}</a>
+									<h4>{{ trip.arrival_city.country}}</h4>
+									<p>{{ trip.arrival_city }}</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+			<!-- End Last minute Area -->
+
+
+			<!-- Start Previous Trips Area -->
+			<section class="popular-destination-area section-gap">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="menu-content pb-70 col-lg-8">
+		                    <div class="title text-center">
+		                        <h1 class="mb-10">Ostatnio zakupione wycieczki (DORÓB)</h1>
+		                        <p>Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione </p>
+		                    </div>
+		                </div>
+		            </div>
+
+					<div class="row">
+						{% for trip in last_minute_trips %}
+						<div class="col-lg-4">
+							<div class="single-destination relative">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt="">
+								</div>
+								<div class="desc">
+									<a href="#" class="price-btn">{{ trip.price_for_adult}}</a>
+									<h4>{{ trip.arrival_city.country}}</h4>
+									<p>{{ trip.arrival_city }}</p>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</section>
+			<!-- End Previous Trips Area -->
+
 
 			<!-- Start price Area -->
 			<section class="price-area section-gap">
