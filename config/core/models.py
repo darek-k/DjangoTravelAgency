@@ -1,9 +1,4 @@
-import os
-
 from django.db import models
-import datetime, time
-
-from django.utils.timezone import now
 
 STARS_CHOICES = [
     ('*', '1'), ('**', '2'), ('***', '3'), ('****', '4'), ('*****', '5'),
@@ -13,6 +8,11 @@ CATERING_OPTIONS = [
     ('BB', 'bed & breakfast'), ('HB', 'half board'), ('FB', 'full board'), ('Al', 'all inclusive'), ('OV', 'overnight'),
     ('SC', 'self catering'), ('PP', 'program package'), ('ZPR', 'ZPR')
 ]
+
+
+def get_city_image_path(instance, filename):
+    return f'static/core/photos/city_{instance.id}/{filename}'
+    # return os.path.join('photos', str(instance.id), filename)
 
 
 class Continent(models.Model):
@@ -39,20 +39,13 @@ class Country(models.Model):
 class City(models.Model):
     name = models.CharField(max_length=100)
     country = models.ForeignKey(Country, on_delete=models.CASCADE, related_name='cities')
+    city_image = models.FileField(upload_to=get_city_image_path, null=True)
 
     class Meta:
         ordering = ['name']
 
     def __str__(self):
         return self.name
-
-
-class CityImage(models.Model):
-    def get_image_path(self, instance, filename):
-        return os.path.join('photos', str(instance.id), filename)
-
-    city = models.OneToOneField(City, on_delete=models.CASCADE)
-    city_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
 
 
 class Hotel(models.Model):
