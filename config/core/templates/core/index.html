@@ -207,7 +207,7 @@
 							<div class="single-destination relative">
 								<div class="thumb relative">
 									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt="">
+									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
 								</div>
 								<div class="desc">
 									<a href="#" class="price-btn">{{ trip.price_for_adult}}</a>
@@ -241,7 +241,7 @@
 							<div class="single-destination relative">
 								<div class="thumb relative">
 									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt="">
+									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
 								</div>
 								<div class="desc">
 									<a href="#" class="price-btn">{{ trip.price_for_adult}}</a>
