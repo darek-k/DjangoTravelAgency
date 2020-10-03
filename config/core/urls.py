@@ -6,4 +6,5 @@ from core.views import TripDetailsView
 app_name = 'core'
 urlpatterns = [
     path('trip/details/<pk>', TripDetailsView.as_view(), name='trip_details'),
+    path()
 ]
