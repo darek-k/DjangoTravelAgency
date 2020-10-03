@@ -1,10 +1,11 @@
+{% load static %}
 	<!DOCTYPE html>
 	<html lang="zxx" class="no-js">
 	<head>
 		<!-- Mobile Specific Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
+		<link rel="shortcut icon" href="{% static 'img/fav.png">
 		<!-- Author Meta -->
 		<meta name="author" content="colorlib">
 		<!-- Meta Description -->
@@ -14,22 +15,23 @@
 		<!-- meta character set -->
 		<meta charset="UTF-8">
 		<!-- Site Title -->
-		<title>Travel</title>
+		<title>Detail</title>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet"> 
 			<!--
 			CSS
 			============================================= -->
-			<link rel="stylesheet" href="css/linearicons.css">
-			<link rel="stylesheet" href="css/font-awesome.min.css">
-			<link rel="stylesheet" href="css/bootstrap.css">
-			<link rel="stylesheet" href="css/magnific-popup.css">
-			<link rel="stylesheet" href="css/jquery-ui.css">				
-			<link rel="stylesheet" href="css/nice-select.css">							
-			<link rel="stylesheet" href="css/animate.min.css">
-			<link rel="stylesheet" href="css/owl.carousel.css">				
-			<link rel="stylesheet" href="css/main.css">
+			<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+			<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+			<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+			<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+			<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+			<link rel="stylesheet" href="{% static 'css/main.css' %}">
 		</head>
+
 		<body>	
 			<header id="header">
 				<div class="header-top">
@@ -55,7 +57,7 @@
 				<div class="container main-menu">
 					<div class="row align-items-center justify-content-between d-flex">
 				      <div id="logo">
-				        <a href="index.html"><img src="img/logo.png" alt="" title="" /></a>
+				        <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="" title="" /></a>
 				      </div>
 				      <nav id="nav-menu-container">
 				        <ul class="nav-menu">
@@ -107,19 +109,67 @@
 			<!-- Start destinations Area -->
 			<section class="destinations-area section-gap">
 				<div class="container">
+
+					<section class="hot-deal-area section-gap">
+				<div class="container">
+
 		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-40 col-lg-8">
+		                <div class="menu-content pb-70 col-lg-8">
 		                    <div class="title text-center">
-		                        <h1 class="mb-10">Popular Destinations</h1>
-		                        <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day to.</p>
+		                        <h1 class="mb-10">{{ trip.arrival_city }}</h1>
+		                        <h2 class="mb-10">{{ trip.arrival_hotel }}</h2>
+
+								{% for i in trip.arrival_hotel.stars %}
+									<span class="fa fa-star checked"></span>
+								{% endfor %}
+
 		                    </div>
 		                </div>
-		            </div>						
+		            </div> <!-- City and hotel name -->
+
+					<div class="row justify-content-center">
+						<div class="col-lg-10 active-hot-deal-carusel">
+							<div class="single-carusel">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
+								</div>
+								<div class="price-detials">
+									<a href="#" class="price-btn">Starting From <span>$250</span></a>
+								</div>
+								<div class="details">
+									<h4 class="text-white">Ancient Architecture</h4>
+									<p class="text-white">
+										Cairo, Egypt
+									</p>
+								</div>
+							</div>
+							<div class="single-carusel">
+								<div class="thumb relative">
+									<div class="overlay overlay-bg"></div>
+									<img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
+								</div>
+								<div class="price-detials">
+									<a href="#" class="price-btn">Starting From <span>$250</span></a>
+								</div>
+								<div class="details">
+									<h4 class="text-white">Ancient Architecture</h4>
+									<p class="text-white">
+										Cairo, Egypt
+									</p>
+								</div>
+							</div>
+						</div>
+					</div> <!-- Pictures and price -->
+
+				</div>
+			</section>
+
 					<div class="row">
 						<div class="col-lg-4">
 							<div class="single-destinations">
 								<div class="thumb">
-									<img src="img/hotels/d1.jpg" alt="">
+									<img src="{% static 'img/hotels/d1.jpg' %}" alt="">
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
@@ -171,7 +221,7 @@
 						<div class="col-lg-4">
 							<div class="single-destinations">
 								<div class="thumb">
-									<img src="img/hotels/d2.jpg" alt="">
+									<img src="{% static 'img/hotels/d2.jpg' %}" alt="">
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
@@ -223,7 +273,113 @@
 						<div class="col-lg-4">
 							<div class="single-destinations">
 								<div class="thumb">
-									<img src="img/hotels/d3.jpg" alt="">
+									<img src="{% static 'img/hotels/d3.jpg' %}" alt="">
+								</div>
+								<div class="details">
+									<h4 class="d-flex justify-content-between">
+										<span>Hilton Star Hotel</span>                              	
+										<div class="star">
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star"></span>				
+										</div>	
+									</h4>
+									<p>
+										View on map   |   49 Reviews
+									</p>
+									<ul class="package-list">
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Swimming pool</span>
+											<span>Yes</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Gymnesium</span>
+											<span>No</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Wi-fi</span>
+											<span>Yes</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Room Service</span>
+											<span>No</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Air Condition</span>
+											<span>Yes</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Restaurant</span>
+											<span>Yes</span>
+										</li>												
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Price per night</span>
+											<a href="#" class="price-btn">$250</a>
+										</li>													
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="single-destinations">
+								<div class="thumb">
+									<img src="{% static 'img/hotels/d4.jpg' %}" alt="">
+								</div>
+								<div class="details">
+									<h4 class="d-flex justify-content-between">
+										<span>Hilton Star Hotel</span>                              	
+										<div class="star">
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star checked"></span>
+											<span class="fa fa-star"></span>				
+										</div>	
+									</h4>
+									<p>
+										View on map   |   49 Reviews
+									</p>
+									<ul class="package-list">
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Swimming pool</span>
+											<span>Yes</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Gymnesium</span>
+											<span>No</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Wi-fi</span>
+											<span>Yes</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Room Service</span>
+											<span>No</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Air Condition</span>
+											<span>Yes</span>
+										</li>
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Restaurant</span>
+											<span>Yes</span>
+										</li>												
+										<li class="d-flex justify-content-between align-items-center">
+											<span>Price per night</span>
+											<a href="#" class="price-btn">$250</a>
+										</li>													
+									</ul>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-lg-4">
+							<div class="single-destinations">
+								<div class="thumb">
+									<img src="{% static 'img/hotels/d5.jpg' %}" alt="">
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
@@ -275,111 +431,7 @@
 						<div class="col-lg-4">
 							<div class="single-destinations">
 								<div class="thumb">
-									<img src="img/hotels/d4.jpg" alt="">
-								</div>
-								<div class="details">
-									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
-										<div class="star">
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
-									</h4>
-									<p>
-										View on map   |   49 Reviews
-									</p>
-									<ul class="package-list">
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Swimming pool</span>
-											<span>Yes</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Gymnesium</span>
-											<span>No</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Wi-fi</span>
-											<span>Yes</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Room Service</span>
-											<span>No</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Air Condition</span>
-											<span>Yes</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Restaurant</span>
-											<span>Yes</span>
-										</li>												
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Price per night</span>
-											<a href="#" class="price-btn">$250</a>
-										</li>													
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destinations">
-								<div class="thumb">
-									<img src="img/hotels/d5.jpg" alt="">
-								</div>
-								<div class="details">
-									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
-										<div class="star">
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
-									</h4>
-									<p>
-										View on map   |   49 Reviews
-									</p>
-									<ul class="package-list">
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Swimming pool</span>
-											<span>Yes</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Gymnesium</span>
-											<span>No</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Wi-fi</span>
-											<span>Yes</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Room Service</span>
-											<span>No</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Air Condition</span>
-											<span>Yes</span>
-										</li>
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Restaurant</span>
-											<span>Yes</span>
-										</li>												
-										<li class="d-flex justify-content-between align-items-center">
-											<span>Price per night</span>
-											<a href="#" class="price-btn">$250</a>
-										</li>													
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4">
-							<div class="single-destinations">
-								<div class="thumb">
-									<img src="img/hotels/d6.jpg" alt="">
+									<img src="{% static 'img/hotels/d6.jpg' %}" alt="">
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
@@ -450,7 +502,7 @@
 							<a href="#" class="primary-btn text-uppercase">request custom price</a>
 						</div>
 						<div class="col-lg-6 col-md-12 home-about-right no-padding">
-							<img class="img-fluid" src="img/hotels/about-img.jpg" alt="">
+							<img class="img-fluid" src="{% static 'img/hotels/about-img.jpg' %}" alt="">
 						</div>
 					</div>
 				</div>	
@@ -514,14 +566,14 @@
 							<div class="single-footer-widget mail-chimp">
 								<h6 class="mb-20">InstaFeed</h6>
 								<ul class="instafeed d-flex flex-wrap">
-									<li><img src="img/i1.jpg" alt=""></li>
-									<li><img src="img/i2.jpg" alt=""></li>
-									<li><img src="img/i3.jpg" alt=""></li>
-									<li><img src="img/i4.jpg" alt=""></li>
-									<li><img src="img/i5.jpg" alt=""></li>
-									<li><img src="img/i6.jpg" alt=""></li>
-									<li><img src="img/i7.jpg" alt=""></li>
-									<li><img src="img/i8.jpg" alt=""></li>
+									<li><img src="{% static 'img/i1.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/i2.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/i3.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/i4.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/i5.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/i6.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/i7.jpg' %}" alt=""></li>
+									<li><img src="{% static 'img/i8.jpg' %}" alt=""></li>
 								</ul>
 							</div>
 						</div>						
@@ -542,19 +594,19 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</footer>
 			<!-- End footer Area -->	
 
-			<script src="js/vendor/jquery-2.2.4.min.js"></script>
-			<script src="js/popper.min.js"></script>
-			<script src="js/vendor/bootstrap.min.js"></script>			
+			<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+			<script src="{% static 'js/popper.min.js' %}"></script>
+			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>		
- 			<script src="js/jquery-ui.js"></script>					
-  			<script src="js/easing.min.js"></script>			
-			<script src="js/hoverIntent.js"></script>
-			<script src="js/superfish.min.js"></script>	
-			<script src="js/jquery.ajaxchimp.min.js"></script>
-			<script src="js/jquery.magnific-popup.min.js"></script>						
-			<script src="js/jquery.nice-select.min.js"></script>					
-			<script src="js/owl.carousel.min.js"></script>							
-			<script src="js/mail-script.js"></script>	
-			<script src="js/main.js"></script>	
+ 			<script src="{% static 'js/jquery-ui.js' %}"></script>
+  			<script src="{% static 'js/easing.min.js' %}"></script>
+			<script src="{% static 'js/hoverIntent.js' %}"></script>
+			<script src="{% static 'js/superfish.min.js' %}"></script>
+			<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+			<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+			<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+			<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+			<script src="{% static 'js/mail-script.js' %}"></script>
+			<script src="{% static 'js/main.js' %}"></script>
 		</body>
 	</html>

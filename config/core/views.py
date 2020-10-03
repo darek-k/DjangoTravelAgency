@@ -1,6 +1,6 @@
 import datetime
 
-from core.models import Trip
+from core.models import Trip, Hotel
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
@@ -11,6 +11,11 @@ from django.views.generic import ListView, DetailView
 def template_elements(request):
     """ Do usunięcia po zrobieniu frontendu"""
     return render(request, 'core/elements.html')
+
+
+def hotels(request):
+    """ Do usunięcia po zrobieniu frontendu"""
+    return render(request, 'core/hotels.html')
 
 
 class TripDetailsView(DetailView):
