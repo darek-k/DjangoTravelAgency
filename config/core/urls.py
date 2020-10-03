@@ -1,10 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
 
-from core.views import TripDetailsView
+from core.views import TripDetailsView, template_elements
 
 app_name = 'core'
 urlpatterns = [
-    path('trip/details/<pk>', TripDetailsView.as_view(), name='trip_details'),
-    path()
+    path('trip_details/<pk>/', TripDetailsView.as_view(), name='trip_details'),
+    path('elements/', template_elements, name='template_elements')
 ]

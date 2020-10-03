@@ -1,8 +1,16 @@
 import datetime
 
 from core.models import Trip
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.template import loader
 from django.utils.timezone import now
 from django.views.generic import ListView, DetailView
+
+
+def template_elements(request):
+    """ Do usunięcia po zrobieniu frontendu"""
+    return render(request, 'core/elements.html')
 
 
 class TripDetailsView(DetailView):
