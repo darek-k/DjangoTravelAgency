@@ -56,6 +56,9 @@ class Hotel(models.Model):
     swimming_pool = models.BooleanField(default=False)
     wifi = models.BooleanField(default=False)
     air_condition = models.BooleanField(default=False)
+    room_service = models.BooleanField(default=False)
+    restaurant = models.BooleanField(default=False)
+    gym = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['name']
