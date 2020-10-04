@@ -53,6 +53,7 @@ class Hotel(models.Model):
     stars = models.CharField(max_length=5, choices=STARS_CHOICES, default=1)
     description = models.TextField(max_length=1000, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hotels')
+    location = models.CharField(default='', max_length=500)
     swimming_pool = models.BooleanField(default=False)
     wifi = models.BooleanField(default=False)
     air_condition = models.BooleanField(default=False)

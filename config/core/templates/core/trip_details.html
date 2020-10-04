@@ -188,7 +188,8 @@
                                         </div>
                                     </h4>
                                     <p>
-                                        View on map | 49 Reviews
+                                        <a href= "{{ trip.arrival_hotel.location }}" target="_blank">View on map</a> |
+                                        <a href= "#" target="_blank">49 Reviews</a>
                                     </p>
                                     <ul class="package-list">
                                         <li class="d-flex justify-content-between align-items-center">
@@ -197,7 +198,7 @@
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Gymnesium</span>
-                                            <span>{{ trip.arrival_hotel.wifi }}}</span>
+                                            <span>{{ trip.arrival_hotel.gym }}</span>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Wi-fi</span>
@@ -205,15 +206,15 @@
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Room Service</span>
-                                            <span>No</span>
+                                            <span>{{ trip.arrival_hotel.room_service }}</span>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Air Condition</span>
-                                            <span>Yes</span>
+                                            <span>{{ trip.arrival_hotel.air_condition}}</span>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Restaurant</span>
-                                            <span>Yes</span>
+                                            <span>{{ trip.arrival_hotel.restaurant }}</span>
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Price per night</span>
