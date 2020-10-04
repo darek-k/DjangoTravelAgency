@@ -1,7 +1,7 @@
 from django.db import models
 
 STARS_CHOICES = [
-    ('1', '1'), ('2', '2'), (3, 3), ('4', 4), ('5', '5'),
+    (1, '1'), (2, '2'), (3, 3), (4, 4), (5, '5'),
 ]
 
 CATERING_OPTIONS = [
@@ -54,7 +54,7 @@ class City(models.Model):
 
 class Hotel(models.Model):
     name = models.CharField(max_length=100)
-    stars = models.CharField(max_length=5, choices=STARS_CHOICES, default=1)
+    stars = models.IntegerField(max_length=5, choices=STARS_CHOICES, default=1)
     description = models.TextField(max_length=1000, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hotels')
     location = models.CharField(default='', max_length=500)
