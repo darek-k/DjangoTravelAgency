@@ -118,10 +118,12 @@
                         <div class="title text-center">
                             <h1 class="mb-10">{{ trip.arrival_city }}</h1>
                             <h2 class="mb-10 ">{{ trip.arrival_hotel }}</h2>
+                            <div class="star">
+                                {% for _ in trip.arrival_hotel.stars|times %}
+                                    <span class="fa fa-star checked"></span>
+                                {% endfor %}
+                            </div>
 
-                            {% for _ in trip.arrival_hotel.stars|times %}
-                                <span class="fa fa-star checked"></span>
-                            {% endfor %}
 
                         </div>
                     </div>
@@ -175,26 +177,21 @@
                         <div class="col-lg-4">
                             <div class="single-destinations">
                                 <div class="thumb">
-                                    <img src="{% static 'img/hotels/d6.jpg' %}" alt="">
+                                    <img class='img-fluid' src="{{ trip.arrival_hotel.hotel_image.url }}" alt="">
                                 </div>
                                 <div class="details">
                                     <h4 class="d-flex justify-content-between">
                                         <span>{{ trip.arrival_hotel.name }}</span>
                                         <div class="star">
-
                                             {% for _ in trip.arrival_hotel.stars|times %}
-                                            <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star checked"></span>
                                             {% endfor %}
-
-
                                         </div>
-
-
 
                                     </h4>
                                     <p>
-                                        <a href= "{{ trip.arrival_hotel.location }}" target="_blank">Lokalizacja</a> |
-                                        <a href= "#" target="_blank">49 Opinii</a>
+                                        <a href="{{ trip.arrival_hotel.location }}" target="_blank">Lokalizacja</a> |
+                                        <a href="#" target="_blank">49 Opinii</a>
                                     </p>
                                     <ul class="package-list">
                                         <li class="d-flex justify-content-between align-items-center">

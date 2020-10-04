@@ -16,7 +16,10 @@ BOOL_OPTIONS = [
 
 def get_city_image_path(instance, filename):
     return f'static/core/photos/city_{instance.id}/{filename}'
-    # return os.path.join('photos', str(instance.id), filename)
+
+
+def get_hotel_image_path(instance, filename):
+    return f'static/core/photos/hotel_{instance.id}/{filename}'
 
 
 class Continent(models.Model):
@@ -54,7 +57,7 @@ class City(models.Model):
 
 class Hotel(models.Model):
     name = models.CharField(max_length=100)
-    stars = models.IntegerField(max_length=5, choices=STARS_CHOICES, default=1)
+    stars = models.IntegerField(choices=STARS_CHOICES, default=1)
     description = models.TextField(max_length=1000, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hotels')
     location = models.CharField(default='', max_length=500, null=True)
@@ -64,6 +67,7 @@ class Hotel(models.Model):
     room_service = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
     restaurant = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
     gym = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
+    hotel_image = models.FileField(upload_to=get_hotel_image_path, null=True)
 
     class Meta:
         ordering = ['name']
