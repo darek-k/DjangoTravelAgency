@@ -57,7 +57,7 @@ class Hotel(models.Model):
     stars = models.IntegerField(max_length=5, choices=STARS_CHOICES, default=1)
     description = models.TextField(max_length=1000, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hotels')
-    location = models.CharField(default='', max_length=500)
+    location = models.CharField(default='', max_length=500, null=True)
     swimming_pool = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
     wifi = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
     air_condition = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)

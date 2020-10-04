@@ -23,8 +23,6 @@ class TripDetailsView(DetailView):
     template_name = 'core/trip_details.html'
 
 
-
-# todo: Lepiej jest trzymać contexty w jednej klasie czy to rozdzielić? Jak miałem rozdzielone to nie wyświetał się context z klasy poniżej.
 class TripListView(ListView):
     model = Trip
     template_name = 'core/index.html'
@@ -36,8 +34,6 @@ class TripListView(ListView):
         return context
 
 
-
-# # todo: Nie wyświetla się ten widok. DLaczego?:
 # class LastMinuteView(ListView):
 #     model = Trip
 #     template_name = 'core/index.html'
