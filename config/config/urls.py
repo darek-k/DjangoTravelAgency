@@ -20,6 +20,6 @@ from core.views import TripListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TripListView.as_view(), name='promoted_trips'),
+    path('', TripListView.as_view(), name='trip_list'),
     path('core/', include('core.urls', namespace='core')),
 ]
