@@ -1,12 +1,16 @@
 from django.db import models
 
 STARS_CHOICES = [
-    ('1', '1'), ('2', '2'), ('3', '3'), ('4', '4'), ('5', '5'),
+    ('1', '1'), ('2', '2'), ('3', 3), ('4', 4), ('5', '5'),
 ]
 
 CATERING_OPTIONS = [
     ('BB', 'bed & breakfast'), ('HB', 'half board'), ('FB', 'full board'), ('Al', 'all inclusive'), ('OV', 'overnight'),
     ('SC', 'self catering'), ('PP', 'program package'), ('ZPR', 'ZPR')
+]
+
+BOOL_OPTIONS = [
+    ('Tak', 'Tak'), ('Nie', 'Nie')
 ]
 
 
@@ -54,12 +58,12 @@ class Hotel(models.Model):
     description = models.TextField(max_length=1000, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hotels')
     location = models.CharField(default='', max_length=500)
-    swimming_pool = models.BooleanField(default=False)
-    wifi = models.BooleanField(default=False)
-    air_condition = models.BooleanField(default=False)
-    room_service = models.BooleanField(default=False)
-    restaurant = models.BooleanField(default=False)
-    gym = models.BooleanField(default=False)
+    swimming_pool = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
+    wifi = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
+    air_condition = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
+    room_service = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
+    restaurant = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
+    gym = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
 
     class Meta:
         ordering = ['name']
