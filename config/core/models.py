@@ -5,8 +5,8 @@ STARS_CHOICES = [
 ]
 
 CATERING_OPTIONS = [
-    ('BB', 'bed & breakfast'), ('HB', 'half board'), ('FB', 'full board'), ('Al', 'all inclusive'), ('OV', 'overnight'),
-    ('SC', 'self catering'), ('PP', 'program package'), ('ZPR', 'ZPR')
+    ('Bed & Breakfast', 'BB'), ('Half board', 'HB'), ('Full board', 'FB'), ('All inclusive', 'Al'), ('Overnight', 'OV'),
+    ('Self catering', 'SC'), ('Program package', 'PP'), ('ZPR', 'ZPR')
 ]
 
 BOOL_OPTIONS = [
