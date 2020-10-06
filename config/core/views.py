@@ -18,6 +18,30 @@ def hotels(request):
     return render(request, 'core/hotels.html')
 
 
+def about(request):
+    return render(request, 'core/about.html')
+
+
+def blog_home(request):
+    return render(request, 'core/blog-home.html')
+
+
+def blog_single(request):
+    return render(request, 'core/blog-single.html')
+
+
+def contact(request):
+    return render(request, 'core/contact.html')
+
+
+def insurance(request):
+    return render(request, 'core/insurance.html')
+
+
+def packages(request):
+    return render(request, 'core/packages.html')
+
+
 class TripDetailsView(DetailView):
     model = Trip
     template_name = 'core/trip_details.html'
@@ -32,7 +56,6 @@ class TripListView(ListView):
         context['promoted_trips'] = Trip.objects.filter(promoted=True)
         context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))
         return context
-
 
 # class LastMinuteView(ListView):
 #     model = Trip
