@@ -58,7 +58,7 @@ class City(models.Model):
 class Hotel(models.Model):
     name = models.CharField(max_length=100)
     stars = models.IntegerField(choices=STARS_CHOICES, default=1)
-    description = models.TextField(max_length=1000, null=True, blank=True)
+    description = models.TextField(max_length=2000, null=True, blank=True)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name='hotels')
     location = models.CharField(default='', max_length=500, null=True)
     swimming_pool = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
@@ -102,8 +102,8 @@ class Trip(models.Model):
     # duration = return_date-arrival_date
 
     catering_option = models.CharField(choices=CATERING_OPTIONS, max_length=20)
-    price_for_adult = models.DecimalField(decimal_places=2, max_digits=6)
-    price_for_child = models.DecimalField(decimal_places=2, max_digits=6)
+    price_for_adult = models.DecimalField(decimal_places=0, max_digits=6)
+    price_for_child = models.DecimalField(decimal_places=0, max_digits=6)
     promoted = models.BooleanField(default=False)
     adults_number = models.IntegerField(default=0)
     kids_number = models.IntegerField(default=0)

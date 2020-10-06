@@ -170,11 +170,11 @@
                         <div class="col-lg-4">
                             <div class="single-destinations">
                                 <div class="thumb">
-                                    <img class='img-fluid' src="{{ trip.arrival_hotel.hotel_image.url }}" alt="">
+                                    <img class='img-fluid' src="{{ trip.arrival_city.city_image.url }}" alt="">
                                 </div>
                                 <div class="details">
                                     <h4 class="d-flex justify-content-between">
-                                        <span>Szczegóły wycieczki</span>
+                                        <span>Szczegóły oferty</span>
                                     </h4>
 
                                     <ul class="package-list">
@@ -198,15 +198,23 @@
                                             <span>Wyżywienie</span>
                                             <span title="{{ trip.catering_option }}">{{ trip.catering_option }}</span>
                                         </li>
-
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+<hr><br>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="{{ trip.arrival_hotel.hotel_image.url }}" alt="" class="img-fluid">
+                    </div>
+                    <div class="col-md-9 mt-sm-20 left-align-p">
+                        <p>{{ trip.arrival_hotel.description }}</p>
+                    </div>
+                </div>
+<hr><br>
 
-                <p> Opis hotelu</p>
                 <p> Mapa? </p>
                 <p> Pogoda? </p>
                 <p> Opinie </p>
