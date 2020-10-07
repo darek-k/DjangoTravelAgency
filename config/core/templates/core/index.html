@@ -159,63 +159,33 @@
 
 
 			<section class="hot-deal-area section-gap">
-            <div class="container">
+				<div class="container">
                 <div class="row d-flex justify-content-center">
-                    <div class="menu-content pb-70 col-lg-8">
-                        <div class="title text-center">
-                            <h1 class="mb-10">{{ trip.arrival_city }}</h1>
-                            <h2 class="mb-10 ">{{ trip.arrival_hotel }}</h2>
-                            <div class="star">
-								{% comment %}
-                                {% for _ in trip.arrival_hotel.stars|times %}
-                                    <span class="fa fa-star checked"></span>
-                                {% endfor %}
-								{% endcomment %}
-                            </div>
-
-
-                        </div>
-                    </div>
                 </div> <!-- City and hotel name -->
 
                 <div class="row justify-content-center">
                     <div class="col-lg-10 active-hot-deal-carusel">
+						{% for country in all_countries %}
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 <div class="overlay overlay-bg"></div>
                                 <img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
                             </div>
                             <div class="price-detials">
-                                <a class="price-btn">Cena: <span>{{ trip.price_for_adult }} zł</span></a>
+                                <a class="price-btn">Ceny od: <span>??? zł</span></a>
                             </div>
                             <div class="details">
-                                <h4 class="text-white">Ancient Architecture</h4>
-                                <p class="text-white">
-                                    {{ trip.arrival_city }}, {{trip.arrival_city.country }}
-                                </p>
+                                <h4 class="text-white">{{ country }}</h4>
                             </div>
                         </div>
-
-                        <div class="single-carusel">
-                            <div class="thumb relative">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
-                            </div>
-                            <div class="price-detials">
-                                <a class="price-btn">Cena: <span>{{ trip.price_for_adult }} zł</span></a>
-                            </div>
-                            <div class="details">
-                                <h4 class="text-white">Ancient Architecture</h4>
-                                <p class="text-white">
-                                    {{ trip.arrival_city }}, {{trip.arrival_city.country }}
-                                </p>
-                            </div>
-                        </div>
+						{% endfor %}
                     </div>
                 </div> <!-- Pictures and price -->
 
             </div>
-        </section>
+        	</section>
+
+
 
 			<!-- Start popular-destination Area -->
 			<section class="popular-destination-area section-gap">
