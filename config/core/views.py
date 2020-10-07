@@ -46,7 +46,7 @@ class TripDetailsView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
-        context['duration'] = Trip.arrival_date
+        context['duration'] = Trip.departure_date
         return context
 
 
