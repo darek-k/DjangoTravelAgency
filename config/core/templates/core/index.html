@@ -169,13 +169,13 @@
                         <div class="single-carusel">
                             <div class="thumb relative">
                                 <div class="overlay overlay-bg"></div>
-                                <img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
+                                <img class="img-fluid" src="{{ country.country_image }}" alt="" style="width:944px; height:400px">
                             </div>
                             <div class="price-detials">
-                                <a class="price-btn">Ceny od: <span>??? zł</span></a>
+                                <a class="price-btn">Ceny od: <span> zł</span></a>
                             </div>
                             <div class="details">
-                                <h4 class="text-white">{{ country }}</h4>
+                                <h4 class="text-white">{{ country.name }}</h4>
                             </div>
                         </div>
 						{% endfor %}
@@ -188,7 +188,7 @@
 
 
 			<!-- Start popular-destination Area -->
-			<section class="popular-destination-area section-gap">
+			<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
 				<div class="container">
 		            <div class="row d-flex justify-content-center">
 		                <div class="menu-content pb-70 col-lg-8">
@@ -207,7 +207,7 @@
 							<div class="single-destination relative">
 								<div class="thumb relative">
 									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
+									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
 								</div>
 								<div class="desc">	
 									<a class="price-btn">{{ trip.price_for_adult }} zł</a>
@@ -225,7 +225,7 @@
 
 
 			<!-- Start Last minute Area -->
-			<section class="popular-destination-area section-gap">
+			<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
 				<div class="container">
 		            <div class="row d-flex justify-content-center">
 		                <div class="menu-content pb-70 col-lg-8">
@@ -239,11 +239,11 @@
 					<div class="row">
 						{% for trip in last_minute_trips %}
 						<a href="{% url 'core:trip_details' pk=trip.pk %}">
-						<div class="col-lg-4">
+						<div class="col-lg-4" >
 							<div class="single-destination relative">
 								<div class="thumb relative">
 									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
+									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
 								</div>
 								<div class="desc">
 									<a class="price-btn">{{ trip.price_for_adult}}</a>
@@ -261,7 +261,7 @@
 
 
 			<!-- Start Previous Trips Area -->
-			<section class="popular-destination-area section-gap">
+			<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
 				<div class="container">
 		            <div class="row d-flex justify-content-center">
 		                <div class="menu-content pb-70 col-lg-8">
@@ -279,7 +279,7 @@
 							<div class="single-destination relative">
 								<div class="thumb relative">
 									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
+									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
 								</div>
 								<div class="desc">
 									<a class="price-btn">{{ trip.price_for_adult}}</a>

@@ -44,6 +44,11 @@ class TripDetailsView(DetailView):
     model = Trip
     template_name = 'core/trip_details.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['duration'] = Trip.arrival_date
+        return context
+
 
 class TripListView(ListView):
     model = Trip
