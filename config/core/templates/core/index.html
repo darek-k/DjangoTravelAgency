@@ -107,7 +107,7 @@
 						<div class="col-lg-4 col-md-6 banner-right">
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
 							  <li class="nav-item">
-							    <a class="nav-link active" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="true">Flights</a>
+							    <a class="nav-link active" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="true">Wycieczki</a>
 							  </li>
 							  <li class="nav-item">
 							    <a class="nav-link" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false">Hotels</a>
@@ -186,7 +186,7 @@
                                 <img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
                             </div>
                             <div class="price-detials">
-                                <a href="#" class="price-btn">Cena: <span>{{ trip.price_for_adult }} zł</span></a>
+                                <a class="price-btn">Cena: <span>{{ trip.price_for_adult }} zł</span></a>
                             </div>
                             <div class="details">
                                 <h4 class="text-white">Ancient Architecture</h4>
@@ -202,7 +202,7 @@
                                 <img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
                             </div>
                             <div class="price-detials">
-                                <a href="#" class="price-btn">Cena: <span>{{ trip.price_for_adult }} zł</span></a>
+                                <a class="price-btn">Cena: <span>{{ trip.price_for_adult }} zł</span></a>
                             </div>
                             <div class="details">
                                 <h4 class="text-white">Ancient Architecture</h4>
@@ -229,22 +229,24 @@
 		                </div>
 		            </div>
 
-
 					<div class="row">
 						{% for trip in promoted_trips %}
-						<div class="col-lg-4">
+						<a href="{% url 'core:trip_details' pk=trip.pk %}">
+							<div class="col-lg-4">
+
 							<div class="single-destination relative">
 								<div class="thumb relative">
 									<div class="overlay overlay-bg"></div>
 									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
 								</div>
 								<div class="desc">	
-									<a href="#" class="price-btn">{{ trip.price_for_adult }}</a>
+									<a class="price-btn">{{ trip.price_for_adult }} zł</a>
 									<h4>{{ trip.arrival_city.country }}</h4>
-									<p>{{ trip.arrival_city }}</p>
+										<p>{{ trip.arrival_city }}</p>
 								</div>
 							</div>
 						</div>
+						</a>
 						{% endfor %}
 					</div>
 				</div>
@@ -266,6 +268,7 @@
 
 					<div class="row">
 						{% for trip in last_minute_trips %}
+						<a href="{% url 'core:trip_details' pk=trip.pk %}">
 						<div class="col-lg-4">
 							<div class="single-destination relative">
 								<div class="thumb relative">
@@ -273,12 +276,13 @@
 									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
 								</div>
 								<div class="desc">
-									<a href="#" class="price-btn">{{ trip.price_for_adult}}</a>
+									<a class="price-btn">{{ trip.price_for_adult}}</a>
 									<h4>{{ trip.arrival_city.country}}</h4>
 									<p>{{ trip.arrival_city }}</p>
 								</div>
 							</div>
 						</div>
+						</a>
 						{% endfor %}
 					</div>
 				</div>
@@ -300,6 +304,7 @@
 
 					<div class="row">
 						{% for trip in last_minute_trips %}
+						<a href="{% url 'core:trip_details' pk=trip.pk %}">
 						<div class="col-lg-4">
 							<div class="single-destination relative">
 								<div class="thumb relative">
@@ -307,12 +312,13 @@
 									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="">
 								</div>
 								<div class="desc">
-									<a href="#" class="price-btn">{{ trip.price_for_adult}}</a>
+									<a class="price-btn">{{ trip.price_for_adult}}</a>
 									<h4>{{ trip.arrival_city.country}}</h4>
 									<p>{{ trip.arrival_city }}</p>
 								</div>
 							</div>
 						</div>
+						</a>
 						{% endfor %}
 					</div>
 				</div>
