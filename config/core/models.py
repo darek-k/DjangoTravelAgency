@@ -73,6 +73,7 @@ class Hotel(models.Model):
     restaurant = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
     gym = models.CharField(choices=BOOL_OPTIONS, default='Nie', max_length=10)
     hotel_image = models.FileField(upload_to=get_hotel_image_path, null=True)
+    hotel_image2 = models.FileField(upload_to=get_hotel_image_path, null=True)
 
     class Meta:
         ordering = ['name']
