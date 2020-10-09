@@ -26,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 SHELL_PLUS = "ipython"
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -36,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core',
+    'accounts',
     'bootstrap4',
     'django_extensions',
     'crispy_forms',
@@ -56,7 +56,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join('config', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

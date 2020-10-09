@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TripListView.as_view(), name='trip_list'),
     path('core/', include('core.urls', namespace='core')),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]

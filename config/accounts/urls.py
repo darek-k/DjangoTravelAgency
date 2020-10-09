@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 
-from config.accounts.views import SignUpView
+from accounts.views import SignUpView
 
 app_name = 'accounts'
 urlpatterns = [

@@ -33,7 +33,7 @@
 			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
 			<link rel="stylesheet" href="{% static 'css/main.css' %}">
 		</head>
-		<body>	
+		<body>
 			<header id="header">
 				<div class="header-top">
 					<div class="container">
@@ -42,7 +42,7 @@
 			  				<ul>
 			  					<li><a href="#">Visit Us</a></li>
 			  					<li><a href="#">Buy Tickets</a></li>
-			  				</ul>			
+			  				</ul>
 			  			</div>
 			  			<div class="col-lg-6 col-sm-6 col-6 header-top-right">
 							<div class="header-social">
@@ -52,7 +52,7 @@
 								<a href="#"><i class="fa fa-behance"></i></a>
 							</div>
 			  			</div>
-			  		</div>			  					
+			  		</div>
 					</div>
 				</div>
 				<div class="container main-menu">
@@ -72,7 +72,7 @@
 				              <li><a href="{% url 'core:blog_home' %}">Blog Home</a></li>
 				              <li><a href="{% url 'core:blog_single' %}">Blog Single</a></li>
 				            </ul>
-				          </li>	
+				          </li>
 				          <li class="menu-has-children"><a href="">Pages</a>
 				            <ul>
 				            	  <li><a href="{% url 'core:elements' %}">Elements</a></li>
@@ -81,23 +81,26 @@
 						              <li><a href="#">Item One</a></li>
 						              <li><a href="#">Item Two</a></li>
 						            </ul>
-						          </li>					                		
+						          </li>
 				            </ul>
-				          </li>					          					          		          
+				          </li>
 				          <li><a href="{% url 'core:contact' %}">Contact</a></li>
-
-
-				          <li><a href="{% url 'core:contact' %}">Login</a></li>
+				          <li class="menu-has-children"><a href=#>Logowanie</a>
+				            <ul>
+				              <li><a href="{% url 'core:blog_home' %}">Zaloguj</a></li>
+				              <li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
+				            </ul>
+				          </li>
 
 				        </ul>
-				      </nav><!-- #nav-menu-container -->					      		  
+				      </nav><!-- #nav-menu-container -->
 					</div>
 				</div>
 			</header><!-- #header -->
-			
+
 			<!-- start banner Area -->
 			<section class="banner-area relative">
-				<div class="overlay overlay-bg"></div>				
+				<div class="overlay overlay-bg"></div>
 				<div class="container">
 					<div class="row fullscreen align-items-center justify-content-between">
 						<div class="col-lg-6 col-md-6 banner-left">
@@ -123,41 +126,41 @@
 							<div class="tab-content" id="myTabContent">
 							  <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
 								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
 									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
 									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">							
-									<a href="#" class="primary-btn text-uppercase">Search flights</a>									
+									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+									<a href="#" class="primary-btn text-uppercase">Search flights</a>
 								</form>
 							  </div>
 							  <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
 								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
 									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
 									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">						
-									<a href="#" class="primary-btn text-uppercase">Search Hotels</a>									
-								</form>							  	
+									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+									<a href="#" class="primary-btn text-uppercase">Search Hotels</a>
+								</form>
 							  </div>
 							  <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
 								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">									
+									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
 									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
 									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
 									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
 									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">							
-									<a href="#" class="primary-btn text-uppercase">Search Holidays</a>									
-								</form>							  	
+									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+									<a href="#" class="primary-btn text-uppercase">Search Holidays</a>
+								</form>
 							  </div>
 							</div>
 						</div>
 					</div>
-				</div>					
+				</div>
 			</section>
 			<!-- End banner Area -->
 
@@ -421,7 +424,7 @@
 <!--				</div>	-->
 <!--			</section>-->
 <!--			&lt;!&ndash; End price Area &ndash;&gt;-->
-			
+
 
 <!--			&lt;!&ndash; Start other-issue Area &ndash;&gt;-->
 <!--			<section class="other-issue-area section-gap">-->
@@ -491,7 +494,7 @@
 <!--				</div>	-->
 <!--			</section>-->
 <!--			&lt;!&ndash; End other-issue Area &ndash;&gt;-->
-			
+
 
 			<!-- Start testimonial Area -->
 		    <section class="testimonial-area section-gap">
@@ -512,7 +515,7 @@
 		                        </div>
 		                        <div class="desc">
 		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
 		                            </p>
 		                            <h4>Harriet Maxwell</h4>
 	                            	<div class="star">
@@ -520,8 +523,8 @@
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
+										<span class="fa fa-star"></span>
+									</div>
 		                        </div>
 		                    </div>
 		                    <div class="single-testimonial item d-flex flex-row">
@@ -538,8 +541,8 @@
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
+										<span class="fa fa-star"></span>
+									</div>
 		                        </div>
 		                    </div>
 		                    <div class="single-testimonial item d-flex flex-row">
@@ -548,7 +551,7 @@
 		                        </div>
 		                        <div class="desc">
 		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
 		                            </p>
 		                            <h4>Harriet Maxwell</h4>
 	                            	<div class="star">
@@ -556,8 +559,8 @@
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
+										<span class="fa fa-star"></span>
+									</div>
 		                        </div>
 		                    </div>
 		                    <div class="single-testimonial item d-flex flex-row">
@@ -574,8 +577,8 @@
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
+										<span class="fa fa-star"></span>
+									</div>
 		                        </div>
 		                    </div>
 		                    <div class="single-testimonial item d-flex flex-row">
@@ -584,7 +587,7 @@
 		                        </div>
 		                        <div class="desc">
 		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.		     
+		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
 		                            </p>
 		                            <h4>Harriet Maxwell</h4>
 	                            	<div class="star">
@@ -592,8 +595,8 @@
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>				
-									</div>	
+										<span class="fa fa-star"></span>
+									</div>
 		                        </div>
 		                    </div>
 		                    <div class="single-testimonial item d-flex flex-row">
@@ -610,10 +613,10 @@
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star checked"></span>
 										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>			
-									</div>	
+										<span class="fa fa-star"></span>
+									</div>
 		                        </div>
-		                    </div>		                    		                    
+		                    </div>
 		                </div>
 		            </div>
 		        </div>
@@ -642,8 +645,8 @@
 <!--				</div>	-->
 <!--			</section>-->
 <!--			&lt;!&ndash; End home-about Area &ndash;&gt;-->
-			
-	
+
+
 <!--			&lt;!&ndash; Start blog Area &ndash;&gt;-->
 <!--			<section class="recent-blog-area section-gap">-->
 <!--				<div class="container">-->
@@ -796,7 +799,7 @@
 <!--			</section>-->
 <!--			&lt;!&ndash; End recent-blog Area &ndash;&gt;			-->
 
-			<!-- start footer Area -->		
+			<!-- start footer Area -->
 			<footer class="footer-area section-gap">
 				<div class="container">
 
@@ -805,7 +808,7 @@
 							<div class="single-footer-widget">
 								<h6>About Agency</h6>
 								<p>
-									The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point 
+									The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point
 								</p>
 							</div>
 						</div>
@@ -828,22 +831,22 @@
 											<li><a href="#">Blog</a></li>
 											<li><a href="#">Contact</a></li>
 										</ul>
-									</div>										
-								</div>							
+									</div>
+								</div>
 							</div>
-						</div>							
+						</div>
 						<div class="col-lg-3  col-md-6 col-sm-6">
 							<div class="single-footer-widget">
 								<h6>Newsletter</h6>
 								<p>
-									For business professionals caught between high OEM price and mediocre print and graphic output.									
-								</p>								
+									For business professionals caught between high OEM price and mediocre print and graphic output.
+								</p>
 								<div id="mc_embed_signup">
 									<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
 										<div class="input-group d-flex flex-row">
 											<input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-											<button class="btn bb-btn"><span class="lnr lnr-location"></span></button>		
-										</div>									
+											<button class="btn bb-btn"><span class="lnr lnr-location"></span></button>
+										</div>
 										<div class="mt-10 info"></div>
 									</form>
 								</div>
@@ -863,7 +866,7 @@
 									<li><img src="{% static 'img/i8.jpg' %}" alt=""></li>
 								</ul>
 							</div>
-						</div>						
+						</div>
 					</div>
 
 					<div class="row footer-bottom d-flex justify-content-between align-items-center">
@@ -879,7 +882,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 					</div>
 				</div>
 			</footer>
-			<!-- End footer Area -->	
+			<!-- End footer Area -->
 
 			<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
 			<script src="{% static 'js/popper.min.js' %}"></script>
