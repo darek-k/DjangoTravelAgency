@@ -1,9 +1,11 @@
 import datetime
 
+from core.forms import ContinentForm
 from core.models import Trip, Country
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.utils.timezone import now
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 
 def template_elements(request):
@@ -61,3 +63,14 @@ class TripListView(ListView):
         context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
         context['all_countries'] = Country.objects.exclude(name='Polska')
         return context
+
+
+class ContinentCreateView(CreateView):
+    title = 'Add continent'
+    template_name = 'form.html'
+    form_class = ContinentForm
+    success_url = reverse_lazy('core:add')
+
+    def post(self, request, *args, **kwargs):
+        result = super().post(request, *args, **kwargs)
+        return result

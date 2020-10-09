@@ -7,4 +7,4 @@ from accounts.forms import SignUpForm
 class SignUpView(CreateView):
     template_name = 'form.html'
     form_class = SignUpForm
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('trip_list')

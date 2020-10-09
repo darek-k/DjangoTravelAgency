@@ -1,4 +1,5 @@
-from core.views import TripDetailsView, template_elements, hotels, about, blog_home, blog_single, contact, insurance, \
+from core.views import TripDetailsView, ContinentCreateView, template_elements, hotels, about, blog_home, blog_single, \
+    contact, insurance, \
     packages
 from django.urls import path
 
@@ -13,4 +14,5 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('insurance/', insurance, name='insurance'),
     path('packages/', packages, name='packages'),
+    path('add/', ContinentCreateView.as_view(), name='add'),
 ]
