@@ -163,7 +163,7 @@
                         <div class="form-wrap">
                             {% for continent in continents %}
                             <un>
-                                <li><a href="{% url 'core:admin_details' pk=continent.id %}" class="genric-btn success">{{ continent }}</a></li>
+                                <li><a href="{% url 'core:continent_details' pk=continent.id %}" class="genric-btn success">{{ continent }}</a></li>
                             {% endfor %}
                             </un>
                                 <a href="{% url 'core:add_continent' %}" class="primary-btn text-uppercase">Dodaj kontynent</a>
@@ -174,7 +174,7 @@
                         <div class="form-wrap">
                             {% for country in countries %}
                             <un>
-                                <li><a href="{% url 'core:admin_details' pk=country.id %}" class="genric-btn success">{{ country }}</a></li>
+                                <li><a href="{% url 'core:continent_details' pk=country.id %}" class="genric-btn success">{{ country }}</a></li>
                             {% endfor %}
                             </un>
                                 <a href="{% url 'core:add_country' %}" class="primary-btn text-uppercase">Dodaj kraj</a>
@@ -185,7 +185,7 @@
                         <div class="form-wrap">
                             {% for city in cities %}
                             <un>
-                                <li><a href="{% url 'core:admin_details' pk=city.id %}" class="genric-btn success">{{ city }}</a></li>
+                                <li><a href="{% url 'core:continent_details' pk=city.id %}" class="genric-btn success">{{ city }}</a></li>
                             {% endfor %}
                             </un>
                                 <a href="{% url 'core:add_city' %}" class="primary-btn text-uppercase">Dodaj miasto</a>
@@ -196,7 +196,7 @@
                         <div class="form-wrap">
                             {% for airport in airports %}
                             <un>
-                                <li><a href="{% url 'core:admin_details' pk=airport.id %}" class="genric-btn success">{{ airport }}</a></li>
+                                <li><a href="{% url 'core:continent_details' pk=airport.id %}" class="genric-btn success">{{ airport }}</a></li>
                             {% endfor %}
                             </un>
                                 <a href="{% url 'core:add_airport' %}" class="primary-btn text-uppercase">Dodaj lotnisko</a>
@@ -207,7 +207,7 @@
                         <div class="form-wrap">
                             {% for hotel in hotels %}
                             <un>
-                                <li><a href="{% url 'core:admin_details' pk=hotel.id %}" class="genric-btn success">{{ hotel }}</a></li>
+                                <li><a href="{% url 'core:continent_details' pk=hotel.id %}" class="genric-btn success">{{ hotel }}</a></li>
                             {% endfor %}
                             </un>
                                 <a href="{% url 'core:add_hotel' %}" class="primary-btn text-uppercase">Dodaj hotel</a>
@@ -218,7 +218,7 @@
                         <div class="form-wrap">
                             {% for trip in trips %}
                             <un>
-                                <li><a href="{% url 'core:admin_details' pk=trip.id %}" class="genric-btn success">{{ trip }}</a></li>
+                                <li><a href="{% url 'core:continent_details' pk=trip.id %}" class="genric-btn success">{{ trip }}</a></li>
                             {% endfor %}
                             </un>
                                 <a href="{% url 'core:add_trip' %}" class="primary-btn text-uppercase">Dodaj wycieczkę</a>

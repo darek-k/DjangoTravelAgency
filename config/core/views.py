@@ -72,13 +72,11 @@ class ContinentCreateView(CreateView):
     success_url = reverse_lazy('core:admin_list')
 
 
-
 class CountryCreateView(CreateView):
     title = 'Add country'
     template_name = 'form.html'
     form_class = CountryForm
     success_url = reverse_lazy('core:admin_list')
-
 
 
 class CityCreateView(CreateView):
@@ -88,15 +86,11 @@ class CityCreateView(CreateView):
     success_url = reverse_lazy('core:admin_list')
 
 
-
-
 class HotelCreateView(CreateView):
     title = 'Add hotel'
     template_name = 'form.html'
     form_class = HotelForm
     success_url = reverse_lazy('core:admin_list')
-
-
 
 
 class AirportCreateView(CreateView):
@@ -106,13 +100,11 @@ class AirportCreateView(CreateView):
     success_url = reverse_lazy('core:admin_list')
 
 
-
 class TripCreateView(CreateView):
     title = 'Add trip'
     template_name = 'form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
-
 
 
 class AdminListView(ListView):
@@ -130,9 +122,9 @@ class AdminListView(ListView):
         return context
 
 
-class AdminDetailView(DetailView):
+class ContinentDetailView(DetailView):
     model = Continent
-    template_name = 'core/admin_details.html'
+    template_name = 'core/continent_details.html'
 
 
 class ContinentUpdateView(UpdateView):
