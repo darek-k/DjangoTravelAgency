@@ -1,11 +1,11 @@
 import datetime
 
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
-from core.models import Trip, Country
+from core.models import Trip, Country, Continent
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.timezone import now
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 def template_elements(request):
@@ -109,3 +109,14 @@ class TripCreateView(CreateView):
     template_name = 'form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:add_trip')
+
+
+class ContinentUpdateView(UpdateView):
+    model = Continent
+    fields = ('name',
+              )
+
+
+class ContinentDeleteView(DeleteView):
+    model = Continent
+    success_url = reverse_lazy('accounts:admin_details')

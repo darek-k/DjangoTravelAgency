@@ -162,7 +162,7 @@
                         <div class="form-wrap">
                             {% for continent in continents %}
                             <un>
-                                <li><a href="#" class="genric-btn success">{{ continent }}</a></li>
+                                <li><a href="{% url 'accounts:admin_details' pk=continent.id %}" class="genric-btn success">{{ continent }}</a></li>
                             {% endfor %}
                             </un>
                                 <a href="#" class="primary-btn text-uppercase">Dodaj kontynent</a>

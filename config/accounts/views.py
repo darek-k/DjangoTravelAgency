@@ -21,9 +21,9 @@ class AdminListView(ListView):
         return context
 
 
-class AddDetailView(DetailView):
-    model = Trip
-    template_name = 'accounts/admin_list.html'
+class AdminDetailView(DetailView):
+    model = Continent
+    template_name = 'accounts/admin_details.html'
 
 
 class SignUpView(CreateView):

@@ -160,12 +160,12 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="continent" role="tabpanel" aria-labelledby="continent-tab">
                         <div class="form-wrap">
-                            {% for continent in continents %}
                             <un>
-                                <li><a href="#" class="genric-btn success">{{ continent }}</a></li>
-                            {% endfor %}
+                                <li>{{ continent.id }}</li>
+                                <li>{{ continent.name }}</li>
+                                <li><a href="#" class="genric-btn warning">Edytuj</a>
+                                <a href="#" class="genric-btn danger">Usuń</a></li>
                             </un>
-                                <a href="#" class="primary-btn text-uppercase">Dodaj kontynent</a>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
