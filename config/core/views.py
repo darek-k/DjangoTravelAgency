@@ -1,7 +1,7 @@
 import datetime
 
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
-from core.models import Trip, Country, Continent
+from core.models import Trip, Country, Continent, City, Hotel, Airport
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.timezone import now
@@ -111,6 +111,26 @@ class TripCreateView(CreateView):
     success_url = reverse_lazy('core:add_trip')
 
 
+class AdminListView(ListView):
+    model = Trip
+    template_name = 'core/admin_list.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(AdminListView, self).get_context_data(**kwargs)
+        context['continents'] = Continent.objects.all()
+        context['countries'] = Country.objects.all()
+        context['cities'] = City.objects.all()
+        context['hotels'] = Hotel.objects.all()
+        context['airports'] = Airport.objects.all()
+        context['trips'] = Trip.objects.all()
+        return context
+
+
+class AdminDetailView(DetailView):
+    model = Continent
+    template_name = 'core/admin_details.html'
+
+
 class ContinentUpdateView(UpdateView):
     model = Continent
     fields = ('name',
@@ -119,4 +139,4 @@ class ContinentUpdateView(UpdateView):
 
 class ContinentDeleteView(DeleteView):
     model = Continent
-    success_url = reverse_lazy('accounts:admin_details')
+    success_url = reverse_lazy('core:admin_details')
