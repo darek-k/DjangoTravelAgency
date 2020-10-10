@@ -71,9 +71,6 @@ class ContinentCreateView(CreateView):
     form_class = ContinentForm
     success_url = reverse_lazy('core:admin_list')
 
-    def post(self, request, *args, **kwargs):
-        result = super().post(request, *args, **kwargs)
-        return result
 
 
 class CountryCreateView(CreateView):
@@ -83,11 +80,14 @@ class CountryCreateView(CreateView):
     success_url = reverse_lazy('core:admin_list')
 
 
+
 class CityCreateView(CreateView):
     title = 'Add city'
     template_name = 'form.html'
     form_class = CityForm
     success_url = reverse_lazy('core:admin_list')
+
+
 
 
 class HotelCreateView(CreateView):
@@ -97,6 +97,8 @@ class HotelCreateView(CreateView):
     success_url = reverse_lazy('core:admin_list')
 
 
+
+
 class AirportCreateView(CreateView):
     title = 'Add airport'
     template_name = 'form.html'
@@ -104,11 +106,13 @@ class AirportCreateView(CreateView):
     success_url = reverse_lazy('core:admin_list')
 
 
+
 class TripCreateView(CreateView):
     title = 'Add trip'
     template_name = 'form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
+
 
 
 class AdminListView(ListView):

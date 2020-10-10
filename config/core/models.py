@@ -115,7 +115,8 @@ class Trip(models.Model):
     kids_number = models.IntegerField(default=0)
 
     def __str__(self):
-        return f"From {self.departure_city} to {self.arrival_city} on {self.departure_date}"
+        return f"Z: {self.departure_city} do: {self.arrival_city}. Data wyjazdu: {self.departure_date} " \
+               f"Data odlotu: {self.return_date}"
 
 
 class TripPurchase(models.Model):
