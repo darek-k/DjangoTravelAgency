@@ -1,1 +1,1 @@
-#todo: jak edytować pliki frontendowe? w static? staticfiles?
+#todo: core/templates/core/details  - dokończ widoki dla każdego modelu

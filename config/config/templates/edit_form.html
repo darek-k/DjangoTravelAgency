@@ -129,19 +129,20 @@
                 </div>
 
                 <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
-                    <h3 class="mb-30">Usunąć {{ object }} ?</h3>
+                    <h3 class="mb-30">Formularz</h3>
 
                             <form method="post" class="">
                                 {% csrf_token %}
                                 {% for field in form %}
                                 <div class="mt-10 ">
+                                    <div>
+                                        <label class="your-class" for="{{ field.auto_id }}">{{ field.label }}</label>
+                                        {{ field.label_tag }} {{ field }}
+                                    </div>
 
                                 </div>
                                 {% endfor %}
-                                {% comment %}
-                                <a href="{% url 'core:admin_details' pk=object.id %}" class="genric-btn info">Wróć</a>
-                                {% endcomment %}
-                                <input type="submit" value="Usuń" class="genric-btn danger">
+                                    <input type="submit" value="Edytuj" class="genric-btn primary e-large">
 
                             </form>
 

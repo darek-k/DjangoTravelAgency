@@ -129,7 +129,7 @@ class ContinentDetailView(DetailView):
 
 class ContinentUpdateView(UpdateView):
     model = Continent
-    template_name = 'form.html'
+    template_name = 'edit_form.html'
     form_class = ContinentForm
     success_url = reverse_lazy('core:admin_list')
 
@@ -148,7 +148,7 @@ class CountryDetailView(DetailView):
 
 class CountrytUpdateView(UpdateView):
     model = Country
-    template_name = 'form.html'
+    template_name = 'edit_form.html'
     form_class = CountryForm
     success_url = reverse_lazy('core:admin_list')
 
@@ -167,7 +167,7 @@ class CityDetailView(DetailView):
 
 class CityUpdateView(UpdateView):
     model = City
-    template_name = 'form.html'
+    template_name = 'edit_form.html'
     form_class = CityForm
     success_url = reverse_lazy('core:admin_list')
 
@@ -186,7 +186,7 @@ class HotelDetailView(DetailView):
 
 class HotelUpdateView(UpdateView):
     model = Hotel
-    template_name = 'form.html'
+    template_name = 'edit_form.html'
     form_class = HotelForm
     success_url = reverse_lazy('core:admin_list')
 
@@ -205,7 +205,7 @@ class AirportDetailView(DetailView):
 
 class AirportUpdateView(UpdateView):
     model = Airport
-    template_name = 'form.html'
+    template_name = 'edit_form.html'
     form_class = AirportForm
     success_url = reverse_lazy('core:admin_list')
 
@@ -224,7 +224,7 @@ class TripDetailView(DetailView):
 
 class TripUpdateView(UpdateView):
     model = Trip
-    template_name = 'form.html'
+    template_name = 'edit_form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
 
