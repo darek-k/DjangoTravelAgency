@@ -1,6 +1,6 @@
 import datetime
 
-from core.forms import ContinentForm
+from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
 from core.models import Trip, Country
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -74,3 +74,38 @@ class ContinentCreateView(CreateView):
     def post(self, request, *args, **kwargs):
         result = super().post(request, *args, **kwargs)
         return result
+
+
+class CountryCreateView(CreateView):
+    title = 'Add country'
+    template_name = 'form.html'
+    form_class = CountryForm
+    success_url = reverse_lazy('core:add_country')
+
+
+class CityCreateView(CreateView):
+    title = 'Add city'
+    template_name = 'form.html'
+    form_class = CityForm
+    success_url = reverse_lazy('core:add_city')
+
+
+class HotelCreateView(CreateView):
+    title = 'Add hotel'
+    template_name = 'form.html'
+    form_class = HotelForm
+    success_url = reverse_lazy('core:add_hotel')
+
+
+class AirportCreateView(CreateView):
+    title = 'Add airport'
+    template_name = 'form.html'
+    form_class = AirportForm
+    success_url = reverse_lazy('core:add_airport')
+
+
+class TripCreateView(CreateView):
+    title = 'Add trip'
+    template_name = 'form.html'
+    form_class = TripForm
+    success_url = reverse_lazy('core:add_trip')
