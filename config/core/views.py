@@ -140,7 +140,97 @@ class ContinentDeleteView(DeleteView):
     form_class = ContinentForm
     success_url = reverse_lazy('core:admin_list')
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['object'] = Continent.objects.get(id=id)
-    #     return context
+
+class CountryDetailView(DetailView):
+    model = Country
+    template_name = 'core/country_details.html'
+
+
+class CountrytUpdateView(UpdateView):
+    model = Country
+    template_name = 'form.html'
+    form_class = CountryForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class CountryDeleteView(DeleteView):
+    model = Country
+    template_name = 'delete_form.html'
+    form_class = CountryForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class CityDetailView(DetailView):
+    model = City
+    template_name = 'core/city_details.html'
+
+
+class CityUpdateView(UpdateView):
+    model = City
+    template_name = 'form.html'
+    form_class = CityForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class CityDeleteView(DeleteView):
+    model = City
+    template_name = 'delete_form.html'
+    form_class = CityForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class HotelDetailView(DetailView):
+    model = Hotel
+    template_name = 'core/hotel_details.html'
+
+
+class HotelUpdateView(UpdateView):
+    model = Hotel
+    template_name = 'form.html'
+    form_class = HotelForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class HotelDeleteView(DeleteView):
+    model = Hotel
+    template_name = 'delete_form.html'
+    form_class = HotelForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class AirportDetailView(DetailView):
+    model = Airport
+    template_name = 'core/airport_details.html'
+
+
+class AirportUpdateView(UpdateView):
+    model = Airport
+    template_name = 'form.html'
+    form_class = AirportForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class AirportDeleteView(DeleteView):
+    model = Airport
+    template_name = 'delete_form.html'
+    form_class = AirportForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class TripDetailView(DetailView):
+    model = Trip
+    template_name = 'core/trip_details.html'
+
+
+class TripUpdateView(UpdateView):
+    model = Trip
+    template_name = 'form.html'
+    form_class = TripForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class TripDeleteView(DeleteView):
+    model = Trip
+    template_name = 'delete_form.html'
+    form_class = TripForm
+    success_url = reverse_lazy('core:admin_list')
