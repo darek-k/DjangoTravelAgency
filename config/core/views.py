@@ -133,10 +133,18 @@ class AdminDetailView(DetailView):
 
 class ContinentUpdateView(UpdateView):
     model = Continent
-    fields = ('name',
-              )
+    template_name = 'form.html'
+    form_class = ContinentForm
+    success_url = reverse_lazy('core:admin_list')
 
 
 class ContinentDeleteView(DeleteView):
     model = Continent
-    success_url = reverse_lazy('core:admin_details')
+    template_name = 'delete_form.html'
+    form_class = ContinentForm
+    success_url = reverse_lazy('core:admin_list')
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['object'] = Continent.objects.get(id=id)
+    #     return context
