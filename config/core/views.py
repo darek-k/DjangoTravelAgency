@@ -69,7 +69,7 @@ class ContinentCreateView(CreateView):
     title = 'Add continent'
     template_name = 'form.html'
     form_class = ContinentForm
-    success_url = reverse_lazy('core:add')
+    success_url = reverse_lazy('core:add_continent')
 
     def post(self, request, *args, **kwargs):
         result = super().post(request, *args, **kwargs)

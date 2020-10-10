@@ -14,5 +14,5 @@ urlpatterns = [
     path('contact/', contact, name='contact'),
     path('insurance/', insurance, name='insurance'),
     path('packages/', packages, name='packages'),
-    path('add/', ContinentCreateView.as_view(), name='add'),
+    path('add_continent/', ContinentCreateView.as_view(), name='add_continent'),
 ]
