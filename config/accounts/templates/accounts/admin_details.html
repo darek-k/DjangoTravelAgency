@@ -131,22 +131,83 @@
             <div class="container">
                 </div>
 
-                <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
-                    <h3 class="mb-30">Formularz</h3>
+            <div class="col-lg-4 col-md-6 banner-right">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="continent-tab" data-toggle="tab" href="#continent" role="tab"
+                           aria-controls="continent" aria-selected="true">Kontynenty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
+                           aria-controls="hotel" aria-selected="false">Kraje</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
+                           aria-controls="holiday" aria-selected="false">Miasta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
+                           aria-controls="holiday" aria-selected="false">Lotniska</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
+                           aria-controls="holiday" aria-selected="false">Hotele</a>
+                    </li>                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
+                           aria-controls="holiday" aria-selected="false">Wycieczki</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="continent" role="tabpanel" aria-labelledby="continent-tab">
+                        <div class="form-wrap">
+                            {% for continent in continents %}
+                            <un>
+                                <li><a href="#" class="genric-btn success">{{ continent }}</a></li>
+                            {% endfor %}
+                            </un>
+                                <a href="#" class="primary-btn text-uppercase">Dodaj kontynent</a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+                        <form class="form-wrap">
+                            <input type="text" class="form-control" name="name" placeholder="From "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                            <input type="text" class="form-control" name="to" placeholder="To "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+                            <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                            <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                            <input type="number" min="1" max="20" class="form-control" name="adults"
+                                   placeholder="Adults " onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Adults '">
+                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                            <a href="#" class="primary-btn text-uppercase">Search Hotels</a>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
+                        <form class="form-wrap">
+                            <input type="text" class="form-control" name="name" placeholder="From "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                            <input type="text" class="form-control" name="to" placeholder="To "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+                            <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                            <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                            <input type="number" min="1" max="20" class="form-control" name="adults"
+                                   placeholder="Adults " onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Adults '">
+                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                            <a href="#" class="primary-btn text-uppercase">Search Holidays</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
 
-                            <form method="post" class="">
-                                {% csrf_token %}
-                                {% for field in form %}
-                                <div class="mt-10">
-                                    {{ field.errors }}
-                                    {{ field.label_tag }} {{ field }}
-                                </div>
-                                {% endfor %}
-                                    <input type="submit" value="Submit" class="genric-btn primary e-large">
 
-                            </form>
-
-                </div>  <!-- Form elements -->
             </div>
         </div>
         <!-- End Align Area -->

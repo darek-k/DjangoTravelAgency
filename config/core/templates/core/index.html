@@ -1,318 +1,347 @@
 {% load static %}
 {% load core_extras %}
 
-	<!DOCTYPE html>
-	<html lang="zxx" class="no-js">
-	<head>
-		<!-- Mobile Specific Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<!-- Favicon-->
-		<link rel="shortcut icon" href="img/fav.png">
-		<!-- Author Meta -->
-		<meta name="author" content="colorlib">
-		<!-- Meta Description -->
-		<meta name="description" content="">
-		<!-- Meta Keyword -->
-		<meta name="keywords" content="">
-		<!-- meta character set -->
-		<meta charset="UTF-8">
-		<!-- Site Title -->
-		<title>Travel</title>
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Travel</title>
 
-		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-			<!--
-			CSS
-			============================================= -->
-			<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
-			<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-			<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-			<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-			<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
-			<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-			<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-			<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
-			<link rel="stylesheet" href="{% static 'css/main.css' %}">
-		</head>
-		<body>
-			<header id="header">
-				<div class="header-top">
-					<div class="container">
-			  		<div class="row align-items-center">
-			  			<div class="col-lg-6 col-sm-6 col-6 header-top-left">
-			  				<ul>
-			  					<li><a href="#">Visit Us</a></li>
-			  					<li><a href="#">Buy Tickets</a></li>
-			  				</ul>
-			  			</div>
-			  			<div class="col-lg-6 col-sm-6 col-6 header-top-right">
-							<div class="header-social">
-								<a href="#"><i class="fa fa-facebook"></i></a>
-								<a href="#"><i class="fa fa-twitter"></i></a>
-								<a href="#"><i class="fa fa-dribbble"></i></a>
-								<a href="#"><i class="fa fa-behance"></i></a>
-							</div>
-			  			</div>
-			  		</div>
-					</div>
-				</div>
-				<div class="container main-menu">
-					<div class="row align-items-center justify-content-between d-flex">
-				      <div id="logo">
-				        <a href="{% url 'trip_list' %}"><img src="{% static 'img/logo.png' %}" alt="" title="" /></a>
-				      </div>
-				      <nav id="nav-menu-container">
-				        <ul class="nav-menu">
-				          <li><a href="{% url 'trip_list' %}">Home</a></li>
-				          <li><a href="{% url 'core:about' %}">About</a></li>
-				          <li><a href="{% url 'core:packages' %}">Packages</a></li>
-				          <li><a href="{% url 'core:hotels' %}">Hotels</a></li>
-				          <li><a href="{% url 'core:insurance' %}">Insurance</a></li>
-				          <li class="menu-has-children"><a href="">Blog</a>
-				            <ul>
-				              <li><a href="{% url 'core:blog_home' %}">Blog Home</a></li>
-				              <li><a href="{% url 'core:blog_single' %}">Blog Single</a></li>
-				            </ul>
-				          </li>
-				          <li class="menu-has-children"><a href="">Pages</a>
-				            <ul>
-				            	  <li><a href="{% url 'core:elements' %}">Elements</a></li>
-						          <li class="menu-has-children"><a href="">Level 2 </a>
-						            <ul>
-						              <li><a href="#">Item One</a></li>
-						              <li><a href="#">Item Two</a></li>
-						            </ul>
-						          </li>
-				            </ul>
-				          </li>
-				          <li><a href="{% url 'core:contact' %}">Contact</a></li>
-				          <li class="menu-has-children"><a href=#>Logowanie</a>
-				            <ul>
-				              <li><a href="{% url 'core:blog_home' %}">Zaloguj</a></li>
-				              <li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
-				            </ul>
-				          </li>
-
-				        </ul>
-				      </nav><!-- #nav-menu-container -->
-					</div>
-				</div>
-			</header><!-- #header -->
-
-			<!-- start banner Area -->
-			<section class="banner-area relative">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row fullscreen align-items-center justify-content-between">
-						<div class="col-lg-6 col-md-6 banner-left">
-							<h6 class="text-white">Away from monotonous life</h6>
-							<h1 class="text-white">Magical Travel</h1>
-							<p class="text-white">
-								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.
-							</p>
-							<a href="#" class="primary-btn text-uppercase">Get Started</a>
-						</div>
-						<div class="col-lg-4 col-md-6 banner-right">
-							<ul class="nav nav-tabs" id="myTab" role="tablist">
-							  <li class="nav-item">
-							    <a class="nav-link active" id="flight-tab" data-toggle="tab" href="#flight" role="tab" aria-controls="flight" aria-selected="true">Wycieczki</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab" aria-controls="hotel" aria-selected="false">Hotels</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab" aria-controls="holiday" aria-selected="false">Holidays</a>
-							  </li>
-							</ul>
-							<div class="tab-content" id="myTabContent">
-							  <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
-								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
-									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
-									<a href="#" class="primary-btn text-uppercase">Search flights</a>
-								</form>
-							  </div>
-							  <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
-									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
-									<a href="#" class="primary-btn text-uppercase">Search Hotels</a>
-								</form>
-							  </div>
-							  <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
-								<form class="form-wrap">
-									<input type="text" class="form-control" name="name" placeholder="From " onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
-									<input type="text" class="form-control" name="to" placeholder="To " onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-									<input type="text" class="form-control date-picker" name="start" placeholder="Start " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-									<input type="text" class="form-control date-picker" name="return" placeholder="Return " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-									<input type="number" min="1" max="20" class="form-control" name="adults" placeholder="Adults " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Adults '">
-									<input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child " onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
-									<a href="#" class="primary-btn text-uppercase">Search Holidays</a>
-								</form>
-							  </div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End banner Area -->
-
-
-			<section class="hot-deal-area section-gap">
-				<div class="container">
-                <div class="row d-flex justify-content-center">
-                </div> <!-- City and hotel name -->
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 active-hot-deal-carusel">
-						{% for country in all_countries %}
-                        <div class="single-carusel">
-                            <div class="thumb relative">
-                                <div class="overlay overlay-bg"></div>
-                                <img class="img-fluid" src="{{ country.country_image }}" alt="" style="width:944px; height:400px">
-                            </div>
-                            <div class="price-detials">
-                                <a class="price-btn">Ceny od: <span> zł</span></a>
-                            </div>
-                            <div class="details">
-                                <h4 class="text-white">{{ country.name }}</h4>
-                            </div>
-                        </div>
-						{% endfor %}
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<header id="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-6 col-6 header-top-left">
+                    <ul>
+                        <li><a href="#">Visit Us</a></li>
+                        <li><a href="#">Buy Tickets</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-6 header-top-right">
+                    <div class="header-social">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-dribbble"></i></a>
+                        <a href="#"><i class="fa fa-behance"></i></a>
                     </div>
-                </div> <!-- Pictures and price -->
-
+                </div>
             </div>
-        	</section>
+        </div>
+    </div>
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="{% url 'trip_list' %}"><img src="{% static 'img/logo.png' %}" alt="" title=""/></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'trip_list' %}">Home</a></li>
+                    <li><a href="{% url 'core:about' %}">About</a></li>
+                    <li><a href="{% url 'core:packages' %}">Packages</a></li>
+                    <li><a href="{% url 'core:hotels' %}">Hotels</a></li>
+                    <li><a href="{% url 'core:insurance' %}">Insurance</a></li>
+                    <li class="menu-has-children"><a href="">Blog</a>
+                        <ul>
+                            <li><a href="{% url 'core:blog_home' %}">Blog Home</a></li>
+                            <li><a href="{% url 'core:blog_single' %}">Blog Single</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-has-children"><a href="">Pages</a>
+                        <ul>
+                            <li><a href="{% url 'core:elements' %}">Elements</a></li>
+                            <li class="menu-has-children"><a href="">Level 2 </a>
+                                <ul>
+                                    <li><a href="#">Item One</a></li>
+                                    <li><a href="#">Item Two</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="{% url 'core:contact' %}">Contact</a></li>
+                    <li class="menu-has-children"><a href=#>Logowanie</a>
+                        <ul>
+                            <li><a href="{% url 'core:blog_home' %}">Zaloguj</a></li>
+                            <li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+
+<!-- start banner Area -->
+<section class="banner-area relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen align-items-center justify-content-between">
+            <div class="col-lg-6 col-md-6 banner-left">
+                <h6 class="text-white">Away from monotonous life</h6>
+                <h1 class="text-white">Magical Travel</h1>
+                <p class="text-white">
+                    If you are looking at blank cassettes on the web, you may be very confused at the difference in
+                    price. You may see some for as low as $.17 each.
+                </p>
+                <a href="#" class="primary-btn text-uppercase">Get Started</a>
+            </div>
+
+            <div class="col-lg-4 col-md-6 banner-right">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="flight-tab" data-toggle="tab" href="#flight" role="tab"
+                           aria-controls="flight" aria-selected="true">Wycieczki</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
+                           aria-controls="hotel" aria-selected="false">Hotels</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
+                           aria-controls="holiday" aria-selected="false">Holidays</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
+                        <form class="form-wrap">
+                            <input type="text" class="form-control" name="name" placeholder="From "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                            <input type="text" class="form-control" name="to" placeholder="To "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+                            <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                            <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                            <input type="number" min="1" max="20" class="form-control" name="adults"
+                                   placeholder="Adults " onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Adults '">
+                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                            <a href="#" class="primary-btn text-uppercase">Search flights</a>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
+                        <form class="form-wrap">
+                            <input type="text" class="form-control" name="name" placeholder="From "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                            <input type="text" class="form-control" name="to" placeholder="To "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+                            <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                            <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                            <input type="number" min="1" max="20" class="form-control" name="adults"
+                                   placeholder="Adults " onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Adults '">
+                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                            <a href="#" class="primary-btn text-uppercase">Search Hotels</a>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
+                        <form class="form-wrap">
+                            <input type="text" class="form-control" name="name" placeholder="From "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+                            <input type="text" class="form-control" name="to" placeholder="To "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
+                            <input type="text" class="form-control date-picker" name="start" placeholder="Start "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
+                            <input type="text" class="form-control date-picker" name="return" placeholder="Return "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
+                            <input type="number" min="1" max="20" class="form-control" name="adults"
+                                   placeholder="Adults " onfocus="this.placeholder = ''"
+                                   onblur="this.placeholder = 'Adults '">
+                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
+                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
+                            <a href="#" class="primary-btn text-uppercase">Search Holidays</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
 
 
+<section class="hot-deal-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+        </div> <!-- City and hotel name -->
 
-			<!-- Start popular-destination Area -->
-			<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Najlepsze oferty</h1>
-		                        <p>Popularne oferty Popularne oferty Popularne oferty Popularne oferty</p>
-		                    </div>
-		                </div>
-		            </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10 active-hot-deal-carusel">
+                {% for country in all_countries %}
+                <div class="single-carusel">
+                    <div class="thumb relative">
+                        <div class="overlay overlay-bg"></div>
+                        <img class="img-fluid" src="{{ country.country_image }}" alt=""
+                             style="width:944px; height:400px">
+                    </div>
+                    <div class="price-detials">
+                        <a class="price-btn">Ceny od: <span> zł</span></a>
+                    </div>
+                    <div class="details">
+                        <h4 class="text-white">{{ country.name }}</h4>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div> <!-- Pictures and price -->
 
-					<div class="row">
-						{% for trip in promoted_trips %}
-						<a href="{% url 'core:trip_details' pk=trip.pk %}">
-							<div class="col-lg-4">
-
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
-								</div>
-								<div class="desc">
-									<a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{ trip.price_for_adult}}</a>
-									<a href="{% url 'core:trip_details' pk=trip.pk %}">
-										<h4>{{ trip.arrival_city.country}}</h4>
-									</a>
-									<a href="{% url 'core:trip_details' pk=trip.pk %}">
-										<p>{{ trip.arrival_city }}</p>
-									</a>
-								</div>
-							</div>
-						</div>
-						</a>
-						{% endfor %}
-					</div>
-				</div>
-			</section>
-			<!-- End popular-destination Area -->
+    </div>
+</section>
 
 
-			<!-- Start Last minute Area -->
-			<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Last minute - ostatnie miejsca na najbliższe wyloty! </h1>
-		                        <p>Last minute Last minute Last minute Last minute Last minute Last minute </p>
-		                    </div>
-		                </div>
-		            </div>
+<!-- Start popular-destination Area -->
+<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Najlepsze oferty</h1>
+                    <p>Popularne oferty Popularne oferty Popularne oferty Popularne oferty</p>
+                </div>
+            </div>
+        </div>
 
-					<div class="row">
-						{% for trip in last_minute_trips %}
-						<a href="{% url 'core:trip_details' pk=trip.pk %}">
-						<div class="col-lg-4" >
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
-								</div>
-								<div class="desc">
-									<a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{ trip.price_for_adult}}</a>
-									<a href="{% url 'core:trip_details' pk=trip.pk %}">
-										<h4>{{ trip.arrival_city.country}}</h4>
-									</a>
-									<a href="{% url 'core:trip_details' pk=trip.pk %}">
-										<p>{{ trip.arrival_city }}</p>
-									</a>
-								</div>
-							</div>
-						</div>
-						</a>
-						{% endfor %}
-					</div>
-				</div>
-			</section>
-			<!-- End Last minute Area -->
+        <div class="row">
+            {% for trip in promoted_trips %}
+            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                <div class="col-lg-4">
+
+                    <div class="single-destination relative">
+                        <div class="thumb relative">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
+                        </div>
+                        <div class="desc">
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{
+                                trip.price_for_adult}}</a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                                <h4>{{ trip.arrival_city.country}}</h4>
+                            </a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                                <p>{{ trip.arrival_city }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End popular-destination Area -->
 
 
-			<!-- Start Previous Trips Area -->
-			<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
-				<div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Popularne wycieczki (SKOŃCZ)</h1>
-		                        <p>Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione </p>
-		                    </div>
-		                </div>
-		            </div>
+<!-- Start Last minute Area -->
+<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Last minute - ostatnie miejsca na najbliższe wyloty! </h1>
+                    <p>Last minute Last minute Last minute Last minute Last minute Last minute </p>
+                </div>
+            </div>
+        </div>
 
-					<div class="row">
-						{% for trip in last_minute_trips %}
-						<a href="{% url 'core:trip_details' pk=trip.pk %}">
-						<div class="col-lg-4">
-							<div class="single-destination relative">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
-								</div>
-								<div class="desc">
-									<a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{ trip.price_for_adult}}</a>
-									<a href="{% url 'core:trip_details' pk=trip.pk %}">
-										<h4>{{ trip.arrival_city.country}}</h4>
-									</a>
-									<a href="{% url 'core:trip_details' pk=trip.pk %}">
-										<p>{{ trip.arrival_city }}</p>
-									</a>
-								</div>
-							</div>
-						</div>
-						</a>
-						{% endfor %}
-					</div>
-				</div>
-			</section>
-			<!-- End Previous Trips Area -->
+        <div class="row">
+            {% for trip in last_minute_trips %}
+            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                <div class="col-lg-4">
+                    <div class="single-destination relative">
+                        <div class="thumb relative">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
+                        </div>
+                        <div class="desc">
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{
+                                trip.price_for_adult}}</a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                                <h4>{{ trip.arrival_city.country}}</h4>
+                            </a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                                <p>{{ trip.arrival_city }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End Last minute Area -->
+
+
+<!-- Start Previous Trips Area -->
+<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Popularne wycieczki (SKOŃCZ)</h1>
+                    <p>Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            {% for trip in last_minute_trips %}
+            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                <div class="col-lg-4">
+                    <div class="single-destination relative">
+                        <div class="thumb relative">
+                            <div class="overlay overlay-bg"></div>
+                            <img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
+                        </div>
+                        <div class="desc">
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{
+                                trip.price_for_adult}}</a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                                <h4>{{ trip.arrival_city.country}}</h4>
+                            </a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+                                <p>{{ trip.arrival_city }}</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<!-- End Previous Trips Area -->
 
 
 <!--			&lt;!&ndash; Start price Area &ndash;&gt;-->
@@ -496,132 +525,139 @@
 <!--			&lt;!&ndash; End other-issue Area &ndash;&gt;-->
 
 
-			<!-- Start testimonial Area -->
-		    <section class="testimonial-area section-gap">
-		        <div class="container">
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">Testimonial from our Clients</h1>
-		                        <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
-		                    </div>
-		                </div>
-		            </div>
-		            <div class="row">
-		                <div class="active-testimonial">
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-									</div>
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-									</div>
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                Do you want to be even more successful? Learn to love learning and growth. The more effort you put into improving your skills, the bigger the payoff you.
-		                            </p>
-		                            <h4>Harriet Maxwell</h4>
-	                            	<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-									</div>
-		                        </div>
-		                    </div>
-		                    <div class="single-testimonial item d-flex flex-row">
-		                        <div class="thumb">
-		                            <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
-		                        </div>
-		                        <div class="desc">
-		                            <p>
-		                                A purpose is the eternal condition for success. Every former smoker can tell you just how hard it is to stop smoking cigarettes. However.
-		                            </p>
-		                            <h4>Carolyn Craig</h4>
-	                           		<div class="star">
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star checked"></span>
-										<span class="fa fa-star"></span>
-										<span class="fa fa-star"></span>
-									</div>
-		                        </div>
-		                    </div>
-		                </div>
-		            </div>
-		        </div>
-		    </section>
-		    <!-- End testimonial Area -->
+<!-- Start testimonial Area -->
+<section class="testimonial-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Testimonial from our Clients</h1>
+                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall
+                        from </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="active-testimonial">
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Do you want to be even more successful? Learn to love learning and growth. The more effort
+                            you put into improving your skills, the bigger the payoff you.
+                        </p>
+                        <h4>Harriet Maxwell</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            A purpose is the eternal condition for success. Every former smoker can tell you just how
+                            hard it is to stop smoking cigarettes. However.
+                        </p>
+                        <h4>Carolyn Craig</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Do you want to be even more successful? Learn to love learning and growth. The more effort
+                            you put into improving your skills, the bigger the payoff you.
+                        </p>
+                        <h4>Harriet Maxwell</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            A purpose is the eternal condition for success. Every former smoker can tell you just how
+                            hard it is to stop smoking cigarettes. However.
+                        </p>
+                        <h4>Carolyn Craig</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            Do you want to be even more successful? Learn to love learning and growth. The more effort
+                            you put into improving your skills, the bigger the payoff you.
+                        </p>
+                        <h4>Harriet Maxwell</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="single-testimonial item d-flex flex-row">
+                    <div class="thumb">
+                        <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
+                    </div>
+                    <div class="desc">
+                        <p>
+                            A purpose is the eternal condition for success. Every former smoker can tell you just how
+                            hard it is to stop smoking cigarettes. However.
+                        </p>
+                        <h4>Carolyn Craig</h4>
+                        <div class="star">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End testimonial Area -->
 
 <!--			&lt;!&ndash; Start home-about Area &ndash;&gt;-->
 <!--			<section class="home-about-area">-->
@@ -799,104 +835,112 @@
 <!--			</section>-->
 <!--			&lt;!&ndash; End recent-blog Area &ndash;&gt;			-->
 
-			<!-- start footer Area -->
-			<footer class="footer-area section-gap">
-				<div class="container">
+<!-- start footer Area -->
+<footer class="footer-area section-gap">
+    <div class="container">
 
-					<div class="row">
-						<div class="col-lg-3  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>About Agency</h6>
-								<p>
-									The world has become so fast paced that people don’t want to stand by reading a page of information, they would much rather look at a presentation and understand the message. It has come to a point
-								</p>
-							</div>
-						</div>
-						<div class="col-lg-3 col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Navigation Links</h6>
-								<div class="row">
-									<div class="col">
-										<ul>
-											<li><a href="#">Home</a></li>
-											<li><a href="#">Feature</a></li>
-											<li><a href="#">Services</a></li>
-											<li><a href="#">Portfolio</a></li>
-										</ul>
-									</div>
-									<div class="col">
-										<ul>
-											<li><a href="#">Team</a></li>
-											<li><a href="#">Pricing</a></li>
-											<li><a href="#">Blog</a></li>
-											<li><a href="#">Contact</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3  col-md-6 col-sm-6">
-							<div class="single-footer-widget">
-								<h6>Newsletter</h6>
-								<p>
-									For business professionals caught between high OEM price and mediocre print and graphic output.
-								</p>
-								<div id="mc_embed_signup">
-									<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscription relative">
-										<div class="input-group d-flex flex-row">
-											<input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email Address '" required="" type="email">
-											<button class="btn bb-btn"><span class="lnr lnr-location"></span></button>
-										</div>
-										<div class="mt-10 info"></div>
-									</form>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-3  col-md-6 col-sm-6">
-							<div class="single-footer-widget mail-chimp">
-								<h6 class="mb-20">InstaFeed</h6>
-								<ul class="instafeed d-flex flex-wrap">
-									<li><img src="{% static 'img/i1.jpg' %}" alt=""></li>
-									<li><img src="{% static 'img/i2.jpg' %}" alt=""></li>
-									<li><img src="{% static 'img/i3.jpg' %}" alt=""></li>
-									<li><img src="{% static 'img/i4.jpg' %}" alt=""></li>
-									<li><img src="{% static 'img/i5.jpg' %}" alt=""></li>
-									<li><img src="{% static 'img/i6.jpg' %}" alt=""></li>
-									<li><img src="{% static 'img/i7.jpg' %}" alt=""></li>
-									<li><img src="{% static 'img/i8.jpg' %}" alt=""></li>
-								</ul>
-							</div>
-						</div>
-					</div>
+        <div class="row">
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>About Agency</h6>
+                    <p>
+                        The world has become so fast paced that people don’t want to stand by reading a page of
+                        information, they would much rather look at a presentation and understand the message. It has
+                        come to a point
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>Navigation Links</h6>
+                    <div class="row">
+                        <div class="col">
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Feature</a></li>
+                                <li><a href="#">Services</a></li>
+                                <li><a href="#">Portfolio</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul>
+                                <li><a href="#">Team</a></li>
+                                <li><a href="#">Pricing</a></li>
+                                <li><a href="#">Blog</a></li>
+                                <li><a href="#">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                    <h6>Newsletter</h6>
+                    <p>
+                        For business professionals caught between high OEM price and mediocre print and graphic output.
+                    </p>
+                    <div id="mc_embed_signup">
+                        <form target="_blank"
+                              action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                              method="get" class="subscription relative">
+                            <div class="input-group d-flex flex-row">
+                                <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''"
+                                       onblur="this.placeholder = 'Email Address '" required="" type="email">
+                                <button class="btn bb-btn"><span class="lnr lnr-location"></span></button>
+                            </div>
+                            <div class="mt-10 info"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget mail-chimp">
+                    <h6 class="mb-20">InstaFeed</h6>
+                    <ul class="instafeed d-flex flex-wrap">
+                        <li><img src="{% static 'img/i1.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i2.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i3.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i4.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i5.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i6.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i7.jpg' %}" alt=""></li>
+                        <li><img src="{% static 'img/i8.jpg' %}" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-					<div class="row footer-bottom d-flex justify-content-between align-items-center">
-						<p class="col-lg-8 col-sm-12 footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-						<div class="col-lg-4 col-sm-12 footer-social">
-							<a href="#"><i class="fa fa-facebook"></i></a>
-							<a href="#"><i class="fa fa-twitter"></i></a>
-							<a href="#"><i class="fa fa-dribbble"></i></a>
-							<a href="#"><i class="fa fa-behance"></i></a>
-						</div>
-					</div>
-				</div>
-			</footer>
-			<!-- End footer Area -->
+        <div class="row footer-bottom d-flex justify-content-between align-items-center">
+            <p class="col-lg-8 col-sm-12 footer-text m-0">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="col-lg-4 col-sm-12 footer-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-behance"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->
 
-			<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
-			<script src="{% static 'js/popper.min.js' %}"></script>
-			<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
-			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
- 			<script src="{% static 'js/jquery-ui.js' %}"></script>
-  			<script src="{% static 'js/easing.min.js' %}"></script>
-			<script src="{% static 'js/hoverIntent.js' %}"></script>
-			<script src="{% static 'js/superfish.min.js' %}"></script>
-			<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
-			<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-			<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
-			<script src="{% static 'js/owl.carousel.min.js' %}"></script>
-			<script src="{% static 'js/mail-script.js' %}"></script>
-			<script src="{% static 'js/main.js' %}"></script>
-		</body>
-	</html>
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/easing.min.js' %}"></script>
+<script src="{% static 'js/hoverIntent.js' %}"></script>
+<script src="{% static 'js/superfish.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
