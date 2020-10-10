@@ -138,25 +138,26 @@
                            aria-controls="continent" aria-selected="true">Kontynenty</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="country-tab" data-toggle="tab" href="#country" role="tab"
+                           aria-controls="country" aria-selected="false">Kraje</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="city-tab" data-toggle="tab" href="#city" role="tab"
+                           aria-controls="city" aria-selected="false">Miasta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link genric-btn info" id="airport-tab" data-toggle="tab" href="#airport" role="tab"
+                           aria-controls="airport" aria-selected="false">Lotniska</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link genric-btn info" id="hotel-tab" data-toggle="tab" href="#hotel" role="tab"
-                           aria-controls="hotel" aria-selected="false">Kraje</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
-                           aria-controls="holiday" aria-selected="false">Miasta</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
-                           aria-controls="holiday" aria-selected="false">Lotniska</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
-                           aria-controls="holiday" aria-selected="false">Hotele</a>
+                           aria-controls="hotel" aria-selected="false">Hotele</a>
                     </li>                    <li class="nav-item">
-                        <a class="nav-link genric-btn info" id="holiday-tab" data-toggle="tab" href="#holiday" role="tab"
-                           aria-controls="holiday" aria-selected="false">Wycieczki</a>
+                        <a class="nav-link genric-btn info" id="trip-tab" data-toggle="tab" href="#trip" role="tab"
+                           aria-controls="trip" aria-selected="false">Wycieczki</a>
                     </li>
                 </ul>
+
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="continent" role="tabpanel" aria-labelledby="continent-tab">
                         <div class="form-wrap">
@@ -165,45 +166,65 @@
                                 <li><a href="{% url 'core:admin_details' pk=continent.id %}" class="genric-btn success">{{ continent }}</a></li>
                             {% endfor %}
                             </un>
-                                <a href="#" class="primary-btn text-uppercase">Dodaj kontynent</a>
+                                <a href="{% url 'core:add_continent' %}" class="primary-btn text-uppercase">Dodaj kontynent</a>
                         </div>
                     </div>
+
+                    <div class="tab-pane fade" id="country" role="tabpanel" aria-labelledby="country-tab">
+                        <div class="form-wrap">
+                            {% for country in countries %}
+                            <un>
+                                <li><a href="{% url 'core:admin_details' pk=country.id %}" class="genric-btn success">{{ country }}</a></li>
+                            {% endfor %}
+                            </un>
+                                <a href="{% url 'core:add_country' %}" class="primary-btn text-uppercase">Dodaj kraj</a>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
+                        <div class="form-wrap">
+                            {% for city in cities %}
+                            <un>
+                                <li><a href="{% url 'core:admin_details' pk=city.id %}" class="genric-btn success">{{ city }}</a></li>
+                            {% endfor %}
+                            </un>
+                                <a href="{% url 'core:add_city' %}" class="primary-btn text-uppercase">Dodaj miasto</a>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="airport" role="tabpanel" aria-labelledby="airport-tab">
+                        <div class="form-wrap">
+                            {% for airport in airports %}
+                            <un>
+                                <li><a href="{% url 'core:admin_details' pk=airport.id %}" class="genric-btn success">{{ airport }}</a></li>
+                            {% endfor %}
+                            </un>
+                                <a href="{% url 'core:add_airport' %}" class="primary-btn text-uppercase">Dodaj lotnisko</a>
+                        </div>
+                    </div>
+
                     <div class="tab-pane fade" id="hotel" role="tabpanel" aria-labelledby="hotel-tab">
-                        <form class="form-wrap">
-                            <input type="text" class="form-control" name="name" placeholder="From "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
-                            <input type="text" class="form-control" name="to" placeholder="To "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-                            <input type="text" class="form-control date-picker" name="start" placeholder="Start "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-                            <input type="text" class="form-control date-picker" name="return" placeholder="Return "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-                            <input type="number" min="1" max="20" class="form-control" name="adults"
-                                   placeholder="Adults " onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Adults '">
-                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
-                            <a href="#" class="primary-btn text-uppercase">Search Hotels</a>
-                        </form>
+                        <div class="form-wrap">
+                            {% for hotel in hotels %}
+                            <un>
+                                <li><a href="{% url 'core:admin_details' pk=hotel.id %}" class="genric-btn success">{{ hotel }}</a></li>
+                            {% endfor %}
+                            </un>
+                                <a href="{% url 'core:add_hotel' %}" class="primary-btn text-uppercase">Dodaj hotel</a>
+                        </div>
                     </div>
-                    <div class="tab-pane fade" id="holiday" role="tabpanel" aria-labelledby="holiday-tab">
-                        <form class="form-wrap">
-                            <input type="text" class="form-control" name="name" placeholder="From "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
-                            <input type="text" class="form-control" name="to" placeholder="To "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
-                            <input type="text" class="form-control date-picker" name="start" placeholder="Start "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Start '">
-                            <input type="text" class="form-control date-picker" name="return" placeholder="Return "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Return '">
-                            <input type="number" min="1" max="20" class="form-control" name="adults"
-                                   placeholder="Adults " onfocus="this.placeholder = ''"
-                                   onblur="this.placeholder = 'Adults '">
-                            <input type="number" min="1" max="20" class="form-control" name="child" placeholder="Child "
-                                   onfocus="this.placeholder = ''" onblur="this.placeholder = 'Child '">
-                            <a href="#" class="primary-btn text-uppercase">Search Holidays</a>
-                        </form>
+
+                    <div class="tab-pane fade" id="trip" role="tabpanel" aria-labelledby="trip-tab">
+                        <div class="form-wrap">
+                            {% for trip in trips %}
+                            <un>
+                                <li><a href="{% url 'core:admin_details' pk=trip.id %}" class="genric-btn success">{{ trip }}</a></li>
+                            {% endfor %}
+                            </un>
+                                <a href="{% url 'core:add_trip' %}" class="primary-btn text-uppercase">Dodaj wycieczkę</a>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
