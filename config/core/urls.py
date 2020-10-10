@@ -18,6 +18,6 @@ urlpatterns = [
     path('add_country/', CountryCreateView.as_view(), name='add_country'),
     path('add_city/', CityCreateView.as_view(), name='add_city'),
     path('add_hotel/', HotelCreateView.as_view(), name='add_hotel'),
-    path('add_airport', AirportCreateView.as_view(), name='add_airport'),
+    path('add_airport/', AirportCreateView.as_view(), name='add_airport'),
     path('add_trip/', TripCreateView.as_view(), name='add_trip'),
 ]
