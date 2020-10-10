@@ -1,3 +1,7 @@
+{% load static %}
+{% load core_extras %}
+
+<body>
 {% comment %}
 <form method="post" class="">
     {% csrf_token %}
@@ -6,8 +10,7 @@
 </form>
 {% endcomment %}
 
-{% load static %}
-{% load core_extras %}
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -262,4 +265,7 @@
 <script src="{% static 'js/mail-script.js' %}"></script>
 <script src="{% static 'js/main.js' %}"></script>
 </body>
+</html>
+</body>
+
 </html>
