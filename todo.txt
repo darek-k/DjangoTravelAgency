@@ -1,2 +1,3 @@
 #todo: osobne szablony do usuwania każdego modelu?
 #todo: odpowiedni format daty w panelu admina w dodawaniu wycieczek
+#todo: dodawania zdjęć z panelu admina
