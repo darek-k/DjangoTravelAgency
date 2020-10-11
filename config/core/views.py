@@ -122,9 +122,9 @@ class AdminListView(ListView):
         return context
 
 
-class ContinentDetailView(DetailView):
+class AdminContinentDetailView(DetailView):
     model = Continent
-    template_name = 'core/continent_details.html'
+    template_name = 'core/admin_continent_details.html'
 
 
 class ContinentUpdateView(UpdateView):
@@ -141,12 +141,12 @@ class ContinentDeleteView(DeleteView):
     success_url = reverse_lazy('core:admin_list')
 
 
-class CountryDetailView(DetailView):
+class AdminCountryDetailView(DetailView):
     model = Country
-    template_name = 'core/country_details.html'
+    template_name = 'core/admin_country_details.html'
 
 
-class CountrytUpdateView(UpdateView):
+class CountryUpdateView(UpdateView):
     model = Country
     template_name = 'edit_form.html'
     form_class = CountryForm
@@ -160,9 +160,9 @@ class CountryDeleteView(DeleteView):
     success_url = reverse_lazy('core:admin_list')
 
 
-class CityDetailView(DetailView):
+class AdminCityDetailView(DetailView):
     model = City
-    template_name = 'core/city_details.html'
+    template_name = 'core/admin_city_details.html'
 
 
 class CityUpdateView(UpdateView):
@@ -179,9 +179,9 @@ class CityDeleteView(DeleteView):
     success_url = reverse_lazy('core:admin_list')
 
 
-class HotelDetailView(DetailView):
+class AdminHotelDetailView(DetailView):
     model = Hotel
-    template_name = 'core/hotel_details.html'
+    template_name = 'core/admin_hotel_details.html'
 
 
 class HotelUpdateView(UpdateView):
@@ -198,9 +198,9 @@ class HotelDeleteView(DeleteView):
     success_url = reverse_lazy('core:admin_list')
 
 
-class AirportDetailView(DetailView):
+class AdminAirportDetailView(DetailView):
     model = Airport
-    template_name = 'core/airport_details.html'
+    template_name = 'core/admin_airport_details.html'
 
 
 class AirportUpdateView(UpdateView):
@@ -217,9 +217,9 @@ class AirportDeleteView(DeleteView):
     success_url = reverse_lazy('core:admin_list')
 
 
-class TripDetailView(DetailView):
+class AdminTripDetailView(DetailView):
     model = Trip
-    template_name = 'core/trip_details.html'
+    template_name = 'core/admin_trip_details.html'
 
 
 class TripUpdateView(UpdateView):
