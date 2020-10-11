@@ -18,7 +18,8 @@ class SignUpView(SuccessMessageMixin, CreateView):
 class SignInView(LoginView):
     form_class = AuthenticationForm
     template_name = 'sign_in_form.html'
+    success_url = 'trip_list'
 
 
 class UserLogoutView(LogoutView):
-    pass
+    success_url = 'trip_list'

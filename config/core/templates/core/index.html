@@ -85,13 +85,21 @@
                         </ul>
                     </li>
                     <li><a href="{% url 'core:contact' %}">Contact</a></li>
-                    <li class="menu-has-children"><a href=#>Logowanie</a>
+                    {% if user.is_authenticated %}
+                    <li class="menu-has-children"><a href=#>Witaj, {{ user }}!</a>
                         <ul>
-                            <li><a href="{% url 'core:blog_home' %}">Zaloguj</a></li>
-                            <li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
+                            <li><a href="{% url 'accounts:logout' %}">Wyloguj</a></li>
                         </ul>
                     </li>
 
+                    {% else %}
+                    <li class="menu-has-children"><a href=#>Logowanie</a>
+                        <ul>
+                            <li><a href="{% url 'accounts:sign_in' %}">Zaloguj</a></li>
+                            <li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
