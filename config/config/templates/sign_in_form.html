@@ -124,19 +124,20 @@
                 </div>
 
                 <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
-                            <h3 class="mb-30">Rejestracja użytkownika</h3>
+                            <h3 class="mb-30">Logowanie użytkownika</h3>
 
                             <form method="post" action="#">
                                 {% csrf_token %}
                                 {{ form.as_p }}
 
                                 <div class="mt-10" style="text-align:center">
-                                    <input type="submit" value="Zarejestruj" class="genric-btn primary e-large">
+                                    <input type="submit" value="Zaloguj" class="genric-btn primary e-large">
                                 </div>
 <hr>
                                  <div class="col-md-9 mt-sm-20 left-align-l">
-                                     <p>Masz już konto? <a href="#">Zaloguj się</a></p>
+                                     <p>Nie masz jeszcze konta? <a href="{% url 'accounts:sign_up' %}">Zarejestruj się</a></p>
                                 </div>
+
 
                             </form>
                         </div>  <!-- Form elements -->

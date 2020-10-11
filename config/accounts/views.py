@@ -1,3 +1,5 @@
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.messages.views import SuccessMessageMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -12,3 +14,11 @@ class SignUpView(SuccessMessageMixin, CreateView):
     form_class = UserRegisterForm
     success_message = "Your profile was created successfully"
 
+
+class SignInView(LoginView):
+    form_class = AuthenticationForm
+    template_name = 'sign_in_form.html'
+
+
+class UserLogoutView(LogoutView):
+    pass
