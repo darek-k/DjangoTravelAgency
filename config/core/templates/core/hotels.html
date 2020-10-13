@@ -64,7 +64,6 @@
 				        <ul class="nav-menu">
                     <li><a href="{% url 'trip_list' %}">Home</a></li>
                     <li><a href="{% url 'core:about' %}">Dodatkowe usługi</a></li>
-                    <li><a href="{% url 'core:packages' %}">Popularne</a></li>
                     <li><a href="{% url 'core:hotels' %}">Hotele</a></li>
                      <li><a href="{% url 'core:elements' %}">Elements</a></li>
                     <li><a href="{% url 'core:contact' %}">Kontakt</a></li>
@@ -96,9 +95,9 @@
 					<div class="row d-flex align-items-center justify-content-center">
 						<div class="about-content col-lg-12">
 							<h1 class="text-white">
-								Hotels				
+								Hotele
 							</h1>	
-							<p class="text-white link-nav"><a href="index.html">Home </a>  <span class="lnr lnr-arrow-right"></span>  <a href="hotels.html"> Hotels</a></p>
+							<p class="text-white link-nav"><a href="{% url 'trip_list' %}">Home </a></p>
 						</div>	
 					</div>
 				</div>
@@ -106,60 +105,13 @@
 			<!-- End banner Area -->	
 
 			<!-- Start destinations Area -->
-			<section class="destinations-area section-gap">
+			<section class="destinations-area section-gap" style="padding-top:2px">
 				<div class="container">
 
 					<section class="hot-deal-area section-gap">
 				<div class="container">
 
-		            <div class="row d-flex justify-content-center">
-		                <div class="menu-content pb-70 col-lg-8">
-		                    <div class="title text-center">
-		                        <h1 class="mb-10">{{ trip.arrival_city }}</h1>
-		                        <h2 class="mb-10">{{ trip.arrival_hotel }}</h2>
 
-								{% for i in trip.arrival_hotel.stars %}
-									<span class="fa fa-star checked"></span>
-								{% endfor %}
-
-		                    </div>
-		                </div>
-		            </div> <!-- City and hotel name -->
-
-					<div class="row justify-content-center">
-						<div class="col-lg-10 active-hot-deal-carusel">
-							<div class="single-carusel">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
-								</div>
-								<div class="price-detials">
-									<a href="#" class="price-btn">Starting From <span>$250</span></a>
-								</div>
-								<div class="details">
-									<h4 class="text-white">Ancient Architecture</h4>
-									<p class="text-white">
-										Cairo, Egypt
-									</p>
-								</div>
-							</div>
-							<div class="single-carusel">
-								<div class="thumb relative">
-									<div class="overlay overlay-bg"></div>
-									<img class="img-fluid" src="{% static 'img/packages/hot-deal.jpg' %}" alt="">
-								</div>
-								<div class="price-detials">
-									<a href="#" class="price-btn">Starting From <span>$250</span></a>
-								</div>
-								<div class="details">
-									<h4 class="text-white">Ancient Architecture</h4>
-									<p class="text-white">
-										Cairo, Egypt
-									</p>
-								</div>
-							</div>
-						</div>
-					</div> <!-- Pictures and price -->
 
 				</div>
 			</section>
@@ -172,14 +124,14 @@
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
+										<span>Hilton Star Hotel</span>
 										<div class="star">
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
+											<span class="fa fa-star"></span>
+										</div>
 									</h4>
 									<p>
 										View on map   |   49 Reviews
@@ -208,11 +160,11 @@
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Restaurant</span>
 											<span>Yes</span>
-										</li>												
+										</li>
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Price per night</span>
 											<a href="#" class="price-btn">$250</a>
-										</li>													
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -224,14 +176,14 @@
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
+										<span>Hilton Star Hotel</span>
 										<div class="star">
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
+											<span class="fa fa-star"></span>
+										</div>
 									</h4>
 									<p>
 										View on map   |   49 Reviews
@@ -260,11 +212,11 @@
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Restaurant</span>
 											<span>Yes</span>
-										</li>												
+										</li>
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Price per night</span>
 											<a href="#" class="price-btn">$250</a>
-										</li>													
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -276,14 +228,14 @@
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
+										<span>Hilton Star Hotel</span>
 										<div class="star">
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
+											<span class="fa fa-star"></span>
+										</div>
 									</h4>
 									<p>
 										View on map   |   49 Reviews
@@ -312,11 +264,11 @@
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Restaurant</span>
 											<span>Yes</span>
-										</li>												
+										</li>
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Price per night</span>
 											<a href="#" class="price-btn">$250</a>
-										</li>													
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -329,14 +281,14 @@
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
+										<span>Hilton Star Hotel</span>
 										<div class="star">
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
+											<span class="fa fa-star"></span>
+										</div>
 									</h4>
 									<p>
 										View on map   |   49 Reviews
@@ -365,11 +317,11 @@
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Restaurant</span>
 											<span>Yes</span>
-										</li>												
+										</li>
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Price per night</span>
 											<a href="#" class="price-btn">$250</a>
-										</li>													
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -382,14 +334,14 @@
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
+										<span>Hilton Star Hotel</span>
 										<div class="star">
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
+											<span class="fa fa-star"></span>
+										</div>
 									</h4>
 									<p>
 										View on map   |   49 Reviews
@@ -418,11 +370,11 @@
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Restaurant</span>
 											<span>Yes</span>
-										</li>												
+										</li>
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Price per night</span>
 											<a href="#" class="price-btn">$250</a>
-										</li>													
+										</li>
 									</ul>
 								</div>
 							</div>
@@ -434,14 +386,14 @@
 								</div>
 								<div class="details">
 									<h4 class="d-flex justify-content-between">
-										<span>Hilton Star Hotel</span>                              	
+										<span>Hilton Star Hotel</span>
 										<div class="star">
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
 											<span class="fa fa-star checked"></span>
-											<span class="fa fa-star"></span>				
-										</div>	
+											<span class="fa fa-star"></span>
+										</div>
 									</h4>
 									<p>
 										View on map   |   49 Reviews
@@ -470,17 +422,17 @@
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Restaurant</span>
 											<span>Yes</span>
-										</li>												
+										</li>
 										<li class="d-flex justify-content-between align-items-center">
 											<span>Price per night</span>
 											<a href="#" class="price-btn">$250</a>
-										</li>													
+										</li>
 									</ul>
 								</div>
 							</div>
-						</div>																														
+						</div>
 					</div>
-				</div>	
+				</div>
 			</section>
 			<!-- End destinations Area -->
 			
