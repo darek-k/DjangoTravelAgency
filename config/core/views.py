@@ -234,3 +234,13 @@ class TripDeleteView(DeleteView):
     template_name = 'delete_form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
+
+
+class SearchResults(ListView):
+    model = Trip
+    template_name = 'search_results.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['all_trips'] = Trip.objects.all()
+        return context
