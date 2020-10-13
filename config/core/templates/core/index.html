@@ -274,8 +274,8 @@
                             <img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
                         </div>
                         <div class="desc">
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{
-                                trip.price_for_adult}}</a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">
+                                {{ trip.price_for_adult}} zł</a>
                             <a href="{% url 'core:trip_details' pk=trip.pk %}">
                                 <h4>{{ trip.arrival_city.country}}</h4>
                             </a>
@@ -293,45 +293,7 @@
 <!-- End Last minute Area -->
 
 
-<!-- Start Previous Trips Area -->
-<section class="popular-destination-area section-gap" style="padding-top:30px; padding-bottom:200px">
-    <div class="container">
-        <div class="row d-flex justify-content-center">
-            <div class="menu-content pb-70 col-lg-8">
-                <div class="title text-center">
-                    <h1 class="mb-10">Popularne wycieczki (SKOŃCZ)</h1>
-                    <p>Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione Ostatnio zakupione </p>
-                </div>
-            </div>
-        </div>
 
-        <div class="row">
-            {% for trip in last_minute_trips %}
-            <a href="{% url 'core:trip_details' pk=trip.pk %}">
-                <div class="col-lg-4">
-                    <div class="single-destination relative">
-                        <div class="thumb relative">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
-                        </div>
-                        <div class="desc">
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{
-                                trip.price_for_adult}}</a>
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
-                                <h4>{{ trip.arrival_city.country}}</h4>
-                            </a>
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
-                                <p>{{ trip.arrival_city }}</p>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-<!-- End Previous Trips Area -->
 
 
 <!--			&lt;!&ndash; Start price Area &ndash;&gt;-->
