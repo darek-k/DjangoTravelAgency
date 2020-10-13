@@ -53,16 +53,12 @@ class TripForm(forms.ModelForm):
 
 
 class TripSearchForm(forms.Form):
-    search_continent = forms.CharField(
-        required=False, label='Kontynent', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+    search_departure_city = forms.CharField(
+        required=False, label='Skąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
     )
 
-    search_country = forms.CharField(
-        required=False, label='Kraj', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
-    )
-
-    search_city = forms.CharField(
-        required=False, label='Miasto', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+    search_arrival_city = forms.CharField(
+        required=False, label='Dokąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
     )
 
     search_hotel = forms.CharField(

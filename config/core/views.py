@@ -1,11 +1,14 @@
 import datetime
 
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
+from core.forms import TripSearchForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.timezone import now
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from search_views.filters import BaseFilter
+from search_views.views import SearchListView
 
 
 def template_elements(request):
@@ -244,3 +247,20 @@ class SearchResults(ListView):
         context = super().get_context_data()
         context['all_trips'] = Trip.objects.all()
         return context
+
+
+class TripFilter(BaseFilter):
+    search_fields = {
+        'search_departure_city': ['name', ],
+        'search_price_min': {'operator': '__gte', 'fields': ['price_for_adult']},
+        'search_price_max': {'operator': '__lte', 'fields': ['price_for_adult']},
+    }
+
+
+class TripSearchList(SearchListView):
+    model = Trip
+    paginate_by = 6
+    template_name = "search_results.html"
+
+    form_class = TripSearchForm
+    filter_class = TripFilter
