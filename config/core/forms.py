@@ -50,3 +50,29 @@ class TripForm(forms.ModelForm):
             'departure_city', 'departure_airport', 'arrival_city', 'arrival_hotel', 'arrival_airport', 'departure_date',
             'arrival_date', 'return_date', 'catering_option', 'price_for_adult', 'price_for_child', 'promoted',
         )
+
+
+class TripSearchForm(forms.Form):
+    search_continent = forms.CharField(
+        required=False, label='Kontynent', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+    )
+
+    search_country = forms.CharField(
+        required=False, label='Kraj', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+    )
+
+    search_city = forms.CharField(
+        required=False, label='Miasto', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+    )
+
+    search_hotel = forms.CharField(
+        required=False, label='Hotel', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+    )
+
+    search_price_min = forms.IntegerField(
+        required=False, label='Min price'
+    )
+
+    search_price_max = forms.IntegerField(
+        required=False, label='max price'
+    )

@@ -3,3 +3,4 @@ pillow==7.2.0
 bootstrap4==0.1.0
 django-extensions==3.0.9
 django-crispy-forms==1.9.2
+django-search-views==0.3.7
