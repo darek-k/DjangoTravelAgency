@@ -1,19 +1,20 @@
-from core.views import TripDetailsView, template_elements, about, blog_home, blog_single, \
-    contact, insurance, ContinentCreateView, CountryCreateView, CityCreateView, AirportCreateView, \
+from core.views import TripDetailsView, template_elements, \
+    insurance, ContinentCreateView, CountryCreateView, CityCreateView, AirportCreateView, \
     HotelCreateView, TripCreateView, AdminListView, ContinentDeleteView, AdminContinentDetailView, ContinentUpdateView, \
     AdminTripDetailView, AdminCityDetailView, AdminAirportDetailView, AdminHotelDetailView, AdminCountryDetailView, \
     CountryUpdateView, CityUpdateView, TripUpdateView, AirportUpdateView, HotelUpdateView, CountryDeleteView, \
-    HotelDeleteView, AirportDeleteView, TripDeleteView, CityDeleteView, HotelListView
+    HotelDeleteView, AirportDeleteView, TripDeleteView, CityDeleteView, HotelListView, AdditionalServicesView, \
+    contact
 from django.urls import path
 
 app_name = 'core'
 urlpatterns = [
     path('trip_details/<pk>/', TripDetailsView.as_view(), name='trip_details'),
     path('hotels/', HotelListView.as_view(), name='hotels'),
+    path('additional_services/', AdditionalServicesView.as_view(), name='additional_services'),
 
-    path('elements/', template_elements, name='elements'),
-    path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
+    path('elements/', template_elements, name='elements'),
     path('insurance/', insurance, name='insurance'),
 
     path('add_continent/', ContinentCreateView.as_view(), name='add_continent'),

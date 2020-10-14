@@ -69,6 +69,16 @@ class HotelListView(ListView):
         return context
 
 
+class AdditionalServicesView(ListView):
+    model = Comment
+    template_name = 'core/additional_services.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['all_comments'] = Comment.objects.all()
+        return context
+
+
 class AdminListView(PermissionRequiredMixin, ListView):
     permission_required = 'core.view_trip'
     model = Trip
