@@ -17,7 +17,6 @@ urlpatterns = [
     path('blog_single/', blog_single, name='blog_single'),
     path('contact/', contact, name='contact'),
     path('insurance/', insurance, name='insurance'),
-    # path('search_results/', TripSearchList, name='search_results'),
 
     path('add_continent/', ContinentCreateView.as_view(), name='add_continent'),
     path('add_country/', CountryCreateView.as_view(), name='add_country'),

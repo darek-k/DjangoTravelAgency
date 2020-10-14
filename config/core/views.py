@@ -2,6 +2,7 @@ import datetime
 
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.timezone import now
@@ -11,12 +12,10 @@ from search_views.views import SearchListView
 
 
 def template_elements(request):
-    """ Do usunięcia po zrobieniu frontendu"""
     return render(request, 'core/elements.html')
 
 
 def hotels(request):
-    """ Do usunięcia po zrobieniu frontendu"""
     return render(request, 'core/hotels.html')
 
 
@@ -38,10 +37,6 @@ def contact(request):
 
 def insurance(request):
     return render(request, 'core/insurance.html')
-
-
-def packages(request):
-    return render(request, 'core/packages.html')
 
 
 class TripDetailsView(DetailView):
@@ -67,49 +62,9 @@ class TripListView(ListView):
         return context
 
 
-class ContinentCreateView(CreateView):
-    title = 'Add continent'
-    template_name = 'form.html'
-    form_class = ContinentForm
-    success_url = reverse_lazy('core:admin_list')
+class AdminListView(PermissionRequiredMixin, ListView):
+    permission_required = 'core.view_trip'
 
-
-class CountryCreateView(CreateView):
-    title = 'Add country'
-    template_name = 'form.html'
-    form_class = CountryForm
-    success_url = reverse_lazy('core:admin_list')
-
-
-class CityCreateView(CreateView):
-    title = 'Add city'
-    template_name = 'form.html'
-    form_class = CityForm
-    success_url = reverse_lazy('core:admin_list')
-
-
-class HotelCreateView(CreateView):
-    title = 'Add hotel'
-    template_name = 'form.html'
-    form_class = HotelForm
-    success_url = reverse_lazy('core:admin_list')
-
-
-class AirportCreateView(CreateView):
-    title = 'Add airport'
-    template_name = 'form.html'
-    form_class = AirportForm
-    success_url = reverse_lazy('core:admin_list')
-
-
-class TripCreateView(CreateView):
-    title = 'Add trip'
-    template_name = 'form.html'
-    form_class = TripForm
-    success_url = reverse_lazy('core:admin_list')
-
-
-class AdminListView(ListView):
     model = Trip
     template_name = 'core/admin_list.html'
 
@@ -124,119 +79,207 @@ class AdminListView(ListView):
         return context
 
 
-class AdminContinentDetailView(DetailView):
+class ContinentCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_continent'
+    title = 'Add continent'
+    template_name = 'form.html'
+    form_class = ContinentForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class CountryCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_country'
+
+    title = 'Add country'
+    template_name = 'form.html'
+    form_class = CountryForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class CityCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_city'
+
+    title = 'Add city'
+    template_name = 'form.html'
+    form_class = CityForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class HotelCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_hotel'
+
+    title = 'Add hotel'
+    template_name = 'form.html'
+    form_class = HotelForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class AirportCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_airport'
+
+    title = 'Add airport'
+    template_name = 'form.html'
+    form_class = AirportForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class TripCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_trip'
+
+    title = 'Add trip'
+    template_name = 'form.html'
+    form_class = TripForm
+    success_url = reverse_lazy('core:admin_list')
+
+
+class AdminContinentDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'core.view_continent'
+
     model = Continent
     template_name = 'core/admin_continent_details.html'
 
 
-class ContinentUpdateView(UpdateView):
+class ContinentUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'core.change_continent'
+
     model = Continent
     template_name = 'edit_form.html'
     form_class = ContinentForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class ContinentDeleteView(DeleteView):
+class ContinentDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'core.delete_continent'
+
     model = Continent
     template_name = 'delete_form.html'
     form_class = ContinentForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class AdminCountryDetailView(DetailView):
+class AdminCountryDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'core.view_country'
+
     model = Country
     template_name = 'core/admin_country_details.html'
 
 
-class CountryUpdateView(UpdateView):
+class CountryUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'core.change_country'
+
     model = Country
     template_name = 'edit_form.html'
     form_class = CountryForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class CountryDeleteView(DeleteView):
+class CountryDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'core.delete_country'
+
     model = Country
     template_name = 'delete_form.html'
     form_class = CountryForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class AdminCityDetailView(DetailView):
+class AdminCityDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'core.view_city'
+
     model = City
     template_name = 'core/admin_city_details.html'
 
 
-class CityUpdateView(UpdateView):
+class CityUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'core.change_city'
+
     model = City
     template_name = 'edit_form.html'
     form_class = CityForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class CityDeleteView(DeleteView):
+class CityDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'core.delete_city'
+
     model = City
     template_name = 'delete_form.html'
     form_class = CityForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class AdminHotelDetailView(DetailView):
+class AdminHotelDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'core.view_hotel'
+
     model = Hotel
     template_name = 'core/admin_hotel_details.html'
 
 
-class HotelUpdateView(UpdateView):
+class HotelUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'core.change_hotel'
+
     model = Hotel
     template_name = 'edit_form.html'
     form_class = HotelForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class HotelDeleteView(DeleteView):
+class HotelDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'core.delete_hotel'
+
     model = Hotel
     template_name = 'delete_form.html'
     form_class = HotelForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class AdminAirportDetailView(DetailView):
+class AdminAirportDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'core.view_airport'
+
     model = Airport
     template_name = 'core/admin_airport_details.html'
 
 
-class AirportUpdateView(UpdateView):
+class AirportUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'core.change_airport'
+
     model = Airport
     template_name = 'edit_form.html'
     form_class = AirportForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class AirportDeleteView(DeleteView):
+class AirportDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'core.delete_airport'
+
     model = Airport
     template_name = 'delete_form.html'
     form_class = AirportForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class AdminTripDetailView(DetailView):
+class AdminTripDetailView(PermissionRequiredMixin, DetailView):
+    permission_required = 'core.view_trip'
+
     model = Trip
     template_name = 'core/admin_trip_details.html'
 
 
-class TripUpdateView(UpdateView):
+class TripUpdateView(PermissionRequiredMixin, UpdateView):
+    permission_required = 'core.change_trip'
+
     model = Trip
     template_name = 'edit_form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
 
 
-class TripDeleteView(DeleteView):
+class TripDeleteView(PermissionRequiredMixin, DeleteView):
+    permission_required = 'core.delete_trip'
+
     model = Trip
     template_name = 'delete_form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
-
 
 # class TripFilter(BaseFilter):
 #     search_fields = {

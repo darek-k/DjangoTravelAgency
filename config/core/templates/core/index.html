@@ -70,7 +70,7 @@
                     <li><a href="{% url 'core:contact' %}">Kontakt</a></li>
 
                     {% if user|is_group:'staff' %}
-                    <li><a href="{% url 'core:contact' %}">Panel admina</a></li>
+                    <li><a href="{% url 'core:admin_list' %}">Panel admina</a></li>
                     {% endif %}
 
                     {% if user.is_authenticated %}
