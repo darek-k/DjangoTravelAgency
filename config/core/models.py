@@ -1,4 +1,6 @@
 from django.db import models
+from accounts.models import Profile
+from django.utils import timezone
 
 STARS_CHOICES = [
     (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5'),
@@ -11,6 +13,10 @@ CATERING_OPTIONS = [
 
 BOOL_OPTIONS = [
     ('Tak', 'Tak'), ('Nie', 'Nie')
+]
+
+RATING = [
+    (1, '1'), (2, '2'), (3, '3'), (4, '4'), (5, '5')
 ]
 
 
@@ -113,6 +119,7 @@ class Trip(models.Model):
     promoted = models.BooleanField(default=False)
     adults_number = models.IntegerField(default=0)
     kids_number = models.IntegerField(default=0)
+    comment = models.ManyToManyField
 
     def __str__(self):
         return f"Z: {self.departure_city} do: {self.arrival_city}. Data wyjazdu: {self.departure_date} " \
@@ -123,3 +130,17 @@ class TripPurchase(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trips_purchases')
     participants_data = models.CharField(max_length=1000)
     price = models.DecimalField(decimal_places=2, max_digits=6)
+
+
+class Comment(models.Model):
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE, null=True, related_name='comments')
+    author = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
+    text = models.CharField(max_length=2000)
+    rating = models.IntegerField(choices=RATING)
+    created_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('created_date',)
+
+    def __str__(self):
+        return f'Comment: "{self.text}" created by {self.author}'
