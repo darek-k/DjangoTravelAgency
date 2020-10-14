@@ -15,10 +15,6 @@ def template_elements(request):
     return render(request, 'core/elements.html')
 
 
-def hotels(request):
-    return render(request, 'core/hotels.html')
-
-
 def about(request):
     return render(request, 'core/about.html')
 
@@ -59,6 +55,16 @@ class TripListView(ListView):
         context['promoted_trips'] = Trip.objects.filter(promoted=True)[:3]
         context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
         context['all_countries'] = Country.objects.exclude(name='Polska')
+        return context
+
+
+class HotelListView(ListView):
+    model = Hotel
+    template_name = 'core/hotels.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(HotelListView, self).get_context_data()
+        context['hotels'] = Hotel.objects.order_by('-stars')
         return context
 
 

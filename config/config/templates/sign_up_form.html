@@ -65,29 +65,27 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="{% url 'trip_list' %}">Home</a></li>
-                    <li><a href="{% url 'core:about' %}">About</a></li>
-                    <li><a href="{% url 'core:hotels' %}">Hotels</a></li>
-                    <li><a href="{% url 'core:insurance' %}">Insurance</a></li>
-                    <li class="menu-has-children"><a href="">Blog</a>
-                        <ul>
-                            <li><a href="{% url 'core:blog_home' %}">Blog Home</a></li>
-                            <li><a href="{% url 'core:blog_single' %}">Blog Single</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu-has-children"><a href="">Pages</a>
-                        <ul>
-                            <li><a href="{% url 'core:elements' %}">Elements</a></li>
-                            <li class="menu-has-children"><a href="">Level 2 </a>
-                                <ul>
-                                    <li><a href="#">Item One</a></li>
-                                    <li><a href="#">Item Two</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="{% url 'core:contact' %}">Contact</a></li>
-                </ul>
+							<li><a href="{% url 'trip_list' %}">Home</a></li>
+							<li><a href="{% url 'core:about' %}">Dodatkowe usługi</a></li>
+							<li><a href="{% url 'core:hotels' %}">Hotele</a></li>
+							<li><a href="{% url 'core:elements' %}">Elements</a></li>
+							<li><a href="{% url 'core:contact' %}">Kontakt</a></li>
+							{% if user.is_authenticated %}
+							<li class="menu-has-children"><a href=#>Witaj, {{ user }}!</a>
+								<ul>
+									<li><a href="{% url 'accounts:logout' %}">Wyloguj</a></li>
+								</ul>
+							</li>
+
+							{% else %}
+							<li class="menu-has-children"><a href=#>Logowanie</a>
+								<ul>
+									<li><a href="{% url 'accounts:sign_in' %}">Zaloguj</a></li>
+									<li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
+								</ul>
+							</li>
+							{% endif %}
+                		</ul>
             </nav><!-- #nav-menu-container -->
         </div>
     </div>
