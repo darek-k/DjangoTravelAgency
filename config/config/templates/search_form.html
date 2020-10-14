@@ -68,17 +68,13 @@
                     <li><a href="{% url 'core:hotels' %}">Hotele</a></li>
                      <li><a href="{% url 'core:elements' %}">Elements</a></li>
                     <li><a href="{% url 'core:contact' %}">Kontakt</a></li>
-
-                    {% if user|is_group:'staff' %}
-                    <li><a href="{% url 'core:contact' %}">Panel admina</a></li>
-                    {% endif %}
-
                     {% if user.is_authenticated %}
                     <li class="menu-has-children"><a href=#>Witaj, {{ user }}!</a>
                         <ul>
                             <li><a href="{% url 'accounts:logout' %}">Wyloguj</a></li>
                         </ul>
                     </li>
+
                     {% else %}
                     <li class="menu-has-children"><a href=#>Logowanie</a>
                         <ul>
@@ -124,6 +120,15 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
                         <form class="form-wrap">
+
+                            <form method="post" action="#">
+                                {% csrf_token %}
+                                {{ form.as_p }}
+
+                                <div class="mt-10" style="text-align:center">
+                                    <input type="submit" value="Zaloguj" class="genric-btn primary e-large">
+                                </div>
+
                             <input type="text" class="form-control" name="name" placeholder="From "
                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
                             <input type="text" class="form-control" name="to" placeholder="To "

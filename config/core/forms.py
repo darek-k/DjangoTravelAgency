@@ -52,23 +52,24 @@ class TripForm(forms.ModelForm):
         )
 
 
-class TripSearchForm(forms.Form):
-    search_departure_city = forms.CharField(
-        required=False, label='Skąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
-    )
 
-    search_arrival_city = forms.CharField(
-        required=False, label='Dokąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
-    )
-
-    search_hotel = forms.CharField(
-        required=False, label='Hotel', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
-    )
-
-    search_price_min = forms.IntegerField(
-        required=False, label='Min price'
-    )
-
-    search_price_max = forms.IntegerField(
-        required=False, label='max price'
-    )
+# class TripSearchForm(forms.Form):
+#     search_departure_city = forms.CharField(
+#         required=False, label='Skąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+#     )
+#
+#     search_arrival_city = forms.CharField(
+#         required=False, label='Dokąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+#     )
+#
+#     search_hotel = forms.CharField(
+#         required=False, label='Hotel', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
+#     )
+#
+#     search_price_min = forms.IntegerField(
+#         required=False, label='Min price'
+#     )
+#
+#     search_price_max = forms.IntegerField(
+#         required=False, label='max price'
+#     )

@@ -1,7 +1,6 @@
 import datetime
 
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
-from core.forms import TripSearchForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -239,18 +238,20 @@ class TripDeleteView(DeleteView):
     success_url = reverse_lazy('core:admin_list')
 
 
-class TripFilter(BaseFilter):
-    search_fields = {
-        'search_departure_city': ['name', ],
-        'search_price_min': {'operator': '__gte', 'fields': ['price_for_adult']},
-        'search_price_max': {'operator': '__lte', 'fields': ['price_for_adult']},
-    }
-
-
-class TripSearchList(SearchListView):
-    model = Trip
-    paginate_by = 6
-    template_name = "search_results.html"
-
-    form_class = TripSearchForm
-    filter_class = TripFilter
+# class TripFilter(BaseFilter):
+#     search_fields = {
+#         'search_departure_city': ['name', ],
+#         'search_arrival_city': ['name', ],
+#         'search_hotel': ['name', ],
+#         'search_price_min': {'operator': '__gte', 'fields': ['price_for_adult']},
+#         'search_price_max': {'operator': '__lte', 'fields': ['price_for_adult']},
+#     }
+#
+#
+# class TripSearchList(SearchListView):
+#     model = Trip
+#     paginate_by = 6
+#     template_name = "search_form.html"
+#
+#     form_class = TripSearchForm
+#     filter_class = TripFilter
