@@ -65,27 +65,31 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-							<li><a href="{% url 'trip_list' %}">Home</a></li>
-							<li><a href="{% url 'core:about' %}">Dodatkowe usługi</a></li>
-							<li><a href="{% url 'core:hotels' %}">Hotele</a></li>
-							<li><a href="{% url 'core:elements' %}">Elements</a></li>
-							<li><a href="{% url 'core:contact' %}">Kontakt</a></li>
-							{% if user.is_authenticated %}
-							<li class="menu-has-children"><a href=#>Witaj, {{ user }}!</a>
-								<ul>
-									<li><a href="{% url 'accounts:logout' %}">Wyloguj</a></li>
-								</ul>
-							</li>
+                    <li><a href="{% url 'trip_list' %}">Home</a></li>
+                    <li><a href="{% url 'core:about' %}">Dodatkowe usługi</a></li>
+                    <li><a href="{% url 'core:hotels' %}">Hotele</a></li>
+                     <li><a href="{% url 'core:elements' %}">Elements</a></li>
+                    <li><a href="{% url 'core:contact' %}">Kontakt</a></li>
 
-							{% else %}
-							<li class="menu-has-children"><a href=#>Logowanie</a>
-								<ul>
-									<li><a href="{% url 'accounts:sign_in' %}">Zaloguj</a></li>
-									<li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
-								</ul>
-							</li>
-							{% endif %}
-                		</ul>
+                    {% if user|is_group:'staff' %}
+                    <li><a href="{% url 'core:admin_list' %}">Panel admina</a></li>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                    <li class="menu-has-children"><a href=#>Witaj, {{ user }}!</a>
+                        <ul>
+                            <li><a href="{% url 'accounts:logout' %}">Wyloguj</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="menu-has-children"><a href=#>Logowanie</a>
+                        <ul>
+                            <li><a href="{% url 'accounts:sign_in' %}">Zaloguj</a></li>
+                            <li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
             </nav><!-- #nav-menu-container -->
         </div>
     </div>

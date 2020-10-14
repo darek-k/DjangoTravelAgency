@@ -68,13 +68,17 @@
                     <li><a href="{% url 'core:hotels' %}">Hotele</a></li>
                      <li><a href="{% url 'core:elements' %}">Elements</a></li>
                     <li><a href="{% url 'core:contact' %}">Kontakt</a></li>
+
+                    {% if user|is_group:'staff' %}
+                    <li><a href="{% url 'core:admin_list' %}">Panel admina</a></li>
+                    {% endif %}
+
                     {% if user.is_authenticated %}
                     <li class="menu-has-children"><a href=#>Witaj, {{ user }}!</a>
                         <ul>
                             <li><a href="{% url 'accounts:logout' %}">Wyloguj</a></li>
                         </ul>
                     </li>
-
                     {% else %}
                     <li class="menu-has-children"><a href=#>Logowanie</a>
                         <ul>
