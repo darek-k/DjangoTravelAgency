@@ -221,14 +221,14 @@
             <div class="menu-content pb-70 col-lg-8">
                 <div class="title text-center">
                     <h1 class="mb-10">Najlepsze oferty</h1>
-                    <p>Popularne oferty Popularne oferty Popularne oferty Popularne oferty</p>
+                    <p>Sprawdź nasze najbardziej popularne oferty</p>
                 </div>
             </div>
         </div>
 
         <div class="row">
             {% for trip in promoted_trips %}
-            <a href="{% url 'core:trip_details' pk=trip.pk %}">
+
                 <div class="col-lg-4">
 
                     <div class="single-destination relative">
@@ -238,16 +238,11 @@
                         </div>
                         <div class="desc">
                             <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{ trip.price_for_adult}} zł</a>
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
-                                <h4>{{ trip.arrival_city.country}}</h4>
-                            </a>
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
-                                <p>{{ trip.arrival_city }}</p>
-                            </a>
+                                <h4>{{ trip.arrival_city.country}} - {{ trip.arrival_city }}</h4>
+                                <p>{{ trip.arrival_hotel }}</p>
                         </div>
                     </div>
                 </div>
-            </a>
             {% endfor %}
         </div>
     </div>
@@ -261,15 +256,14 @@
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
                 <div class="title text-center">
-                    <h1 class="mb-10">Last minute - ostatnie miejsca na najbliższe wyloty! </h1>
-                    <p>Last minute Last minute Last minute Last minute Last minute Last minute </p>
+                    <h1 class="mb-10">Last minute</h1>
+                    <p>Ostatnie miejsca na najbliższe wyloty!</p>
                 </div>
             </div>
         </div>
 
         <div class="row">
             {% for trip in last_minute_trips %}
-            <a href="{% url 'core:trip_details' pk=trip.pk %}">
                 <div class="col-lg-4">
                     <div class="single-destination relative">
                         <div class="thumb relative">
@@ -277,18 +271,12 @@
                             <img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
                         </div>
                         <div class="desc">
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">
-                                {{ trip.price_for_adult}} zł</a>
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
-                                <h4>{{ trip.arrival_city.country}}</h4>
-                            </a>
-                            <a href="{% url 'core:trip_details' pk=trip.pk %}">
-                                <p>{{ trip.arrival_city }}</p>
-                            </a>
+                            <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{ trip.price_for_adult}} zł</a>
+                                <h4>{{ trip.arrival_city.country}} - {{ trip.arrival_city }}</h4>
+                                <p>{{ trip.arrival_hotel }}</p>
                         </div>
                     </div>
                 </div>
-            </a>
             {% endfor %}
         </div>
     </div>
