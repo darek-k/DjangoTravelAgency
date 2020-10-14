@@ -1,7 +1,7 @@
 import datetime
 
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
-from core.models import Trip, Country, Continent, City, Hotel, Airport
+from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -55,6 +55,7 @@ class TripListView(ListView):
         context['promoted_trips'] = Trip.objects.filter(promoted=True)[:3]
         context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
         context['all_countries'] = Country.objects.exclude(name='Polska')
+        context['all_comments'] = Comment.objects.all()
         return context
 
 
@@ -70,7 +71,6 @@ class HotelListView(ListView):
 
 class AdminListView(PermissionRequiredMixin, ListView):
     permission_required = 'core.view_trip'
-
     model = Trip
     template_name = 'core/admin_list.html'
 

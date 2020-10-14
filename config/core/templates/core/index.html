@@ -487,127 +487,34 @@
             <div class="menu-content pb-70 col-lg-8">
                 <div class="title text-center">
                     <h1 class="mb-10">Opinie naszych klientów</h1>
-                    <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall
-                        from </p>
+                    <p>Sprawdź co o naszych wycieczkach sądzą inni </p>
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="active-testimonial">
+                {% for comment in all_comments %}
                 <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
-                    </div>
+
                     <div class="desc">
                         <p>
-                            Do you want to be even more successful? Learn to love learning and growth. The more effort
-                            you put into improving your skills, the bigger the payoff you.
+                            {{ comment.trip.departure_city }} <span class="lnr lnr-arrow-right"></span> {{ comment.trip.arrival_city }}
+                            ({{ comment.trip.arrival_hotel }})
                         </p>
-                        <h4>Harriet Maxwell</h4>
+                        <hr>
+                        <p>"{{ comment.text }}"</p>
+                        <p>{{ comment.created_date }}</p>
+                        <h4>{{ comment.author }}</h4>
+
                         <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
+                            {% for _ in comment.rating|times %}
+                                <span class="fa fa-star checked"></span>
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            A purpose is the eternal condition for success. Every former smoker can tell you just how
-                            hard it is to stop smoking cigarettes. However.
-                        </p>
-                        <h4>Carolyn Craig</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            Do you want to be even more successful? Learn to love learning and growth. The more effort
-                            you put into improving your skills, the bigger the payoff you.
-                        </p>
-                        <h4>Harriet Maxwell</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            A purpose is the eternal condition for success. Every former smoker can tell you just how
-                            hard it is to stop smoking cigarettes. However.
-                        </p>
-                        <h4>Carolyn Craig</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            Do you want to be even more successful? Learn to love learning and growth. The more effort
-                            you put into improving your skills, the bigger the payoff you.
-                        </p>
-                        <h4>Harriet Maxwell</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-testimonial item d-flex flex-row">
-                    <div class="thumb">
-                        <img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt="">
-                    </div>
-                    <div class="desc">
-                        <p>
-                            A purpose is the eternal condition for success. Every former smoker can tell you just how
-                            hard it is to stop smoking cigarettes. However.
-                        </p>
-                        <h4>Carolyn Craig</h4>
-                        <div class="star">
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

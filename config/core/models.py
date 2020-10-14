@@ -135,7 +135,7 @@ class TripPurchase(models.Model):
 class Comment(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, null=True, related_name='comments')
     author = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
-    text = models.CharField(max_length=2000)
+    text = models.CharField(max_length=300)
     rating = models.IntegerField(choices=RATING)
     created_date = models.DateTimeField(default=timezone.now)
 
