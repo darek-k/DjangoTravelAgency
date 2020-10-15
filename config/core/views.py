@@ -1,6 +1,6 @@
 import datetime
 
-from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm
+from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm, TripPurchaseForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.shortcuts import render
@@ -296,6 +296,15 @@ class TripDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'delete_form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
+
+
+#todo: dodaj opcję tylko dla zalogowanych
+class TripPurchaseCreateView(CreateView):
+    title = 'Add purchase trip'
+    template_name = 'trip_details.html' # todo: czy to będzie działać tak jak tego oczekuję?
+    form_class = TripPurchaseForm
+    success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
+
 
 # class TripFilter(BaseFilter):
 #     search_fields = {

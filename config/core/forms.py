@@ -56,7 +56,7 @@ class TripPurchaseForm(forms.ModelForm):
     class Meta:
         model = TripPurchase
         fields = (
-            'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price'
+            'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price',
         )
 
 # class TripSearchForm(forms.Form):
