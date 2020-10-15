@@ -46,7 +46,7 @@ class TripDetailsView(DetailView):
 
 
 # todo: dodaj opcję tylko dla zalogowanych
-class TripPurchaseFormView(FormView):
+class TripPurchaseCreateView(CreateView):
     # login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
