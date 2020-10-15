@@ -109,6 +109,7 @@ class Trip(models.Model):
     departure_date = models.DateTimeField()
     arrival_date = models.DateTimeField()
     return_date = models.DateTimeField()
+    back_home_date = models.DateTimeField(null=True)
 
     # todo: jak to odjąć? Na obiekcie nie ma żadnych problemów z odejmowaniem tych dwóch wartości
     # duration = return_date-arrival_date

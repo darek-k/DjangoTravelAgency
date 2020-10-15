@@ -1,5 +1,7 @@
 {% load static %}
+{% load crispy_forms_tags %}
 {% load core_extras %}
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -184,8 +186,27 @@
                                         </li>
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Wylot</span>
-                                            <span>{{ trip.departure_city }} ({{ trip.departure_airport }})</span>
+                                            <span style="text-align:right">{{ trip.departure_date|date:"d.m.Y" }}
+                                                <b style="color:black">{{ trip.departure_date|date:"h:m" }}</b><br>
+                                                {{ trip.departure_city }} ({{ trip.departure_airport }})<br>
+                                                <b style="color:black;"><span class="lnr lnr-arrow-right"></span></b><br>
+                                                {{ trip.arrival_date|date:"d.m.Y" }}
+                                                <b style="color:black">{{ trip.arrival_date|date:"h:m" }}</b><br>
+                                                {{ trip.arrival_city }} ({{ trip.arrival_airport }})
+                                            </span>
                                         </li>
+                                        <li class="d-flex justify-content-between align-items-center">
+                                            <span>Powrót</span>
+                                            <span style="text-align:right">{{ trip.return_date|date:"d.m.Y" }}
+                                                <b style="color:black">{{ trip.return_date|date:"h:m" }}</b><br>
+                                                {{ trip.arrival_city }} ({{ trip.arrival_airport }})<br>
+                                                <b style="color:black;"><span class="lnr lnr-arrow-right"></span></b>
+                                                {{ trip.back_home_date|date:"d.m.Y" }}
+                                                <b style="color:black">{{ trip.back_home_date|date:"h:m" }}</b><br>
+                                                {{ trip.departure_city }} ({{ trip.departure_airport }})
+                                            </span>
+                                        </li>
+
                                         <li class="d-flex justify-content-between align-items-center">
                                             <span>Cena za osobę dorosłą</span>
                                             <span><a class="price-btn">{{ trip.price_for_adult }} zł</a></span>
@@ -199,13 +220,13 @@
                                             <span title="{{ trip.catering_option }}">{{ trip.catering_option }}</span>
                                         </li>
 
+                                        <li class="d-flex justify-content-between align-items-center">
+                                            <span></span>
+                                            <input type="submit" value="Zarezerwuj"
+                                                           class="genric-btn primary large" style="color:black;
+                                                                font-size:14px;">
+                                        </li>
                                     </ul>
-<br><br>
-
-                            <h4 class="d-flex justify-content-between">
-                                <span>Opis</span>
-                            </h4>
-					<p class="sample-text">{{ trip.arrival_hotel.description }}</p>
 <br>
                                 </div>
                             </div>
@@ -225,7 +246,7 @@
                 </div>
 <hr>
 
-                <section class="testimonial-area section-gap">
+                <section class="testimonial-area section-gap" style="padding-top:75px;">
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="menu-content pb-70 col-lg-8">
