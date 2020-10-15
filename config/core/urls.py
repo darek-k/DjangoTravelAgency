@@ -4,7 +4,7 @@ from core.views import TripDetailsView, template_elements, \
     AdminTripDetailView, AdminCityDetailView, AdminAirportDetailView, AdminHotelDetailView, AdminCountryDetailView, \
     CountryUpdateView, CityUpdateView, TripUpdateView, AirportUpdateView, HotelUpdateView, CountryDeleteView, \
     HotelDeleteView, AirportDeleteView, TripDeleteView, CityDeleteView, HotelListView, AdditionalServicesView, \
-    contact
+    contact, TripPurchaseCreateView
 from django.urls import path
 
 app_name = 'core'
@@ -23,6 +23,7 @@ urlpatterns = [
     path('add_hotel/', HotelCreateView.as_view(), name='add_hotel'),
     path('add_airport/', AirportCreateView.as_view(), name='add_airport'),
     path('add_trip/', TripCreateView.as_view(), name='add_trip'),
+    path('purchase_trip/', TripPurchaseCreateView.as_view(), name='purchase_trip'),
 
     path('admin_list/', AdminListView.as_view(), name='admin_list'),
 

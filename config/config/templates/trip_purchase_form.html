@@ -1,0 +1,184 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load core_extras %}
+
+
+<!DOCTYPE html>
+<html lang="zxx" class="no-js">
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="{% static 'img/fav.png">
+    <!-- Author Meta -->
+    <meta name="author" content="colorlib">
+    <!-- Meta Description -->
+    <meta name="description" content="">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Detail</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <!--
+    CSS
+    ============================================= -->
+    <link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+
+<body>
+<header id="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-6 col-6 header-top-left">
+                    <ul>
+                        <li><a target="_blank" href="https://www.google.com/maps/place/Gda%C5%84sk/@54.3612063,18.5499451,11z/data=!3m1!4b1!4m5!3m4!1s0x46fd731c14d4fa6f:0x9bb9fbf163b7be8d!8m2!3d54.3520252!4d18.6466384" >
+                            Odwiedź nas</a></li>
+                        <li><a target="_blank" href="https://www.skyscanner.pl/">Kup bilety</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-sm-6 col-6 header-top-right">
+                    <div class="header-social">
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.snapchat.com/" target="_blank"><i class="fa fa-snapchat"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container main-menu">
+        <div class="row align-items-center justify-content-between d-flex">
+            <div id="logo">
+                <a href="{% url 'trip_list' %}"><img src="{% static 'img/logo.png' %}" alt="" title=""/></a>
+            </div>
+            <nav id="nav-menu-container">
+                <ul class="nav-menu">
+                    <li><a href="{% url 'trip_list' %}">Home</a></li>
+                    <li><a href="{% url 'core:additional_services' %}">Dodatkowe usługi</a></li>
+                    <li><a href="{% url 'core:hotels' %}">Hotele</a></li>
+                    <li><a href="{% url 'core:contact' %}">Kontakt</a></li>
+
+                    {% if user|is_group:'staff' %}
+                    <li><a href="{% url 'core:admin_list' %}">Panel admina</a></li>
+                    {% endif %}
+
+                    {% if user.is_authenticated %}
+                    <li class="menu-has-children"><a href=#>Witaj, {{ user }}!</a>
+                        <ul>
+                            <li><a href="{% url 'accounts:logout' %}">Wyloguj</a></li>
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li class="menu-has-children"><a href=#>Logowanie</a>
+                        <ul>
+                            <li><a href="{% url 'accounts:sign_in' %}">Zaloguj</a></li>
+                            <li><a href="{% url 'accounts:sign_up' %}">Zarejestruj</a></li>
+                        </ul>
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav><!-- #nav-menu-container -->
+        </div>
+    </div>
+</header><!-- #header -->
+
+<!-- start banner Area -->
+<section class="about-banner relative" >
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white">
+                    {{ trip.arrival_city.country }}
+                </h1>
+                <h2 class="text-white">
+                    {{ trip.arrival_city.name }}
+                </h2>
+<br>
+                <p class="text-white link-nav"><a href="{% url 'trip_list' %}">Home </a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<!-- Start destinations Area -->
+<section class="destinations-area section-gap" style="padding: 50px">
+    <div class="container" >
+
+        <!-- Start align Area - Form -->
+        <div class="whole-wrap">
+            <div class="container">
+                </div>
+
+                <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
+                            <h3 class="mb-30">Zakup wycieczki</h3>
+
+                            <form method="post" action="#">
+                                {% csrf_token %}
+                                {{ form|crispy }}
+
+                                <div class="mt-10" style="text-align:center">
+                                    <input type="submit" value="Zaloguj" class="genric-btn primary e-large">
+                                </div>
+                            </form>
+
+                        </div>  <!-- Form elements -->
+            </div>
+    </div>
+        <!-- End Align Area -->
+
+</section>
+<!-- End destinations Area -->
+
+
+<!-- start footer Area -->
+<footer class="footer-area section-gap" style="padding: 0px 0px 40px 0px">
+    <div class="container">
+        <div class="row footer-bottom d-flex justify-content-between align-items-center">
+            <p class="col-lg-8 col-sm-12 footer-text m-0">
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a
+                    href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="col-lg-4 col-sm-12 footer-social">
+                <a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+                <a href="https://www.twitter.com/" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.snapchat.com/" target="_blank"><i class="fa fa-snapchat"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- End footer Area -->
+
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/easing.min.js' %}"></script>
+<script src="{% static 'js/hoverIntent.js' %}"></script>
+<script src="{% static 'js/superfish.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
