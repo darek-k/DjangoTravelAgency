@@ -1,5 +1,6 @@
 {% load static %}
 {% load core_extras %}
+{% load crispy_forms_tags %}
 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
@@ -126,7 +127,7 @@
 
                             <form method="post" action="#">
                                 {% csrf_token %}
-                                {{ form.as_p }}
+                                {{ form|crispy }}
 
                                 <div class="mt-10" style="text-align:center">
                                     <input type="submit" value="Zaloguj" class="genric-btn primary e-large">

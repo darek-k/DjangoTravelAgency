@@ -1,13 +1,7 @@
-{% comment %}
-<form method="post" class="">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-{% endcomment %}
-
+{% load crispy_forms_tags %}
 {% load static %}
 {% load core_extras %}
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -130,21 +124,14 @@
                 </div>
 
                 <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
-                    <h3 class="mb-30">Formularz</h3>
+                    <h3 class="mb-30">Edytuj</h3>
 
                             <form method="post" class="">
                                 {% csrf_token %}
-                                {% for field in form %}
-                                <div class="mt-10 ">
-                                    <div>
-                                        <label class="your-class" for="{{ field.auto_id }}">{{ field.label }}</label>
-                                        {{ field.label_tag }} {{ field }}
-                                    </div>
+                                {{ form|crispy }}
 
-                                </div>
-                                {% endfor %}
-                                    <input type="submit" value="Edytuj" class="genric-btn primary e-large">
-
+                            <a href="{% url 'core:admin_list' %}" class="genric-btn info">Wróć</a>
+                            <input type="submit" value="Edytuj" class="genric-btn primary">
                             </form>
 
                 </div>  <!-- Form elements -->
@@ -159,7 +146,7 @@
 
 
 <!-- start footer Area -->
-<footer class="footer-area section-gap" style="padding: 0px 0px 40px 0px">
+<footer class="footer-area section-gap" style="padding: 0px 0px 30px 0px; left: 0; bottom: 0; width: 100%;">
     <div class="container">
         <div class="row footer-bottom d-flex justify-content-between align-items-center">
             <p class="col-lg-8 col-sm-12 footer-text m-0">

@@ -1,13 +1,7 @@
-{% comment %}
-<form method="post" class="">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-{% endcomment %}
-
 {% load static %}
+{% load crispy_forms_tags %}
 {% load core_extras %}
+
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -134,14 +128,9 @@
 
                             <form method="post" class="">
                                 {% csrf_token %}
-                                {% for field in form %}
-                                <div class="mt-10 ">
+                                {{ form|crispy }}
 
-                                </div>
-                                {% endfor %}
-                                {% comment %}
-                                <a href="{% url 'core:admin_details' pk=object.id %}" class="genric-btn info">Wróć</a>
-                                {% endcomment %}
+                                <a href="{% url 'core:admin_list' %}" class="genric-btn info">Wróć</a>
                                 <input type="submit" value="Usuń" class="genric-btn danger">
 
                             </form>
@@ -158,7 +147,7 @@
 
 
 <!-- start footer Area -->
-<footer class="footer-area section-gap" style="padding: 0px 0px 40px 0px">
+<footer class="footer-area section-gap" style="padding: 0px 0px 30px 0px; left: 0; bottom: 0; width: 100%;">
     <div class="container">
         <div class="row footer-bottom d-flex justify-content-between align-items-center">
             <p class="col-lg-8 col-sm-12 footer-text m-0">

@@ -129,7 +129,7 @@
 
                             <form method="post" action="#">
                                 {% csrf_token %}
-                                {{ form.as_p }}
+                                {{ form|crispy }}
 
                                 <div class="mt-10" style="text-align:center">
                                     <input type="submit" value="Zarejestruj" class="genric-btn primary e-large">
