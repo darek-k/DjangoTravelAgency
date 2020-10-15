@@ -1,9 +1,9 @@
 import datetime
 
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm, TripPurchaseForm
-from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment
+from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment, TripPurchase
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.timezone import now
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
@@ -50,6 +50,14 @@ class TripPurchaseCreateView(CreateView):
     # login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
+
+
+    # def form_valid(self, form):
+    #     borrower = form.save()
+    #     trip = Trip.objects.get(id=self.kwargs['pk'])   # or whatever is in your URL
+    #     trip.borrower = borrower
+    #     trip.save()
+    #     return redirect(self.get_success_url())
 
 
 class TripListView(ListView):

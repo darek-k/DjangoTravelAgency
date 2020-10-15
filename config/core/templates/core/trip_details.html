@@ -252,7 +252,6 @@
     <form method="post" action="{% url 'core:purchase_trip' %}">
         {% csrf_token %}
         {{ form|crispy }}
-
         <div class="mt-10" style="text-align:center">
             <input type="submit" value="Przejdź do płatności" class="genric-btn primary e-large" style="color:black;">
         </div>

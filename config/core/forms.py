@@ -53,14 +53,17 @@ class TripForm(forms.ModelForm):
 
 
 class TripPurchaseForm(forms.ModelForm):
-    final_price = forms.IntegerField(widget=forms.HiddenInput(), initial=666)
-    main_booker = ''
-
     class Meta:
         model = TripPurchase
         fields = (
             'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price',
         )
+        localized_fields = '__all__'
+
+    trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=1))
+    # final_price = forms.IntegerField(widget=forms.HiddenInput(), initial=666)
+
+
 
 # class TripSearchForm(forms.Form):
 #     search_departure_city = forms.CharField(
