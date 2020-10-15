@@ -117,8 +117,6 @@ class Trip(models.Model):
     price_for_adult = models.DecimalField(decimal_places=0, max_digits=6)
     price_for_child = models.DecimalField(decimal_places=0, max_digits=6)
     promoted = models.BooleanField(default=False)
-    adults_number = models.IntegerField(default=0)
-    kids_number = models.IntegerField(default=0)
     comment = models.ManyToManyField
 
     def __str__(self):
@@ -127,9 +125,11 @@ class Trip(models.Model):
 
 
 class TripPurchase(models.Model):
-    trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trips_purchases')
-    participants_data = models.CharField(max_length=1000)
-    price = models.DecimalField(decimal_places=2, max_digits=6)
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trips')
+    main_booker = models.ForeignKey(Profile, on_delete=models.CASCADE, default='')
+    adults_number = models.IntegerField(default=0)
+    kids_number = models.IntegerField(default=0)
+    final_price = models.DecimalField(decimal_places=2, max_digits=6)
 
 
 class Comment(models.Model):
