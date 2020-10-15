@@ -6,7 +6,7 @@ from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMix
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.timezone import now
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, FormView
 from search_views.filters import BaseFilter
 from search_views.views import SearchListView
 
@@ -40,9 +40,16 @@ class TripDetailsView(DetailView):
     template_name = 'core/trip_details.html'
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data()
-        context['duration'] = Trip.departure_date
+        context = super(TripDetailsView, self).get_context_data(**kwargs)
+        context['form'] = TripPurchaseForm
         return context
+
+
+# todo: dodaj opcję tylko dla zalogowanych
+class TripPurchaseFormView(FormView):
+    # login_url = 'accounts:sign_in'
+    form_class = TripPurchaseForm
+    success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
 
 
 class TripListView(ListView):
@@ -296,16 +303,6 @@ class TripDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'delete_form.html'
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
-
-
-#todo: dodaj opcję tylko dla zalogowanych
-class TripPurchaseCreateView(LoginRequiredMixin, CreateView):
-    login_url = 'accounts:sign_in'
-    title = 'Add purchase trip'
-    template_name = 'trip_purchase_form.html'
-    form_class = TripPurchaseForm
-    success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
-
 
 # class TripFilter(BaseFilter):
 #     search_fields = {
