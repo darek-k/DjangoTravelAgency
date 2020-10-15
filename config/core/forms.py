@@ -53,6 +53,9 @@ class TripForm(forms.ModelForm):
 
 
 class TripPurchaseForm(forms.ModelForm):
+    final_price = forms.IntegerField(widget=forms.HiddenInput(), initial=666)
+    main_booker = ''
+
     class Meta:
         model = TripPurchase
         fields = (
