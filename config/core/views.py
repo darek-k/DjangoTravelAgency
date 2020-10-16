@@ -35,22 +35,35 @@ def insurance(request):
     return render(request, 'core/insurance.html')
 
 
+def render_initial_data(request):
+    initial_data = {'name': 'Tu będzie nazwa kontynentu!'}
+    obj = Trip.objects.get(id=1)
+    form = CountryForm(request.POST or None, initial=initial_data, instance=obj)
+    context = {'form': form}
+    return render(request, 'form.html', context)
+
+
 class TripDetailsView(DetailView):
     model = Trip
     template_name = 'core/trip_details.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super(TripDetailsView, self).get_context_data(**kwargs)
         context['form'] = TripPurchaseForm
+        context['trip_id'] = Trip.objects.get(pk=1)  # todo: jak przekazać pk/id wycieczki?
         return context
 
+    def get_object(self, queryset=None):
+        object = super().get_object()
+        print('!!! OBIEKT: ', object)
+        print('!!! OBIEKT.ID: ', object.id)
+        return object
 
-# todo: dodaj opcję tylko dla zalogowanych
+
 class TripPurchaseCreateView(CreateView):
     # login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
-
 
 
 class TripListView(ListView):

@@ -99,6 +99,7 @@ class TripPurchaseForm(forms.ModelForm):
             'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price',
         )
 
+
     trip_id = 1
     trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=trip_id))
     # trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=trip_id))

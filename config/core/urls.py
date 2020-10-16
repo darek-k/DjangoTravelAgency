@@ -4,7 +4,7 @@ from core.views import TripDetailsView, template_elements, \
     AdminTripDetailView, AdminCityDetailView, AdminAirportDetailView, AdminHotelDetailView, AdminCountryDetailView, \
     CountryUpdateView, CityUpdateView, TripUpdateView, AirportUpdateView, HotelUpdateView, CountryDeleteView, \
     HotelDeleteView, AirportDeleteView, TripDeleteView, CityDeleteView, HotelListView, AdditionalServicesView, \
-    contact, TripPurchaseCreateView
+    contact, TripPurchaseCreateView, render_initial_data
 from django.urls import path
 from django.views.decorators.http import require_POST
 
