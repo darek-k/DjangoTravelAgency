@@ -3,7 +3,7 @@
 <ul>
   {% for trip in object_list %}
     <li>
-      {{ trip.arrival_city }}, {{ trip.arrival_hotel }}, {{ trip.departure_date }}
+      {{ trip.departure_city }} ---> {{ trip.arrival_city }}, {{ trip.departure_date }}
     </li>
   {% endfor %}
 </ul>

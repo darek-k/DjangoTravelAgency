@@ -4,6 +4,7 @@ from accounts.models import Profile
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm, TripPurchaseForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment, TripPurchase
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
+from django.db.models import Q
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.timezone import now
@@ -319,8 +320,12 @@ class SearchResultsView(ListView):
     template_name = 'core/search_results.html'
 
     def get_queryset(self):
-        query = self.request.GET.get('q')
-        search_results = Trip.objects.filter(arrival_city__name__icontains=query)
+        query = self.request.GET.get('to', 'from')
+        print(query)
+        search_results = Trip.objects.filter(
+            Q(arrival_city__name__icontains=query) or Q(departure_city__name__icontains=query)
+        )
+
         return search_results
 
 
