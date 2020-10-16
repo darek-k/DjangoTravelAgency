@@ -1,5 +1,6 @@
 import datetime
 
+from accounts.models import Profile
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm, TripPurchaseForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment, TripPurchase
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
@@ -50,14 +51,8 @@ class TripDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(TripDetailsView, self).get_context_data(**kwargs)
         context['form'] = TripPurchaseForm
-        context['trip_id'] = Trip.objects.get(pk=1)  # todo: jak przekazać pk/id wycieczki?
+        context['trip_id'] = self.object.id  # todo: jak przekazać pk/id wycieczki?
         return context
-
-    def get_object(self, queryset=None):
-        object = super().get_object()
-        print('!!! OBIEKT: ', object)
-        print('!!! OBIEKT.ID: ', object.id)
-        return object
 
 
 class TripPurchaseCreateView(CreateView):

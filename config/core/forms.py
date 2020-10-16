@@ -3,6 +3,8 @@ from core.models import Continent, Country, City, Trip, Airport, Hotel, TripPurc
 from django.contrib.admin.widgets import AdminDateWidget
 from django.forms import Textarea, SelectDateWidget
 
+from accounts.models import Profile
+
 
 class ContinentForm(forms.ModelForm):
     class Meta:
@@ -51,7 +53,7 @@ class HotelForm(forms.ModelForm):
             'room_service': ('Obsługa hotelowa'), 'restaurant': ('Restauracja'), 'gym': ('Siłownia'),
         }
         help_texts = {
-            'location':('Wstaw link z lokalizacją hotelu z GoogleMaps')
+            'location': ('Wstaw link z lokalizacją hotelu z GoogleMaps')
         }
 
 
@@ -93,16 +95,18 @@ class TripForm(forms.ModelForm):
 
 
 class TripPurchaseForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__()
+        print(args, kwargs)
+
+
     class Meta:
         model = TripPurchase
         fields = (
             'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price',
         )
 
-
-    trip_id = 1
-    trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=trip_id))
-    # trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=trip_id))
+    trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=2))
 
 # class TripSearchForm(forms.Form):
 #     search_departure_city = forms.CharField(
