@@ -50,6 +50,9 @@ class HotelForm(forms.ModelForm):
             'air_condition': ('Klimatyzacja'),
             'room_service': ('Obsługa hotelowa'), 'restaurant': ('Restauracja'), 'gym': ('Siłownia'),
         }
+        help_texts = {
+            'location':('Wstaw link z lokalizacją hotelu z GoogleMaps')
+        }
 
 
 class AirportForm(forms.ModelForm):
