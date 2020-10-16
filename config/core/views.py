@@ -313,6 +313,18 @@ class TripDeleteView(PermissionRequiredMixin, DeleteView):
     form_class = TripForm
     success_url = reverse_lazy('core:admin_list')
 
+
+class SearchResultsView(ListView):
+    model = Trip
+    template_name = 'core/search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        search_results = Trip.objects.filter(arrival_city__name__icontains=query)
+        return search_results
+
+
+
 # class TripFilter(BaseFilter):
 #     search_fields = {
 #         'search_departure_city': ['name', ],

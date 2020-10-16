@@ -123,10 +123,16 @@
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
+                    <form action="{% url 'core:search_results' %}" method="get">
+  <input name="q" type="text" placeholder="Search...">
+</form>
                     <div class="tab-pane fade show active" id="flight" role="tabpanel" aria-labelledby="flight-tab">
-                        <form class="form-wrap">
+                        <form action="{% url 'core:search_results' %}" class="form-wrap">
                             <input type="text" class="form-control" name="name" placeholder="From "
                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'From '">
+
+                            <input name="q" type="text" placeholder="Search...">
+
                             <input type="text" class="form-control" name="to" placeholder="To "
                                    onfocus="this.placeholder = ''" onblur="this.placeholder = 'To '">
                             <input type="text" class="form-control date-picker" name="start" placeholder="Start "
