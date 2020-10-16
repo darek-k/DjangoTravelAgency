@@ -1,5 +1,7 @@
 from django import forms
 from core.models import Continent, Country, City, Trip, Airport, Hotel, TripPurchase
+from django.contrib.admin.widgets import AdminDateWidget
+from django.forms import Textarea, SelectDateWidget
 
 
 class ContinentForm(forms.ModelForm):
@@ -8,6 +10,9 @@ class ContinentForm(forms.ModelForm):
         fields = (
             'name',
         )
+        labels = {
+            'name': ('Nazwa')
+        }
 
 
 class CountryForm(forms.ModelForm):
@@ -16,6 +21,9 @@ class CountryForm(forms.ModelForm):
         fields = (
             'name', 'continent',
         )
+        labels = {
+            'name': ('Nazwa'), 'continent': ('Kontynent')
+        }
 
 
 class CityForm(forms.ModelForm):
@@ -24,6 +32,9 @@ class CityForm(forms.ModelForm):
         fields = (
             'name', 'country',
         )
+        labels = {
+            'name': ('Nazwa'), 'country': ('Kraj')
+        }
 
 
 class HotelForm(forms.ModelForm):
@@ -33,6 +44,12 @@ class HotelForm(forms.ModelForm):
             'name', 'stars', 'description', 'city', 'location', 'swimming_pool', 'wifi', 'air_condition',
             'room_service', 'restaurant', 'gym',
         )
+        labels = {
+            'name': ('Nazwa'), 'stars': ('Liczba gwiazdek'), 'description': ('Opis'), 'city': ('Miasto'),
+            'location': ('Lokalizacja'), 'swimming_pool': ('Basen'), 'wifi': ('Wifi'),
+            'air_condition': ('Klimatyzacja'),
+            'room_service': ('Obsługa hotelowa'), 'restaurant': ('Restauracja'), 'gym': ('Siłownia'),
+        }
 
 
 class AirportForm(forms.ModelForm):
@@ -41,15 +58,35 @@ class AirportForm(forms.ModelForm):
         fields = (
             'name', 'city'
         )
+        labels = {
+            'name': ('Nazwa'), 'city': ('Miasto')
+        }
 
 
 class TripForm(forms.ModelForm):
     class Meta:
         model = Trip
         fields = (
-            'departure_city', 'departure_airport', 'arrival_city', 'arrival_hotel', 'arrival_airport', 'departure_date',
-            'arrival_date', 'return_date', 'catering_option', 'price_for_adult', 'price_for_child', 'promoted',
+            'departure_city', 'departure_airport', 'arrival_city', 'arrival_hotel', 'arrival_airport',
+            'departure_date',
+            'arrival_date', 'return_date', 'back_home_date', 'catering_option', 'price_for_adult',
+            'price_for_child',
+            'promoted',
         )
+        widgets = {
+            'departure_date': SelectDateWidget(),
+        }
+        labels = {
+            'departure_city': ('Miasto wylotu'), 'departure_airport': ('Lotnisko wylotu'),
+            'arrival_city': ('Miasto przylotu'), 'arrival_airport': ('Lotnisko przylotu'),
+            'departure_date': ('Data wylotu'), 'arrival_date': ('Data przylotu'), 'return_date': ('Data odlotu'),
+            'back_home_date': ('Data powrotu'), 'catering_option': ('Wyżywienie'),
+            'price_for_adult': ('Cena za os. dorosłą'), 'price_for_child': ('Cena za dziecko'),
+            'promoted': ('Promować?')
+        }
+        help_texts = {
+            'promoted': ('Wycieczka będzie wyświetlana na głównej stronie'),
+        }
 
 
 class TripPurchaseForm(forms.ModelForm):
@@ -58,12 +95,10 @@ class TripPurchaseForm(forms.ModelForm):
         fields = (
             'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price',
         )
-        localized_fields = '__all__'
 
-    trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=1))
-    # final_price = forms.IntegerField(widget=forms.HiddenInput(), initial=666)
-
-
+    trip_id = 1
+    trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=trip_id))
+    # trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=trip_id))
 
 # class TripSearchForm(forms.Form):
 #     search_departure_city = forms.CharField(

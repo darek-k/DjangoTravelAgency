@@ -38,7 +38,7 @@ def insurance(request):
 class TripDetailsView(DetailView):
     model = Trip
     template_name = 'core/trip_details.html'
-
+    
     def get_context_data(self, **kwargs):
         context = super(TripDetailsView, self).get_context_data(**kwargs)
         context['form'] = TripPurchaseForm
@@ -51,13 +51,6 @@ class TripPurchaseCreateView(CreateView):
     form_class = TripPurchaseForm
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
 
-
-    # def form_valid(self, form):
-    #     borrower = form.save()
-    #     trip = Trip.objects.get(id=self.kwargs['pk'])   # or whatever is in your URL
-    #     trip.borrower = borrower
-    #     trip.save()
-    #     return redirect(self.get_success_url())
 
 
 class TripListView(ListView):
