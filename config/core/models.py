@@ -29,7 +29,7 @@ def get_hotel_image_path(instance, filename):
 
 
 def get_country_image_path(instance, filename):
-    return f'static/core/photos/hotel_{instance.id}/{filename}'
+    return f'static/core/photos/country_{instance.id}/{filename}'
 
 
 class Continent(models.Model):
@@ -45,10 +45,11 @@ class Continent(models.Model):
 class Country(models.Model):
     name = models.CharField(max_length=50)
     continent = models.ForeignKey(Continent, on_delete=models.CASCADE, related_name='countries')
-    country_image = models.FileField(upload_to=get_country_image_path, null=True)
+    country_image = models.ImageField(upload_to=get_country_image_path, null=True)
 
     class Meta:
         ordering = ['name']
+        verbose_name_plural = 'countries'
 
     def __str__(self):
         return self.name
@@ -61,6 +62,7 @@ class City(models.Model):
 
     class Meta:
         ordering = ['name']
+        verbose_name_plural = 'cities'
 
     def __str__(self):
         return self.name

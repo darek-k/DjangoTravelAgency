@@ -21,7 +21,7 @@ class CountryForm(forms.ModelForm):
     class Meta:
         model = Country
         fields = (
-            'name', 'continent',
+            'name', 'continent', 'country_image',
         )
         labels = {
             'name': ('Nazwa'), 'continent': ('Kontynent')
