@@ -320,30 +320,11 @@ class SearchResultsView(ListView):
     template_name = 'core/search_results.html'
 
     def get_queryset(self):
-        query = self.request.GET.get('to', 'from')
-        print(query)
+        q_to = self.request.GET.get('to')
+        q_from = self.request.GET.get('from')
+        print(q_to, q_from)
         search_results = Trip.objects.filter(
-            Q(arrival_city__name__icontains=query) or Q(departure_city__name__icontains=query)
+            Q(arrival_city__name__icontains=q_to) & Q(departure_city__name__icontains=q_from)
         )
 
         return search_results
-
-
-
-# class TripFilter(BaseFilter):
-#     search_fields = {
-#         'search_departure_city': ['name', ],
-#         'search_arrival_city': ['name', ],
-#         'search_hotel': ['name', ],
-#         'search_price_min': {'operator': '__gte', 'fields': ['price_for_adult']},
-#         'search_price_max': {'operator': '__lte', 'fields': ['price_for_adult']},
-#     }
-#
-#
-# class TripSearchList(SearchListView):
-#     model = Trip
-#     paginate_by = 6
-#     template_name = "search_form.html"
-#
-#     form_class = TripSearchForm
-#     filter_class = TripFilter
