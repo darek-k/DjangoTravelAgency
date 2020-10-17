@@ -52,19 +52,20 @@ class TripDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(TripDetailsView, self).get_context_data(**kwargs)
         context['form'] = TripPurchaseForm
-        context['trip_id'] = self.object.id  # todo: jak przekazać pk/id wycieczki?
         return context
 
 
 class TripPurchaseCreateView(CreateView):
     # login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
-    template_name = 'core/trip_details.html'
+    template_name = 'form.html'
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
 
     def get_initial(self):
         initial = super().get_initial()
         initial['test_char_field'] = "testestestse"
+        initial['adults_number'] = 1231
+        initial['final_price'] = 22
         return initial
 
 
@@ -80,6 +81,7 @@ class TripCreateView(PermissionRequiredMixin, CreateView):
         initial = super().get_initial()
         initial['departure_city'] = 3
         initial['price_for_adult'] = 12345
+        initial['promoted'] = True
         return initial
 
 
