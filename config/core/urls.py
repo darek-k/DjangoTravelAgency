@@ -14,9 +14,11 @@ urlpatterns = [
     path('additional_services/', AdditionalServicesView.as_view(), name='additional_services'),
     path('search_results/', SearchResultsView.as_view(), name='search_results'),
 
-
     path('trip_details/<pk>/', TripDetailsView.as_view(), name='trip_details'),
-    path('purchase_trip/', TripPurchaseCreateView.as_view(), name='purchase_trip'),
+
+    path('trip_purchase/<pk>/', TripPurchaseCreateView.as_view(), name='trip_purchase'),
+
+
 
 
     path('contact/', contact, name='contact'),

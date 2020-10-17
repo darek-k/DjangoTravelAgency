@@ -58,7 +58,7 @@ class TripDetailsView(DetailView):
 class TripPurchaseCreateView(CreateView):
     # login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
-    template_name = 'form.html'
+    template_name = 'trip_purchase_form.html'
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
 
     def get_initial(self):

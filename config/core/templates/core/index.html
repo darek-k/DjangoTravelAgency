@@ -203,6 +203,7 @@
                             <img class="img-fluid" src="{{ trip.arrival_city.city_image }}" alt="" style="height:250px">
                         </div>
                         <div class="desc">
+
                             <a href="{% url 'core:trip_details' pk=trip.pk %}" class="price-btn">{{ trip.price_for_adult}} zł</a>
                                 <h4>{{ trip.arrival_city.country}} - {{ trip.arrival_city }}</h4>
                                 <p>{{ trip.arrival_hotel }}</p>
