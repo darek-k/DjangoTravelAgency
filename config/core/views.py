@@ -59,7 +59,36 @@ class TripDetailsView(DetailView):
 class TripPurchaseCreateView(CreateView):
     # login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
+    template_name = 'core/trip_details.html'
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['test_char_field'] = "testestestse"
+        return initial
+
+
+class TripCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_trip'
+
+    title = 'Add trip'
+    template_name = 'form.html'
+    form_class = TripForm
+    success_url = reverse_lazy('core:admin_list')
+
+    def get_initial(self):
+        initial = super().get_initial()
+        initial['departure_city'] = 3
+        initial['price_for_adult'] = 12345
+        return initial
+
+
+class ContinentCreateView(PermissionRequiredMixin, CreateView):
+    permission_required = 'core.add_continent'
+    title = 'Add continent'
+    template_name = 'form.html'
+    form_class = ContinentForm
+    success_url = reverse_lazy('core:admin_list')
 
 
 class TripListView(ListView):
@@ -74,6 +103,7 @@ class TripListView(ListView):
         context['all_countries'] = Country.objects.exclude(name='Polska')
         context['all_comments'] = Comment.objects.all()
         context['today'] = datetime.datetime.now()
+        # context['prices'] = [i.price_for_adult for i in Trip.objects.all() if i.arrival_city.country.name=="Hiszpania"]
         return context
 
 
@@ -113,14 +143,6 @@ class AdminListView(PermissionRequiredMixin, ListView):
         return context
 
 
-class ContinentCreateView(PermissionRequiredMixin, CreateView):
-    permission_required = 'core.add_continent'
-    title = 'Add continent'
-    template_name = 'form.html'
-    form_class = ContinentForm
-    success_url = reverse_lazy('core:admin_list')
-
-
 class CountryCreateView(PermissionRequiredMixin, CreateView):
     permission_required = 'core.add_country'
 
@@ -157,13 +179,7 @@ class AirportCreateView(PermissionRequiredMixin, CreateView):
     success_url = reverse_lazy('core:admin_list')
 
 
-class TripCreateView(PermissionRequiredMixin, CreateView):
-    permission_required = 'core.add_trip'
 
-    title = 'Add trip'
-    template_name = 'form.html'
-    form_class = TripForm
-    success_url = reverse_lazy('core:admin_list')
 
 
 class AdminContinentDetailView(PermissionRequiredMixin, DetailView):
@@ -334,7 +350,8 @@ class SearchResultsView(ListView):
             q_date = self.request.GET.get('date')
             print(q_to, q_from)
             search_results = Trip.objects.filter(
-                (Q(arrival_city__name__icontains=q_to) | Q(arrival_city__country__name__icontains=q_to)) & Q(departure_city__name__icontains=q_from) & Q(
+                (Q(arrival_city__name__icontains=q_to) | Q(arrival_city__country__name__icontains=q_to)) & Q(
+                    departure_city__name__icontains=q_from) & Q(
                     departure_date__gt=q_date)
             )
 

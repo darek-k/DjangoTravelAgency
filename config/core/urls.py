@@ -16,7 +16,7 @@ urlpatterns = [
 
 
     path('trip_details/<pk>/', TripDetailsView.as_view(), name='trip_details'),
-    path('purchase_trip/', require_POST(TripPurchaseCreateView.as_view()), name='purchase_trip'),
+    path('purchase_trip/', TripPurchaseCreateView.as_view(), name='purchase_trip'),
 
 
     path('contact/', contact, name='contact'),

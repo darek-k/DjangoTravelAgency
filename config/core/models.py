@@ -134,6 +134,8 @@ class TripPurchase(models.Model):
     kids_number = models.IntegerField(default=0)
     final_price = models.DecimalField(decimal_places=2, max_digits=6)
 
+    test_char_field = models.CharField(max_length=50, default='')
+
 
 class Comment(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, null=True, related_name='comments')

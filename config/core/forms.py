@@ -79,9 +79,7 @@ class TripForm(forms.ModelForm):
             'price_for_child',
             'promoted',
         )
-        widgets = {
-            'departure_date': SelectDateWidget(),
-        }
+
         labels = {
             'departure_city': ('Miasto wylotu'), 'departure_airport': ('Lotnisko wylotu'),
             'arrival_city': ('Miasto przylotu'), 'arrival_airport': ('Lotnisko przylotu'),
@@ -96,17 +94,13 @@ class TripForm(forms.ModelForm):
 
 
 class TripPurchaseForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__()
-        print(args, kwargs)
-
     class Meta:
         model = TripPurchase
         fields = (
-            'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price',
+            'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price', 'test_char_field'
         )
 
-    # trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=2))
+
 
 # class TripSearchForm(forms.Form):
 #     search_departure_city = forms.CharField(
