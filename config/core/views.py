@@ -73,6 +73,7 @@ class TripListView(ListView):
         context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
         context['all_countries'] = Country.objects.exclude(name='Polska')
         context['all_comments'] = Comment.objects.all()
+        context['today'] = datetime.datetime.now()
         return context
 
 

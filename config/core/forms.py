@@ -4,6 +4,7 @@ from django.contrib.admin.widgets import AdminDateWidget
 from django.forms import Textarea, SelectDateWidget
 
 from accounts.models import Profile
+from django.utils.datetime_safe import datetime
 
 
 class ContinentForm(forms.ModelForm):
@@ -99,7 +100,6 @@ class TripPurchaseForm(forms.ModelForm):
         super().__init__()
         print(args, kwargs)
 
-
     class Meta:
         model = TripPurchase
         fields = (
@@ -107,8 +107,6 @@ class TripPurchaseForm(forms.ModelForm):
         )
 
     # trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=2))
-
-
 
 # class TripSearchForm(forms.Form):
 #     search_departure_city = forms.CharField(
