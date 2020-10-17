@@ -106,7 +106,9 @@ class TripPurchaseForm(forms.ModelForm):
             'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price',
         )
 
-    trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=2))
+    # trip = forms.ModelChoiceField(queryset=Trip.objects.all(), required=False, initial=Trip.objects.get(pk=2))
+
+
 
 # class TripSearchForm(forms.Form):
 #     search_departure_city = forms.CharField(
