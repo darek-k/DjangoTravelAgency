@@ -78,9 +78,7 @@ class TripForm(forms.ModelForm):
             'price_for_child',
             'promoted',
         )
-        widgets = {
-            'departure_date': SelectDateWidget(),
-        }
+
         labels = {
             'departure_city': ('Miasto wylotu'), 'departure_airport': ('Lotnisko wylotu'),
             'arrival_city': ('Miasto przylotu'), 'arrival_airport': ('Lotnisko przylotu'),

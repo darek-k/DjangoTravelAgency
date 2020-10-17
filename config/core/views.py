@@ -325,7 +325,8 @@ class SearchResultsView(ListView):
         q_date = self.request.GET.get('date')
         print(q_to, q_from)
         search_results = Trip.objects.filter(
-            Q(arrival_city__name__icontains=q_to) & Q(departure_city__name__icontains=q_from) & Q(
+            Q(arrival_city__name__icontains=q_to) | Q(arrival_city__country__name__icontains=q_to) & Q(
+                departure_city__name__icontains=q_from) & Q(
                 departure_date__gt=q_date)
         )
 
