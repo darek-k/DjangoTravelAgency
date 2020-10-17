@@ -123,7 +123,7 @@ class Trip(models.Model):
     comment = models.ManyToManyField
 
     def __str__(self):
-        return f"Z: {self.departure_city} do: {self.arrival_city}. Data wyjazdu: {self.departure_date} " \
+        return f"Z: {self.departure_city} do: {self.arrival_city} - {self.arrival_hotel}. Data wyjazdu: {self.departure_date} " \
                f"Data odlotu: {self.return_date}"
 
 
