@@ -321,13 +321,21 @@ class SearchResultsView(ListView):
     template_name = 'core/search_results.html'
 
     def get_queryset(self):
-        q_to = self.request.GET.get('to')
-        q_from = self.request.GET.get('from')
-        q_date = self.request.GET.get('date')
-        print(q_to, q_from)
-        search_results = Trip.objects.filter(
-            Q(arrival_city__name__icontains=q_to) & Q(departure_city__name__icontains=q_from) & Q(
-                departure_date__gt=q_date)
-        )
+        if self.request.GET.get('country'):
+            q_country = self.request.GET.get('country')
+            print(q_country)
+            search_results = Trip.objects.filter(
+                Q(arrival_city__country__name__icontains=q_country)
+            )
+
+        else:
+            q_to = self.request.GET.get('to')
+            q_from = self.request.GET.get('from')
+            q_date = self.request.GET.get('date')
+            print(q_to, q_from)
+            search_results = Trip.objects.filter(
+                (Q(arrival_city__name__icontains=q_to) | Q(arrival_city__country__name__icontains=q_to)) & Q(departure_city__name__icontains=q_from) & Q(
+                    departure_date__gt=q_date)
+            )
 
         return search_results
