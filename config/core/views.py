@@ -322,9 +322,11 @@ class SearchResultsView(ListView):
     def get_queryset(self):
         q_to = self.request.GET.get('to')
         q_from = self.request.GET.get('from')
+        q_date = self.request.GET.get('date')
         print(q_to, q_from)
         search_results = Trip.objects.filter(
-            Q(arrival_city__name__icontains=q_to) & Q(departure_city__name__icontains=q_from)
+            Q(arrival_city__name__icontains=q_to) & Q(departure_city__name__icontains=q_from) & Q(
+                departure_date__gt=q_date)
         )
 
         return search_results
