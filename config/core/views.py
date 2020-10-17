@@ -61,11 +61,20 @@ class TripPurchaseCreateView(CreateView):
     template_name = 'trip_purchase_form.html'
     success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['trip'] = Trip.objects.get(pk=self.kwargs.get('pk'))
+        return context
+
     def get_initial(self):
         initial = super().get_initial()
-        initial['test_char_field'] = "testestestse"
-        initial['adults_number'] = 1231
-        initial['final_price'] = 22
+        initial['trip'] = self.kwargs.get('pk')
+
+        initial['main_booker'] = self.request.user.id
+        initial['adults_number'] = 1
+        initial['kids_number'] = 0
+        # initial['final_price'] = self.kwargs['pk']
+        initial['test_char_field'] = self.request.user
         return initial
 
 
@@ -179,9 +188,6 @@ class AirportCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'form.html'
     form_class = AirportForm
     success_url = reverse_lazy('core:admin_list')
-
-
-
 
 
 class AdminContinentDetailView(PermissionRequiredMixin, DetailView):

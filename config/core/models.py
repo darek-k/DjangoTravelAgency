@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 from accounts.models import Profile
 from django.utils import timezone
@@ -129,7 +130,7 @@ class Trip(models.Model):
 
 class TripPurchase(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trips')
-    main_booker = models.ForeignKey(Profile, on_delete=models.CASCADE, default='')
+    main_booker = models.ForeignKey(User, on_delete=models.CASCADE, default='')
     adults_number = models.IntegerField(default=0)
     kids_number = models.IntegerField(default=0)
     final_price = models.DecimalField(decimal_places=2, max_digits=6)

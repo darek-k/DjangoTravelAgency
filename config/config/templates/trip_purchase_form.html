@@ -125,8 +125,14 @@
                 </div>
 
                 <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
-                            <h3 class="mb-30">Zakup wycieczki</h3>
+                    user: {{ user }} <hr>
+                    Profile.objects.get(pk=self.request.user.id): {{ user_id }} <hr>
+                    user.id: {{ user.id}} <hr>
 
+                    {{ trip }}
+                    {{ trip.id }}
+                    {{ trip.arrival_city }}
+                            <h3 class="mb-30">Zakup wycieczki</h3>
                             <form method="post" action="#">
                                 {% csrf_token %}
                                 {{ form|crispy }}
