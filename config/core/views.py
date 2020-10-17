@@ -1,6 +1,6 @@
 import datetime
 
-from accounts.models import Profile
+# from accounts.models import Profile
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm, TripPurchaseForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment, TripPurchase
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin

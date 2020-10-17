@@ -3,7 +3,7 @@ from core.models import Continent, Country, City, Trip, Airport, Hotel, TripPurc
 from django.contrib.admin.widgets import AdminDateWidget
 from django.forms import Textarea, SelectDateWidget
 
-from accounts.models import Profile
+# from accounts.models import Profile
 from django.utils.datetime_safe import datetime
 
 
