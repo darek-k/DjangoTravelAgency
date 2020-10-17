@@ -79,7 +79,6 @@ class TripForm(forms.ModelForm):
             'price_for_child',
             'promoted',
         )
-
         labels = {
             'departure_city': ('Miasto wylotu'), 'departure_airport': ('Lotnisko wylotu'),
             'arrival_city': ('Miasto przylotu'), 'arrival_airport': ('Lotnisko przylotu'),
@@ -100,25 +99,11 @@ class TripPurchaseForm(forms.ModelForm):
             'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price', 'test_char_field'
         )
 
+        labels = {
+            'adults_number': ('Liczba osób dorosłych'), 'kids_number': ('Liczba dzieci')
+        }
 
-
-# class TripSearchForm(forms.Form):
-#     search_departure_city = forms.CharField(
-#         required=False, label='Skąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
-#     )
-#
-#     search_arrival_city = forms.CharField(
-#         required=False, label='Dokąd', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
-#     )
-#
-#     search_hotel = forms.CharField(
-#         required=False, label='Hotel', widget=forms.TextInput(attrs={'placeholder': 'search here!'})
-#     )
-#
-#     search_price_min = forms.IntegerField(
-#         required=False, label='Min price'
-#     )
-#
-#     search_price_max = forms.IntegerField(
-#         required=False, label='max price'
-#     )
+        widgets = {
+            'trip': forms.HiddenInput(), 'main_booker': forms.HiddenInput(), 'final_price': forms.HiddenInput(),
+            'test_char_field': forms.HiddenInput(),
+        }

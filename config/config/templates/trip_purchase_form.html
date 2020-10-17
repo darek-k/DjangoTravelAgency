@@ -121,28 +121,22 @@
 
         <!-- Start align Area - Form -->
         <div class="whole-wrap">
-            <div class="container">
-                </div>
-
                 <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
-                    user: {{ user }} <hr>
-                    Profile.objects.get(pk=self.request.user.id): {{ user_id }} <hr>
-                    user.id: {{ user.id}} <hr>
+                    <h3 class="mb-30">Zakup wycieczki do: {{ trip.arrival_city }} ({{ trip.departure_date }})</h3>
+                    <form method="post" action="#">
+                        {% csrf_token %}
+                        {% for field in form %}
 
-                    {{ trip }}
-                    {{ trip.id }}
-                    {{ trip.arrival_city }}
-                            <h3 class="mb-30">Zakup wycieczki</h3>
-                            <form method="post" action="#">
-                                {% csrf_token %}
-                                {{ form|crispy }}
+                                {{ field|as_crispy_field }}
 
-                                <div class="mt-10" style="text-align:center">
-                                    <input type="submit" value="Przejdź do płatności" class="genric-btn primary e-large">
-                                </div>
-                            </form>
 
-                        </div>  <!-- Form elements -->
+
+                        {% endfor %}
+                        <div class="mt-10" style="text-align:center">
+                            <input type="submit" value="Przejdź do płatności" class="genric-btn primary e-large">
+                        </div>
+                    </form>
+                 </div>  <!-- Form elements -->
             </div>
     </div>
         <!-- End Align Area -->

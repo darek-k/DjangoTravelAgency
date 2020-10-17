@@ -71,10 +71,10 @@ class TripPurchaseCreateView(CreateView):
         initial['trip'] = self.kwargs.get('pk')
 
         initial['main_booker'] = self.request.user.id
-        initial['adults_number'] = 1
+        initial['adults_number'] = 0
         initial['kids_number'] = 0
-        # initial['final_price'] = self.kwargs['pk']
-        initial['test_char_field'] = self.request.user
+        initial['final_price'] = 1000
+        initial['test_char_field'] = 'test - czy sie zapisze??'
         return initial
 
 

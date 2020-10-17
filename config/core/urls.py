@@ -15,11 +15,7 @@ urlpatterns = [
     path('search_results/', SearchResultsView.as_view(), name='search_results'),
 
     path('trip_details/<pk>/', TripDetailsView.as_view(), name='trip_details'),
-
     path('trip_purchase/<pk>/', TripPurchaseCreateView.as_view(), name='trip_purchase'),
-
-
-
 
     path('contact/', contact, name='contact'),
     path('elements/', template_elements, name='elements'),
