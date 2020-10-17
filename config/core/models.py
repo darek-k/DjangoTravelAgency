@@ -140,8 +140,8 @@ class TripPurchase(models.Model):
 
 class Comment(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, null=True, related_name='comments')
-    author = models.ForeignKey(Profile, on_delete=models.DO_NOTHING)
-    text = models.CharField(max_length=300)
+    author = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+    text = models.TextField(max_length=1000)
     rating = models.IntegerField(choices=RATING)
     created_date = models.DateTimeField(default=timezone.now)
 
