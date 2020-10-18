@@ -107,3 +107,4 @@ class TripPurchaseForm(forms.ModelForm):
             'trip': forms.HiddenInput(), 'main_booker': forms.HiddenInput(), 'final_price': forms.HiddenInput(),
             'test_char_field': forms.HiddenInput(),
         }
+

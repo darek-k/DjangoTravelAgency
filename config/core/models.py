@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils import timezone
 
@@ -130,7 +131,7 @@ class Trip(models.Model):
 class TripPurchase(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trips')
     main_booker = models.ForeignKey(User, on_delete=models.CASCADE, default='')
-    adults_number = models.IntegerField(default=0)
+    adults_number = models.IntegerField(default=0, validators=[MinValueValidator(1),])
     kids_number = models.IntegerField(default=0)
     final_price = models.DecimalField(decimal_places=2, max_digits=6)
 
