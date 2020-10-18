@@ -74,7 +74,8 @@ class TripPurchaseCreateView(CreateView):
         trip = Trip.objects.get(pk=self.kwargs.get('pk'))
         initial['final_price'] = trip.price_for_adult
 
-        initial['test_char_field'] = trip.price_for_adult
+        initial['test_char_field'] = trip.price_for_adult * initial['adults_number']
+
         return initial
 
 
@@ -88,6 +89,10 @@ class TripPurchaseSummaryView(ListView):
         this_users_trip = TripPurchase.objects.filter(main_booker_id=self.request.user.id)
         context['this_trip_id'] = this_users_trip.aggregate(Max('id'))
         context['this_trip'] = this_users_trip.order_by('-id').first()
+
+        this_trip = this_users_trip.order_by('-id').first()
+        context['final_price'] = this_trip.final_price * this_trip.adults_number
+
         return context
 
 
