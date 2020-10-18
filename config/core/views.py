@@ -4,7 +4,7 @@ import datetime
 from core.forms import ContinentForm, CountryForm, CityForm, HotelForm, AirportForm, TripForm, TripPurchaseForm
 from core.models import Trip, Country, Continent, City, Hotel, Airport, Comment, TripPurchase
 from django.contrib.auth.mixins import PermissionRequiredMixin, LoginRequiredMixin
-from django.db.models import Q
+from django.db.models import Q, Max
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.timezone import now
@@ -77,6 +77,12 @@ class TripPurchaseSummaryView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         context['trips_purchased'] = TripPurchase.objects.all()
+
+        this_users_trip = TripPurchase.objects.filter(main_booker_id=self.request.user.id)
+        context['this_trip_id'] = this_users_trip.aggregate(Max('id'))
+
+        context['this_trip'] = this_users_trip.order_by('-id').first()
+
         return context
 
 

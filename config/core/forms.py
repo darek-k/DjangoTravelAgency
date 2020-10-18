@@ -108,3 +108,7 @@ class TripPurchaseForm(forms.ModelForm):
         #     'test_char_field': forms.HiddenInput(),
         # }
 
+    def save(self, commit=True):
+        trip_purchased =super().save()
+        trip_purchased.save()
+        return trip_purchased
