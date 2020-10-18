@@ -1,9 +1,10 @@
-<h1>Search Results</h1>
-
+<h1>Wyniki wyszukiwania</h1>
 <ul>
   {% for trip in object_list %}
     <li>
-      {{ trip.departure_city }} ---> {{ trip.arrival_city }}, {{ trip.departure_date }}
-    </li>
+      <a href="{% url 'core:trip_details' pk=trip.pk %}">
+        {{ trip.departure_city }} ---> {{ trip.arrival_city }}, {{ trip.departure_date }}
+      </a>
+    </li><br>
   {% endfor %}
 </ul>

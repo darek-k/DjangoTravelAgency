@@ -45,6 +45,11 @@ class TripDetailsView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(TripDetailsView, self).get_context_data(**kwargs)
         context['form'] = TripPurchaseForm
+
+        #todo: zapytanie które wyświetla najniższą cenę na stronie głównej
+        # trips = Trip.objects.filter(country=self.kwargs['pk'])
+        # context['lowest_price'] = trips.order_by('-price_for_adult').first()
+
         return context
 
 
@@ -65,8 +70,11 @@ class TripPurchaseCreateView(CreateView):
         initial['main_booker'] = self.request.user.id
         initial['adults_number'] = 0
         initial['kids_number'] = 0
-        initial['final_price'] = 1000
-        initial['test_char_field'] = 1000
+
+        trip = Trip.objects.get(pk=self.kwargs.get('pk'))
+        initial['final_price'] = trip.price_for_adult
+
+        initial['test_char_field'] = trip.price_for_adult
         return initial
 
 
@@ -77,18 +85,14 @@ class TripPurchaseSummaryView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         context['trips_purchased'] = TripPurchase.objects.all()
-
         this_users_trip = TripPurchase.objects.filter(main_booker_id=self.request.user.id)
         context['this_trip_id'] = this_users_trip.aggregate(Max('id'))
-
         context['this_trip'] = this_users_trip.order_by('-id').first()
-
         return context
 
 
 class TripCreateView(PermissionRequiredMixin, CreateView):
     permission_required = 'core.add_trip'
-
     title = 'Add trip'
     template_name = 'form.html'
     form_class = TripForm
