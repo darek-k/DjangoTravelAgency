@@ -204,7 +204,11 @@
                         <hr>
                         <p>"{{ comment.text }}"</p>
                         <p>{{ comment.created_date }}</p>
-                        <h4>{{ comment.author }}</h4>
+                        {% if comment.author.first_name %}
+                            <h4>{{ comment.author.first_name }}</h4>
+                        {% else %}
+                            <h4>{{ comment.author }}</h4>
+                        {% endif %}
 
                         <div class="star">
                             {% for _ in comment.rating|times %}

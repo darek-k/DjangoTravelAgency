@@ -53,8 +53,8 @@ class TripDetailsView(DetailView):
         return context
 
 
-class TripPurchaseCreateView(CreateView):
-    # login_url = 'accounts:sign_in'
+class TripPurchaseCreateView(LoginRequiredMixin, CreateView):
+    login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
     template_name = 'trip_purchase_form.html'
     success_url = reverse_lazy('core:trip_purchase_summary')
@@ -79,7 +79,7 @@ class TripPurchaseCreateView(CreateView):
         return initial
 
 
-class TripPurchaseSummaryView(ListView):
+class TripPurchaseSummaryView(LoginRequiredMixin, ListView):
     model = TripPurchase
     template_name = 'core/trip_purchase_summary.html'
 

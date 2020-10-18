@@ -103,10 +103,10 @@ class TripPurchaseForm(forms.ModelForm):
             'adults_number': ('Liczba osób dorosłych'), 'kids_number': ('Liczba dzieci')
         }
 
-        # widgets = {
-        #     'trip': forms.HiddenInput(), 'main_booker': forms.HiddenInput(), 'final_price': forms.HiddenInput(),
-        #     'test_char_field': forms.HiddenInput(),
-        # }
+        widgets = {
+            'trip': forms.HiddenInput(), 'main_booker': forms.HiddenInput(), 'final_price': forms.HiddenInput(),
+            'test_char_field': forms.HiddenInput(),
+        }
 
     def save(self, commit=True):
         trip_purchased =super().save()
