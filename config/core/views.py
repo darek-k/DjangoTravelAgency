@@ -369,6 +369,13 @@ class SearchResultsView(ListView):
                 Q(arrival_city__country__name__icontains=q_country)
             )
 
+        elif self.request.GET.get('hotel'):
+            q_hotel = self.request.GET.get('hotel')
+            print(q_hotel)
+            search_results = Trip.objects.filter(
+                Q(arrival_hotel__name__icontains=q_hotel)
+            )
+
         else:
             q_to = self.request.GET.get('to')
             q_from = self.request.GET.get('from')

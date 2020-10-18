@@ -166,8 +166,14 @@
 											<span>{{ hotel.restaurant }}</span>
 										</li>
 										<li class="d-flex justify-content-between align-items-center">
-											<span>Wycieczki</span>
-											<a href="#" class="price-btn">Sprawdź</a>
+
+											<form action="{% url 'core:search_results' %}" method="get" class="form-wrap">
+												<input type="hidden" class="form-control" name="hotel" value="{{ hotel }}">
+												<div class="details">
+													<input type="submit" value="{{ hotel.name }}" class="primary-btn text-uppercase">
+												</div>
+											</form>
+
 										</li>
 									</ul>
 								</div>
