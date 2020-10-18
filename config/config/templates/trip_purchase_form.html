@@ -123,15 +123,9 @@
         <div class="whole-wrap">
                 <div class="col-lg-8 col-md-8" style="margin-left: auto; margin-right: auto">
                     <h3 class="mb-30">Zakup wycieczki do: {{ trip.arrival_city }} ({{ trip.departure_date }})</h3>
-                    <form method="post" action="#">
+                    <form method="post">
                         {% csrf_token %}
-                        {% for field in form %}
-
-                                {{ field|as_crispy_field }}
-
-
-
-                        {% endfor %}
+                        {{ form|crispy }}
                         <div class="mt-10" style="text-align:center">
                             <input type="submit" value="Przejdź do płatności" class="genric-btn primary e-large">
                         </div>

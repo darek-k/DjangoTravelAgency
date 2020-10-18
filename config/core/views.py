@@ -37,13 +37,6 @@ def insurance(request):
     return render(request, 'core/insurance.html')
 
 
-def render_initial_data(request):
-    initial_data = {'name': 'Tu będzie nazwa kontynentu!'}
-    obj = Trip.objects.get(id=1)
-    form = CountryForm(request.POST or None, initial=initial_data, instance=obj)
-    context = {'form': form}
-    return render(request, 'form.html', context)
-
 
 class TripDetailsView(DetailView):
     model = Trip
@@ -59,7 +52,7 @@ class TripPurchaseCreateView(CreateView):
     # login_url = 'accounts:sign_in'
     form_class = TripPurchaseForm
     template_name = 'trip_purchase_form.html'
-    success_url = reverse_lazy('trip_list')  # todo: strona z podsumowaniem płatności
+    success_url = reverse_lazy('core:trip_purchase_summary')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -69,13 +62,22 @@ class TripPurchaseCreateView(CreateView):
     def get_initial(self):
         initial = super().get_initial()
         initial['trip'] = self.kwargs.get('pk')
-
         initial['main_booker'] = self.request.user.id
         initial['adults_number'] = 0
         initial['kids_number'] = 0
         initial['final_price'] = 1000
-        initial['test_char_field'] = 'test - czy sie zapisze??'
+        initial['test_char_field'] = 1000
         return initial
+
+
+class TripPurchaseSummaryView(ListView):
+    model = TripPurchase
+    template_name = 'core/trip_purchase_summary.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['trips_purchased'] = TripPurchase.objects.all()
+        return context
 
 
 class TripCreateView(PermissionRequiredMixin, CreateView):

@@ -4,7 +4,7 @@ from core.views import TripDetailsView, template_elements, \
     AdminTripDetailView, AdminCityDetailView, AdminAirportDetailView, AdminHotelDetailView, AdminCountryDetailView, \
     CountryUpdateView, CityUpdateView, TripUpdateView, AirportUpdateView, HotelUpdateView, CountryDeleteView, \
     HotelDeleteView, AirportDeleteView, TripDeleteView, CityDeleteView, HotelListView, AdditionalServicesView, \
-    contact, TripPurchaseCreateView, render_initial_data, SearchResultsView
+    contact, TripPurchaseCreateView, SearchResultsView, TripPurchaseSummaryView
 from django.urls import path
 from django.views.decorators.http import require_POST
 
@@ -16,6 +16,7 @@ urlpatterns = [
 
     path('trip_details/<pk>/', TripDetailsView.as_view(), name='trip_details'),
     path('trip_purchase/<pk>/', TripPurchaseCreateView.as_view(), name='trip_purchase'),
+    path('trip_purchase_summary/', TripPurchaseSummaryView.as_view(), name='trip_purchase_summary'),
 
     path('contact/', contact, name='contact'),
     path('elements/', template_elements, name='elements'),
