@@ -19,7 +19,7 @@ from django.urls import path
 app_name = 'accounts'
 urlpatterns = [
     path('sign_up/', SignUpView.as_view(), name='sign_up'),
-    path('sing_in/', SignInView.as_view(), name='sign_in'),
+    path('sign_in/', SignInView.as_view(), name='sign_in'),
     path('logout/', UserLogoutView.as_view(), name='logout')
 
 ]
