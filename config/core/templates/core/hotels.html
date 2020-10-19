@@ -137,8 +137,8 @@
 										</div>
 									</h4>
 									<p>
-										<a href="{{ hotel.location }}" target="_blank">Lokalizacja</a> |
-                                        <a href="#opinie">Opinie</a>
+										<a href="{{ hotel.location }}" target="_blank">Lokalizacja</a>
+
 									</p>
 									<ul class="package-list">
 										<li class="d-flex justify-content-between align-items-center">
@@ -200,7 +200,7 @@
 							<p>
 								Pomożemy spersonalizować ofertę specjalnie dla Ciebie.
 							</p>
-							<a href="#" class="primary-btn text-uppercase">Napisz do nas</a>
+							<a href="{% url 'core:contact' %}" class="primary-btn text-uppercase">Napisz do nas</a>
 						</div>
 						<div class="col-lg-6 col-md-12 home-about-right no-padding">
 							<img class="img-fluid" src="{% static 'img/hotels/about-img.jpg' %}" alt="">

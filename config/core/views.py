@@ -37,7 +37,6 @@ def insurance(request):
     return render(request, 'core/insurance.html')
 
 
-
 class TripDetailsView(DetailView):
     model = Trip
     template_name = 'core/trip_details.html'
@@ -46,7 +45,7 @@ class TripDetailsView(DetailView):
         context = super(TripDetailsView, self).get_context_data(**kwargs)
         context['form'] = TripPurchaseForm
 
-        #todo: zapytanie które wyświetla najniższą cenę na stronie głównej
+        # todo: zapytanie które wyświetla najniższą cenę na stronie głównej
         # trips = Trip.objects.filter(country=self.kwargs['pk'])
         # context['lowest_price'] = trips.order_by('-price_for_adult').first()
 
@@ -380,11 +379,18 @@ class SearchResultsView(ListView):
             q_to = self.request.GET.get('to')
             q_from = self.request.GET.get('from')
             q_date = self.request.GET.get('date')
-            print(q_to, q_from)
-            search_results = Trip.objects.filter(
-                (Q(arrival_city__name__icontains=q_to) | Q(arrival_city__country__name__icontains=q_to)) & Q(
-                    departure_city__name__icontains=q_from) & Q(
-                    departure_date__gt=q_date)
-            )
+            q_price = self.request.GET.get('price')
+
+            if q_price == '':
+                search_results = Trip.objects.filter(
+                    (Q(arrival_city__name__icontains=q_to) | Q(arrival_city__country__name__icontains=q_to)) & Q(
+                        departure_city__name__icontains=q_from) & Q(departure_date__gt=q_date)
+                )
+            else:
+                search_results = Trip.objects.filter(
+                    (Q(arrival_city__name__icontains=q_to) | Q(arrival_city__country__name__icontains=q_to)) & Q(
+                        departure_city__name__icontains=q_from) & Q(departure_date__gt=q_date)
+                    & Q(price_for_adult__lte=q_price)
+                )
 
         return search_results
