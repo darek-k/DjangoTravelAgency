@@ -124,7 +124,7 @@ class TripListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(TripListView, self).get_context_data(**kwargs)
-        context['all_trips'] = Trip.objects.all()
+        context['all_trips'] = Trip.objects.filter(departure_date__lt=now())
         context['promoted_trips'] = Trip.objects.filter(promoted=True)[:3]
         context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
         context['all_countries'] = Country.objects.exclude(name='Polska')
@@ -362,7 +362,7 @@ class SearchResultsView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
-        context['all_trips'] = Trip.objects.all()
+        context['all_trips'] = Trip.objects.filter(departure_date__lt=now())
         context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
         return context
 
