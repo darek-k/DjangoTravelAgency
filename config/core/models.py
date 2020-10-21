@@ -124,14 +124,14 @@ class Trip(models.Model):
     comment = models.ManyToManyField
 
     def __str__(self):
-        return f"Z: {self.departure_city} do: {self.arrival_city} - {self.arrival_hotel}. Data wyjazdu: {self.departure_date} " \
-               f"Data odlotu: {self.return_date}"
+        return f"Z: {self.departure_city} do: {self.arrival_city} - {self.arrival_hotel}. " \
+               f"Data wyjazdu: {self.departure_date} Data odlotu: {self.return_date}"
 
 
 class TripPurchase(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE, related_name='trips')
     main_booker = models.ForeignKey(User, on_delete=models.CASCADE, default='')
-    adults_number = models.IntegerField(default=0, validators=[MinValueValidator(1),])
+    adults_number = models.IntegerField(default=0, validators=[MinValueValidator(1), ])
     kids_number = models.IntegerField(default=0, blank=True)
     final_price = models.DecimalField(decimal_places=2, max_digits=6)
     test_char_field = models.CharField(max_length=50, default='', blank=True)
