@@ -90,7 +90,7 @@ class TripPurchaseSummaryView(LoginRequiredMixin, ListView):
         context['this_trip'] = this_users_trip.order_by('-id').first()
 
         this_trip = this_users_trip.order_by('-id').first()
-        context['final_price'] = this_trip.final_price * this_trip.adults_number
+        context['final_price'] = (this_trip.final_price * this_trip.adults_number)
 
         return context
 
@@ -124,9 +124,9 @@ class TripListView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super(TripListView, self).get_context_data(**kwargs)
-        context['all_trips'] = Trip.objects.all()
-        context['promoted_trips'] = Trip.objects.filter(promoted=True)[:3]
-        context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
+        context['all_trips'] = Trip.objects.filter(departure_date__lt=now())
+        context['promoted_trips'] = Trip.objects.filter(promoted=True).filter(departure_date__gt=now())[:3]
+        context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=(now() + datetime.timedelta(30)))[:3]
         context['all_countries'] = Country.objects.exclude(name='Polska')
         context['all_comments'] = Comment.objects.all()
         context['today'] = datetime.datetime.now()
@@ -172,7 +172,6 @@ class AdminListView(PermissionRequiredMixin, ListView):
 
 class CountryCreateView(PermissionRequiredMixin, CreateView):
     permission_required = 'core.add_country'
-
     title = 'Add country'
     template_name = 'form.html'
     form_class = CountryForm
@@ -181,7 +180,6 @@ class CountryCreateView(PermissionRequiredMixin, CreateView):
 
 class CityCreateView(PermissionRequiredMixin, CreateView):
     permission_required = 'core.add_city'
-
     title = 'Add city'
     template_name = 'form.html'
     form_class = CityForm
@@ -190,7 +188,6 @@ class CityCreateView(PermissionRequiredMixin, CreateView):
 
 class HotelCreateView(PermissionRequiredMixin, CreateView):
     permission_required = 'core.add_hotel'
-
     title = 'Add hotel'
     template_name = 'form.html'
     form_class = HotelForm
@@ -199,7 +196,6 @@ class HotelCreateView(PermissionRequiredMixin, CreateView):
 
 class AirportCreateView(PermissionRequiredMixin, CreateView):
     permission_required = 'core.add_airport'
-
     title = 'Add airport'
     template_name = 'form.html'
     form_class = AirportForm
@@ -208,14 +204,12 @@ class AirportCreateView(PermissionRequiredMixin, CreateView):
 
 class AdminContinentDetailView(PermissionRequiredMixin, DetailView):
     permission_required = 'core.view_continent'
-
     model = Continent
     template_name = 'core/admin_continent_details.html'
 
 
 class ContinentUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'core.change_continent'
-
     model = Continent
     template_name = 'edit_form.html'
     form_class = ContinentForm
@@ -224,7 +218,6 @@ class ContinentUpdateView(PermissionRequiredMixin, UpdateView):
 
 class ContinentDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'core.delete_continent'
-
     model = Continent
     template_name = 'delete_form.html'
     form_class = ContinentForm
@@ -233,14 +226,12 @@ class ContinentDeleteView(PermissionRequiredMixin, DeleteView):
 
 class AdminCountryDetailView(PermissionRequiredMixin, DetailView):
     permission_required = 'core.view_country'
-
     model = Country
     template_name = 'core/admin_country_details.html'
 
 
 class CountryUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'core.change_country'
-
     model = Country
     template_name = 'edit_form.html'
     form_class = CountryForm
@@ -249,7 +240,6 @@ class CountryUpdateView(PermissionRequiredMixin, UpdateView):
 
 class CountryDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'core.delete_country'
-
     model = Country
     template_name = 'delete_form.html'
     form_class = CountryForm
@@ -258,14 +248,12 @@ class CountryDeleteView(PermissionRequiredMixin, DeleteView):
 
 class AdminCityDetailView(PermissionRequiredMixin, DetailView):
     permission_required = 'core.view_city'
-
     model = City
     template_name = 'core/admin_city_details.html'
 
 
 class CityUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'core.change_city'
-
     model = City
     template_name = 'edit_form.html'
     form_class = CityForm
@@ -274,7 +262,6 @@ class CityUpdateView(PermissionRequiredMixin, UpdateView):
 
 class CityDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'core.delete_city'
-
     model = City
     template_name = 'delete_form.html'
     form_class = CityForm
@@ -283,7 +270,6 @@ class CityDeleteView(PermissionRequiredMixin, DeleteView):
 
 class AdminHotelDetailView(PermissionRequiredMixin, DetailView):
     permission_required = 'core.view_hotel'
-
     model = Hotel
     template_name = 'core/admin_hotel_details.html'
 
@@ -299,7 +285,6 @@ class HotelUpdateView(PermissionRequiredMixin, UpdateView):
 
 class HotelDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'core.delete_hotel'
-
     model = Hotel
     template_name = 'delete_form.html'
     form_class = HotelForm
@@ -308,14 +293,12 @@ class HotelDeleteView(PermissionRequiredMixin, DeleteView):
 
 class AdminAirportDetailView(PermissionRequiredMixin, DetailView):
     permission_required = 'core.view_airport'
-
     model = Airport
     template_name = 'core/admin_airport_details.html'
 
 
 class AirportUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'core.change_airport'
-
     model = Airport
     template_name = 'edit_form.html'
     form_class = AirportForm
@@ -324,7 +307,6 @@ class AirportUpdateView(PermissionRequiredMixin, UpdateView):
 
 class AirportDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'core.delete_airport'
-
     model = Airport
     template_name = 'delete_form.html'
     form_class = AirportForm
@@ -333,14 +315,12 @@ class AirportDeleteView(PermissionRequiredMixin, DeleteView):
 
 class AdminTripDetailView(PermissionRequiredMixin, DetailView):
     permission_required = 'core.view_trip'
-
     model = Trip
     template_name = 'core/admin_trip_details.html'
 
 
 class TripUpdateView(PermissionRequiredMixin, UpdateView):
     permission_required = 'core.change_trip'
-
     model = Trip
     template_name = 'edit_form.html'
     form_class = TripForm
@@ -349,7 +329,6 @@ class TripUpdateView(PermissionRequiredMixin, UpdateView):
 
 class TripDeleteView(PermissionRequiredMixin, DeleteView):
     permission_required = 'core.delete_trip'
-
     model = Trip
     template_name = 'delete_form.html'
     form_class = TripForm
@@ -359,6 +338,12 @@ class TripDeleteView(PermissionRequiredMixin, DeleteView):
 class SearchResultsView(ListView):
     model = Trip
     template_name = 'core/search_results.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['all_trips'] = Trip.objects.filter(departure_date__lt=now())
+        context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
+        return context
 
     def get_queryset(self):
         if self.request.GET.get('country'):

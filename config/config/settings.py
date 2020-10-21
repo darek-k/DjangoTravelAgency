@@ -56,7 +56,10 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join('config', 'templates')],
+        'DIRS': [
+            os.path.join('config', 'templates'), os.path.join('config', 'config', 'templates'),
+            os.path.join('darkmu1.pythonanywhere.com', 'config', 'config', 'templates'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +130,6 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'trip_list'
 LOGOUT_REDIRECT_URL = 'trip_list'
+
+print(os.path.join('config', 'templates'))
+print(os.path.join('config', 'config', 'templates'))

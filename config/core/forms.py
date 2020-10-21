@@ -96,11 +96,11 @@ class TripPurchaseForm(forms.ModelForm):
     class Meta:
         model = TripPurchase
         fields = (
-            'trip', 'main_booker', 'adults_number', 'kids_number', 'final_price', 'test_char_field'
+            'trip', 'main_booker', 'adults_number', 'final_price', 'test_char_field'
         )
 
         labels = {
-            'adults_number': ('Liczba osób dorosłych'), 'kids_number': ('Liczba dzieci')
+            'adults_number': ('Liczba osób'),
         }
 
         widgets = {
