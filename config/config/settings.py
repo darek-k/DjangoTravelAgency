@@ -24,7 +24,7 @@ SECRET_KEY = 'y80t(y^ier*8n(w#@s5w@pigoh%_0@limj@j*ent7wr95m33ez'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['darkmu1.pythonanywhere.com']
+ALLOWED_HOSTS = ['darkmu1.pythonanywhere.com', '127.0.0.1', ]
 
 SHELL_PLUS = "ipython"
 INSTALLED_APPS = [
