@@ -360,6 +360,12 @@ class SearchResultsView(ListView):
     model = Trip
     template_name = 'core/search_results.html'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['all_trips'] = Trip.objects.all()
+        context['last_minute_trips'] = Trip.objects.filter(departure_date__lt=now() + datetime.timedelta(30))[:3]
+        return context
+
     def get_queryset(self):
         if self.request.GET.get('country'):
             q_country = self.request.GET.get('country')
