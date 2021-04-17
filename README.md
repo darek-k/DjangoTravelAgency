@@ -1,5 +1,4 @@
-# Travel Agency Web application
-# http://darkmu1.pythonanywhere.com/
+# Travel Agency Web application - http://darkmu1.pythonanywhere.com/
 
 ## It allows user to:
 - register / login / logout
